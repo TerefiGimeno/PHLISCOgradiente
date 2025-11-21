@@ -34,7 +34,7 @@ ggplot() +
   geom_sf(data = spain, fill = "gray95", color = "gray60") +
   geom_sf(data = points_sf, aes(color = P_annual), size = 4) +
   scale_color_viridis(option = "plasma", direction = 1) +
-  coord_sf(xlim = st_bbox(spain)[c("xmin","xmax")],
+  coord_sf(xlim = st_bbox(spain)[c(35,44)],
            ylim = st_bbox(spain)[c("ymin","ymax")],
            expand = FALSE) +
   theme_minimal() +
