@@ -1,0 +1,12 @@
+sitio,fecha,estacion,peso_seco_g,ph,fosforo_extr_bicar_mg_l,potasio_extr_nitrato_mg_l,magnesio_extr_nitrato_mg_l,mat_org_oxi_percent,nitrogeno_kjeldahl_percent,rel_cn,cond_ele_sulfato_calcico_us_cm,nitrogeno_nitrico_mg_l,calcio_extraible_nitrato_amonico_mg_l,sodio_extraible_nitrato_amonico_mg_l,cic_efectiva_meq_100_ml,arena_fina,arena_gruesa,limo,arcilla,textura,acidez_cambiable_meq_100ml,aluminio_en_cic_efectiva_percent
+ms,20230601,spring,138.15,5.3,10,45,51,5.5,0.21,15.2,2100,<25,2100,27,12.2,19.2,2.13,42.1,36.6,arcillosa_gruesa,1.05,8.64
+ms,20230804,summer,231.72,5.2,10,45,70,8.6,0.34,14.7,2230,<25,2190,26,13.1,19.9,2.04,43.4,34.7,arcillosa_gruesa,1.32,10.1
+ms,20230904,late_summer,263.33,6.2,9,56,52,10.3,0.37,16.2,2280,<25,3800,30,19.7,19.5,3.46,39.9,37.2,arcillosa_gruesa,,
+art,20230607,spring,234.99,4.4,10,34,36,5.32,0.22,14.1,1980,<25,226,<20,4.83,34.4,18.6,25.1,22,franco_arcillosa,3.25,67.3
+art,20230831,summer,509.46,4.4,6,30,24,4.56,0.19,14,1960,<25,216,<20,4.49,34.5,14.6,27,23.9,franco_arcillosa,3.07,68.5
+ber,20230608,spring,297.07,4.4,<4.8,73,53,5.39,0.24,13.1,1960,<25,303,25,6.51,25.4,20,26.6,28.1,arcillosa_gruesa,4.27,65.6
+ber,20230830,summer,,,,,,,,,,,,,,,,,,,,
+itu,20230606,spring,260.39,5.7,<4.8,<20,<20,1.1,<0.05,13.6,1960,<25,510,<20,2.74,48.3,34.1,14,3.68,franco_arenosa,,
+itu,20230829,summer,386.10,5,<4.8,<20,<20,1.68,0.06,16.3,1960,<25,209,<20,2.13,47,34.8,12.5,5.65,franco_arenosa,0.91,42.8
+diu,20230615,spring,423.65,6.1,7,37,152,4.16,0.22,11,1960,<25,2140,<20,12.1,22.6,18.3,34,25,arcillosa_gruesa,,
+diu,20230901,summer,247.62,6.2,8,47,161,5.7,0.24,13.8,2070,<25,2610,<20,14.5,24.2,13.2,37.9,24.8,franco_arcillosa,,

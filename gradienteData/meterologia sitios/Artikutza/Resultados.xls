@@ -1,0 +1,11836 @@
+
+<style>
+
+.c1,.c3,.c5{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.c2,.c4{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+@media (min-width: 950px) {
+	.c1,.c3,.c5 {
+		width: 940px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+</style>
+
+
+
+
+<title>Datos de la estaci&oacute;n - Meteo Navarra</title>
+
+
+
+<div class="c1">
+<div style="text-align:left;margin-top:20px;">
+<div class="tex">
+
+
+
+<table>
+<tr>
+	<td>
+	
+	<h1>Estaci&oacute;n de Artikutza</h1>
+	<h1>Altitud 313 m.</h1>
+
+	
+	<br>
+	Datos desde el 01/01/2020 hasta el 30/12/2020 en <b><a href="/definiciones/horario_solar.cfm">horario solar</a></b><br>
+
+	
+	
+	</td>
+</tr>
+</table>
+
+<br>
+
+
+
+
+
+<table>
+<tr>
+	<td width="160">
+		
+	</td>
+	<td  width="160" align="right">
+	
+	</td>
+</tr>
+
+</table>
+
+</div>
+</div>
+</div>
+
+<div class="c1" style="overflow:auto;">
+<div style="text-align:center;display:inline-block;width:98%">
+
+
+<!--DATASTART-->
+
+<table class="border" border="0" cellpadding="3" cellspacing="1"  bgcolor = "#FFFFFF">
+
+	<tr bgcolor = "#FFFFFF">
+
+		
+		<td>
+		
+		<b>Fecha</b>
+		</td>
+
+		
+					<td align="center">
+				
+
+				<b>Precipitaci&oacute;n acumulada</b>
+
+				</td>
+
+				
+					<td align="center">
+				
+
+				<b>Temperatura m&aacute;xima</b>
+
+				</td>
+
+				
+					<td align="center">
+				
+
+				<b>Temperatura m&iacute;nima</b>
+
+				</td>
+
+				
+	</tr>
+
+	<tr bgcolor = "#FFFFFF">
+		<td><b></b></td>
+		
+				<td align="center">
+				
+					l/m&sup2;
+				
+				</td>
+
+				
+				<td align="center">
+				
+						 &deg;C
+					
+				</td>
+
+				
+				<td align="center">
+				
+						 &deg;C
+					
+				</td>
+
+				
+	</tr>
+
+
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			01/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			02/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">-1.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			03/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			04/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			05/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			06/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			07/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			08/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			09/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">8.4</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			10/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			11/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			12/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">-1.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			13/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">-2.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			14/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			15/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			16/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			17/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">9.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			18/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">15.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			19/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			20/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			21/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">-1.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			22/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			23/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">2.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			24/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			25/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">8.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			26/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			27/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">5.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			28/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			29/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">7.4</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			30/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			31/01/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			01/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			02/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			03/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			04/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			05/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			06/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			07/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			08/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			09/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			10/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			11/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			12/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			13/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			14/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			15/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			16/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			17/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">10.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			18/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			19/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			20/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			21/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			22/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			23/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			24/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">-0.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			25/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">36.9</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			26/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">28.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			27/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">34.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			28/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			29/02/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			01/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">25.9</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			02/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">21.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			03/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">17.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			04/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			05/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">31.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			06/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">35.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			07/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">12.4</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			08/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">21.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">1.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			09/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">5.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			10/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			11/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			12/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			13/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			14/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			15/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">57.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			16/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">11.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			17/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			18/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			19/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			20/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			21/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			22/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			23/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			24/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			25/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			26/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			27/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">-1.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			28/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">-0.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			29/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.4</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">1.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			30/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">8.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">1.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			31/03/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">4.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			01/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">2.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			02/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			03/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			04/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">1.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			05/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.9</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			06/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">10.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			07/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			08/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			09/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">24.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			10/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			11/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			12/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			13/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			14/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			15/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			16/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			17/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">10.4</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			18/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">28.9</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			19/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">15.9</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			20/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">11.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			21/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">36.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			22/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">46.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			23/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			24/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">12.4</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			25/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			26/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">3.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			27/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">4.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			28/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">4.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			29/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			30/04/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			01/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">2.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			02/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			03/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			04/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">29.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			05/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">24.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			06/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			07/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			08/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			09/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">13.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">25.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			10/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">78.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			11/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">21.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			12/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">13.9</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			13/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">3.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			14/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			15/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			16/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			17/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			18/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			19/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			20/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">25.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			21/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			22/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			23/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">2.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			24/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			25/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			26/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			27/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			28/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">29.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			29/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">27.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			30/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">28.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			31/05/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">28.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			01/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">24.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			02/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">25.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			03/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">9.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			04/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">42.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			05/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			06/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">9.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			07/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">30.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			08/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">22.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			09/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">20.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			10/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			11/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">22.4</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			12/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">8.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			13/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">4.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			14/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			15/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			16/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">4.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			17/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">4.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			18/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			19/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			20/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			21/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">24.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			22/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">24.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			23/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">30.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			24/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">31.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			25/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">5.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">27.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			26/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			27/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			28/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">2.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">24.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			29/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			30/06/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			01/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">4.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			02/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			03/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			04/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			05/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">25.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			06/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.9</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			07/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			08/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">27.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			09/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			10/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			11/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			12/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">8.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">25.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			13/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			14/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			15/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">4.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			16/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			17/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			18/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			19/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">31.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			20/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">3.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">24.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			21/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">25.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			22/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">27.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			23/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">24.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			24/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			25/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			26/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">25.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			27/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">28.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			28/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			29/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			30/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">35.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			31/07/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			01/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			02/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			03/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">3.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			04/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			05/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">28.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			06/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">32.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			07/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">32.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			08/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">29.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			09/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">29.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			10/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">24.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			11/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			12/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">30.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			13/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			14/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			15/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">4.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			16/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">24.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			17/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			18/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			19/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">33.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			20/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">34.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			21/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">6.9</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">25.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			22/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			23/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			24/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">24.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			25/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			26/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">25.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			27/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">4.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">28.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			28/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">19.9</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			29/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">77.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			30/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			31/08/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			01/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			02/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			03/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">25.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			04/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">29.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			05/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			06/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			07/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			08/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			09/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">25.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			10/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			11/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">25.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			12/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">25.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			13/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">28.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			14/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">31.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			15/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">28.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			16/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">27.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			17/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">27.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			18/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">26.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			19/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">13.4</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			20/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			21/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">17.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			22/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			23/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">13.4</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">23.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			24/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">35.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			25/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">54.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			26/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">52.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			27/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			28/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			29/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			30/09/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">2.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">19.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			01/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">31.1</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			02/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">28.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			03/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">35.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			04/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			05/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">2.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			06/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">18.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			07/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">4.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			08/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			09/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">3.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			10/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			11/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">34.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			12/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">24.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			13/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">36.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			14/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">35.9</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			15/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">7.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			16/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			17/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			18/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			19/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			20/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.4</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			21/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			22/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">3.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">21.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			23/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">3.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			24/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			25/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">36.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			26/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">16.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			27/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			28/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			29/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			30/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			31/10/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			01/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			02/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">9.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">22.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			03/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">10.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			04/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			05/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			06/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.9</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			07/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">4.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			08/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			09/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			10/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">6.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			11/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			12/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			13/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			14/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			15/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">20.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">20.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			16/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			17/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			18/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">18.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			19/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">6.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			20/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			21/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">-0.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			22/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">-1.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			23/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">-0.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			24/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			25/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			26/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			27/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			28/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			29/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			30/11/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			01/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">11.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			02/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			03/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">1.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			04/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">4.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			05/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">40.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">-0.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			06/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">50.8</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">1.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			07/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">17.9</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			08/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">62.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			09/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">32.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			10/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">45.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			11/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">41.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			12/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">16.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			13/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			14/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">15.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			15/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">7.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			16/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.2</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">14.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			17/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">11.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			18/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			19/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">8.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			20/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">1.6</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">12.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">2.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			21/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">13.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			22/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">17.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			23/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">14.3</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">16.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			24/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">29.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			25/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">3.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">4.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">1.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			26/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">5.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			27/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">23.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">10.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">0.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="E8F2FF">
+
+			
+			<td>
+			28/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">11.5</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">9.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">1.0</font>
+					</td>
+
+
+					
+		</tr>
+	
+
+		<tr bgcolor="silver">
+
+			
+			<td>
+			29/12/2020&nbsp;
+			</td>
+
+			
+						<td align="center">
+					
+					<font color="0">48.7</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">6.0</font>
+					</td>
+
+
+					
+						<td align="center">
+					
+					<font color="0">3.5</font>
+					</td>
+
+
+					
+		</tr>
+	
+</table>
+
+
+
+</div>
+</div>
+
+<div class="c1">
+<div style="text-align:left;margin-top:5px;">
+<div class="tex" style="display:inline-block;">
+
+<div style="text-align:left;margin-top:4px;">
+	
+</div>
+
+
+
+	<br>
+	<table cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="2">NOTA: Tipo de datos seg&uacute;n el color:</td>
+	</tr>
+	<tr>
+		<td align="left"> &nbsp;&nbsp;&nbsp;- Valores de precipitaci&oacute;n diarios</td>
+	</tr>
+	<tr>
+		
+		<td align="left" style="color: blue;">&nbsp;&nbsp;&nbsp;- Valores de precipitaci&oacute;n acumulados de ese d&iacute;a y d&iacute;as anteriores
+		</td>
+	</tr>
+	</table>
+
+<br>
+<br>
+
+</div>
+</div>
+</div>
+
