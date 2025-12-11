@@ -1,0 +1,230 @@
+Campos incluidos:
+     Indicativo: Indicativo climatológico
+     NOMBRE: Nombre estación
+     ALTITUD: Altitud de la estación (metros)
+     C_X: Coordenada X (Huso 30)
+     C_Y: Coordenada Y (Huso 30)
+     NOM_PROV: Provincia
+     ALTA: Fecha de alta
+     BAJA: Fecha de baja
+     LONGITUD: Longitud geográfica
+          (La última cifra indica la orientación: 1 para longitud E y 2 para W)
+     LATITUD: Latitud geográfica
+     IND_SYN: Indicativo sinóptico
+     NOM_EG: Entidad gestora
+     DATUM: Datum de referencia
+     P1: Precipitación día 1
+     P2: Precipitación día 2
+     P3: Precipitación día 3
+     P4: Precipitación día 4
+     P5: Precipitación día 5
+     P6: Precipitación día 6
+     P7: Precipitación día 7
+     P8: Precipitación día 8
+     P9: Precipitación día 9
+     P10: Precipitación día 10
+     P11: Precipitación día 11
+     P12: Precipitación día 12
+     P13: Precipitación día 13
+     P14: Precipitación día 14
+     P15: Precipitación día 15
+     P16: Precipitación día 16
+     P17: Precipitación día 17
+     P18: Precipitación día 18
+     P19: Precipitación día 19
+     P20: Precipitación día 20
+     P21: Precipitación día 21
+     P22: Precipitación día 22
+     P23: Precipitación día 23
+     P24: Precipitación día 24
+     P25: Precipitación día 25
+     P26: Precipitación día 26
+     P27: Precipitación día 27
+     P28: Precipitación día 28
+     P29: Precipitación día 29
+     P30: Precipitación día 30
+     P31: Precipitación día 31
+     MET1: Meteoros día 1
+     MET2: Meteoros día 2
+     MET3: Meteoros día 3
+     MET4: Meteoros día 4
+     MET5: Meteoros día 5
+     MET6: Meteoros día 6
+     MET7: Meteoros día 7
+     MET8: Meteoros día 8
+     MET9: Meteoros día 9
+     MET10: Meteoros día 10
+     MET11: Meteoros día 11
+     MET12: Meteoros día 12
+     MET13: Meteoros día 13
+     MET14: Meteoros día 14
+     MET15: Meteoros día 15
+     MET16: Meteoros día 16
+     MET17: Meteoros día 17
+     MET18: Meteoros día 18
+     MET19: Meteoros día 19
+     MET20: Meteoros día 20
+     MET21: Meteoros día 21
+     MET22: Meteoros día 22
+     MET23: Meteoros día 23
+     MET24: Meteoros día 24
+     MET25: Meteoros día 25
+     MET26: Meteoros día 26
+     MET27: Meteoros día 27
+     MET28: Meteoros día 28
+     MET29: Meteoros día 29
+     MET30: Meteoros día 30
+     MET31: Meteoros día 31
+
+     TMAX1: Temperatura máxima día 1
+     TMAX2: Temperatura máxima día 2
+     TMAX3: Temperatura máxima día 3
+     TMAX4: Temperatura máxima día 4
+     TMAX5: Temperatura máxima día 5
+     TMAX6: Temperatura máxima día 6
+     TMAX7: Temperatura máxima día 7
+     TMAX8: Temperatura máxima día 8
+     TMAX9: Temperatura máxima día 9
+     TMAX10: Temperatura máxima día 10
+     TMAX11: Temperatura máxima día 11
+     TMAX12: Temperatura máxima día 12
+     TMAX13: Temperatura máxima día 13
+     TMAX14: Temperatura máxima día 14
+     TMAX15: Temperatura máxima día 15
+     TMAX16: Temperatura máxima día 16
+     TMAX17: Temperatura máxima día 17
+     TMAX18: Temperatura máxima día 18
+     TMAX19: Temperatura máxima día 19
+     TMAX20: Temperatura máxima día 20
+     TMAX21: Temperatura máxima día 21
+     TMAX22: Temperatura máxima día 22
+     TMAX23: Temperatura máxima día 23
+     TMAX24: Temperatura máxima día 24
+     TMAX25: Temperatura máxima día 25
+     TMAX26: Temperatura máxima día 26
+     TMAX27: Temperatura máxima día 27
+     TMAX28: Temperatura máxima día 28
+     TMAX29: Temperatura máxima día 29
+     TMAX30: Temperatura máxima día 30
+     TMAX31: Temperatura máxima día 31
+     TMIN1: Temperatura mínima día 1
+     TMIN2: Temperatura mínima día 2
+     TMIN3: Temperatura mínima día 3
+     TMIN4: Temperatura mínima día 4
+     TMIN5: Temperatura mínima día 5
+     TMIN6: Temperatura mínima día 6
+     TMIN7: Temperatura mínima día 7
+     TMIN8: Temperatura mínima día 8
+     TMIN9: Temperatura mínima día 9
+     TMIN10: Temperatura mínima día 10
+     TMIN11: Temperatura mínima día 11
+     TMIN12: Temperatura mínima día 12
+     TMIN13: Temperatura mínima día 13
+     TMIN14: Temperatura mínima día 14
+     TMIN15: Temperatura mínima día 15
+     TMIN16: Temperatura mínima día 16
+     TMIN17: Temperatura mínima día 17
+     TMIN18: Temperatura mínima día 18
+     TMIN19: Temperatura mínima día 19
+     TMIN20: Temperatura mínima día 20
+     TMIN21: Temperatura mínima día 21
+     TMIN22: Temperatura mínima día 22
+     TMIN23: Temperatura mínima día 23
+     TMIN24: Temperatura mínima día 24
+     TMIN25: Temperatura mínima día 25
+     TMIN26: Temperatura mínima día 26
+     TMIN27: Temperatura mínima día 27
+     TMIN28: Temperatura mínima día 28
+     TMIN29: Temperatura mínima día 29
+     TMIN30: Temperatura mínima día 30
+     TMIN31: Temperatura mínima día 31
+
+Unidades y valores especiales:
+
+     Horas UTC (Tiempo Universal Coordinado)
+
+     Precipitación en décimas de milímetro, medida de 07 a 07 (desde la 07 del día de la fecha hasta las 07 del día siguiente)
+	Valores especiales de precipitación:
+		-4: Precipitación acumulada
+		-3: Precipitación inapreciable (inferior a 1 décima de mm)
+
+     Valores del campo meteoros:
+	011p: lluvia
+	012p: lluvia helada
+	013p: llovizna
+	014p: llovizna helada
+	015p: chubasco de agua
+	021p: nieve
+	022p: nieve granulada
+	023p: granos de nieve
+	024p: chubasco de nieve
+	031p: granizo
+	032p: pedrisco tamaño de garbanzo
+	033p: pedrisco tamaño de cereza
+	034p: pedrisco tamaño nuez o mayor
+	041p: tormenta
+	051p: niebla
+	052p: niebla helada
+	056p: niebla con depósito en el pluviómetro
+	057p: niebla de estación pluviométrica
+	061p: rocío
+	066p: rocío con depósito en el pluviómetro
+	067p: rocío de estación pluviométrica
+	071p: escarcha
+	076p: escarcha con depósito en el pluviómetro
+	077p: escarcha de estación pluviométrica
+	081p: nieve cubriendo el suelo (espesor no especificado)
+	082p: nieve cubriendo el suelo (espesor no superior a 1cm)
+	083p: nieve cubriendo el suelo (espesor superior a 1cm y no superior a 10cm)
+	084p: nieve cubriendo el suelo (espesor superior a 10cm y no superior a 50cm)
+	085p: nieve cubriendo el suelo (espesor superior a 50cm)
+	091: neblina
+	101: calima
+	111: viento fuerte
+	121: polvareda
+	122: polvareda baja
+	123: polvareda alta
+	124: tempestad de polvo y arena
+	125: muro de polvo y arena
+	131p: meteoro precipitable sin especificar
+	A: agujas de hielo				(hidrometeoro)
+	B: bruma marina					(hidrometeoro)
+	C: corona solar					(fotometeoro)
+	D: corona lunar					(fotometeoro)
+	E: espejismo					(fotometeoro)
+	F: fuego de san telmo				(electrometeoro)
+	G: arco iris					(fotometeoro)
+	H: humo						(litometeoro)
+	I: irisaciones					(fotometeoro)
+	J: cencellada blanca				(hidrometeoro)
+	K: cencellada transparente			(hidrometeoro)
+	L: halo lunar					(fotometeoro)
+	M: bruma de arena				(litometeoro)
+	N: tolvaneras					(litometeoro)
+	Ñ: lluvia de barro                              (litometeoro)
+	O: tromba marina				(eolometeoro)
+	P: tornado					(eolometeoro)
+	Q: arco iris blanco				(fotometeoro)
+	R: relámpagos sin tormenta en la estación	(electrometeoro)
+	S: halo solar					(fotometeoro)
+	T: truenos					(electrometeoros)
+	U: corona de ulloa				(fotometeoro)
+	V: ventisca					(hidrometeoro)
+	X: ventisca baja				(hidrometeoro)
+	Y: ventisca alta				(hidrometeoro)
+	Z: tromba de agua				(hidrometeoro)
+	W: turbonada					(eolometeoro)
+	
+	Periodicidad: 
+		La 'p' que aparece en cuarta posición en algunos meteoros indica cuando se registra el meteoro
+			Vacio: No se comunica
+			M: mañana
+			T: tarde
+			N: noche
+			A: mañana, tarde y noche
+			B: mañana y tarde
+			C: mañana y noche
+			D: tarde y noche
+			X: sin especificar
+
+     Temperaturas en décimas de grado celsius
