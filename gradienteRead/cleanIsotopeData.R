@@ -1,6 +1,13 @@
 library(tidyr)
 library(dplyr)
 
+d13Cleaf <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_leaf.csv") %>% 
+  select(-c(weight_mg, N_perc_leaf, d15N_leaf))
+
+d13CbasePh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_base_phloem.csv") %>% 
+  select(-c(d15N_base_phloem))
+
+
 trees <- read.csv("gradienteData/isotopes_gradiente_2023/Tabla_S2025-3401_mod.csv") %>%
   right_join(read.csv("gradienteData/alturas_individuos/dbh_height.csv"),
              by = c("site", "tree")) %>% 
@@ -10,13 +17,4 @@ trees <- read.csv("gradienteData/isotopes_gradiente_2023/Tabla_S2025-3401_mod.cs
   mutate(campaign = c(rep("winter24", times = nrow(trees))))
   
     
-d13Cphloem <-
-  read.csv("gradienteData/isotopes_gradiente_2023/table01.csv") %>% 
-  filter(stringr::str_detect(id, "_")) %>% 
-  separate(id, into = paste0("col" , 1:6), sep = "_",
-           fill = "right", extra = "drop")
-
-write.csv(d13Cphloem, file = "gradienteData/isotopes_gradiente_2023/kk.csv",
-          row.names = F)
-
 
