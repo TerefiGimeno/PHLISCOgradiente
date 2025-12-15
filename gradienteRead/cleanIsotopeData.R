@@ -2,7 +2,8 @@ library(tidyr)
 library(dplyr)
 
 d13Cleaf <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_leaf.csv") %>% 
-  select(-c(weight_mg, N_perc_leaf, d15N_leaf))
+  select(-c(weight_mg, d15N_leaf)) %>% 
+  mutate(ratio_CN_leaf = C_perc_leaf/N_perc_leaf)
 
 d13CbasePh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_base_phloem.csv") %>% 
   select(-c(d15N_base_phloem))
