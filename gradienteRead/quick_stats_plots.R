@@ -1,6 +1,25 @@
 library(cowplot)
 
-source("gradienteRead/cleanIsotopeData.R")
+####0. load and read the data
+library(tidyverse)
+
+# selection of data from the various campaigns and canopy positions is based on
+# the results of the statistical analyses detailed in "quick_stats_plots"
+
+d13Cleaf <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_leaf.csv") %>% 
+  select(-c(weight_mg, d15N_leaf)) %>% 
+  mutate(ratio_CN_leaf = C_perc_leaf/N_perc_leaf) %>% 
+  
+d13CbasePh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_base_phloem.csv") %>% 
+  select(-c(d15N_base_phloem)) %>% 
+  
+d13CtreeRing <- read.csv("gradienteData/isotopes_gradiente_2023/Tabla_S2025-3401_mod.csv") %>% 
+  filter(year == 2023) %>% 
+  select(-c(year, perc_C)) %>%
+  rename(d13C_ring23 = d13C_permil)
+
+d13CstemPh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_stem_phloem.csv") %>%
+  select(-c(d15N_stem_phloem))
 
 ####1. d13C of the leaf####
 
@@ -49,9 +68,6 @@ MSA_leaf <- ggplot(d13Cleaf_MSA,
 # these dates are closer to those of the other sites
 # (2) select only shade low leaves for consistency
 
-
-d13Cleaf_short <- subset(d13Cleaf, canopy_position == "shade_low" &
-                           sampling_date <= 20230731 | sampling_date >= 20230827)
 d13Cleaf_short <- d13Cleaf %>% 
   filter(canopy_position == "shade_low") %>% 
   filter(sampling_date <= 20230731 | sampling_date >= 20230827) %>%
@@ -126,7 +142,7 @@ hist(d13CbasePh$d13C_base_phloem)
 summary(lm(d13C_base_phloem ~ site * campaign, data = d13CbasePh))
 anova(lm(d13C_base_phloem ~ site * campaign, data = d13CbasePh))
 TukeyHSD(aov(d13C_base_phloem ~ site, data = d13CbasePh))
-two <- ggplot(d13CbasePh, aes(x = site, y = d13C_base_phloem, fill = campaign)) +
+three <- ggplot(d13CbasePh, aes(x = site, y = d13C_base_phloem, fill = campaign)) +
   geom_boxplot(position = position_dodge(width = 0.8)) +
   labs(
     x = "",
@@ -148,7 +164,7 @@ hist(d13CtreeRing$d13C_ring23)
 summary(lm(d13C_ring23 ~ site, data = d13CtreeRing))
 anova(lm(d13C_ring23 ~ site, data = d13CtreeRing))
 TukeyHSD(aov(d13C_ring23 ~ site, data = d13CtreeRing))
-three <- ggplot(d13CtreeRing, aes(x = site, y = d13C_ring23)) +
+four <- ggplot(d13CtreeRing, aes(x = site, y = d13C_ring23)) +
   geom_boxplot(position = position_dodge(width = 0.8)) +
   labs(
     x = "",
@@ -207,5 +223,34 @@ ggplot(subset(d13CstemPh_MSA, canopy_position == "shade_low"),
 # no significant differences among campaigns, although d13C of the stem phloem
 # tends to become more negative over time
 
-cowplot::plot_grid(one, two, three, labels = "AUTO", ncol = 3)
+# asess differences among sites and campaigns in stem phloem d13C
+
+d13CstemPh <- d13CstemPh %>% 
+  filter(sampling_date <= 20230701 | sampling_date >= 20230827) %>%
+  filter(canopy_position == "shade_low") %>% 
+  mutate(campaign = ifelse(sampling_date <= 20230701, "spring23", "summer23")) %>% 
+  mutate(site = factor(site, levels = c("ART", "BER", "ITU", "MSA", "DIU")))
+hist(d13CstemPh$d13C_stem_phloem)
+summary(lm(d13C_stem_phloem ~ site * campaign, data = d13CstemPh))
+anova(lm(d13C_stem_phloem ~ site * campaign, data = d13CstemPh))
+TukeyHSD(aov(d13C_stem_phloem ~ site, data = d13CstemPh))
+TukeyHSD(aov(d13C_stem_phloem ~ site * campaign, data = d13CstemPh))
+two <- ggplot(d13CstemPh, aes(x = site, y = d13C_stem_phloem, fill = campaign)) +
+  geom_boxplot(position = position_dodge(width = 0.8)) +
+  labs(
+    x = "",
+    y = expression("Stem phloem " * delta^13 * C~"(\u2030)"),
+    fill = "Campaign"
+  ) +
+  theme_minimal()
+
+# there are significant differences among sites: (ART = BER = ITU) < (MSA = DIU)
+# there is a significant interaction site x campaign: no differences between
+# spring and summer in the wet sites (ART, BER, ITU), whereas at the dry sites
+# we observe opposite trends: more discrimination in summer than spring in DIU,
+# the other way around in MSA
+
+cowplot::plot_grid(one, two, three, four,
+                   labels = c("Leaf", "Stem phloem", "Base phloem", "Tree ring"),
+                   ncol = 2, nrow = 2)
 
