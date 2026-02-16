@@ -8,7 +8,7 @@ library(tidyverse)
 
 d13Cleaf <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_leaf.csv") %>% 
   select(-c(weight_mg, d15N_leaf)) %>% 
-  mutate(ratio_CN_leaf = C_perc_leaf/N_perc_leaf) %>% 
+  mutate(ratio_CN_leaf = C_perc_leaf/N_perc_leaf)
   
 d13CbasePh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_base_phloem.csv") %>% 
   select(-c(d15N_base_phloem))
@@ -76,7 +76,6 @@ d13Cleaf_short <- d13Cleaf %>%
 hist(d13Cleaf_short$d13C_leaf)
 summary(lm(d13C_leaf ~ site * campaign, data = d13Cleaf_short))
 anova(lm(d13C_leaf ~ site * campaign, data = d13Cleaf_short))
-TukeyHSD(aov(d13C_leaf ~ site * campaign, data = d13Cleaf_short))
 TukeyHSD(aov(d13C_leaf ~ site, data = d13Cleaf_short))
 one <- ggplot(d13Cleaf_short, aes(x = site, y = d13C_leaf, fill = campaign)) +
   geom_boxplot(position = position_dodge(width = 0.8)) +
@@ -142,6 +141,7 @@ hist(d13CbasePh$d13C_base_phloem)
 summary(lm(d13C_base_phloem ~ site * campaign, data = d13CbasePh))
 anova(lm(d13C_base_phloem ~ site * campaign, data = d13CbasePh))
 TukeyHSD(aov(d13C_base_phloem ~ site, data = d13CbasePh))
+TukeyHSD(aov(d13C_base_phloem ~ site * campaign, data = d13CbasePh))
 three <- ggplot(d13CbasePh, aes(x = site, y = d13C_base_phloem, fill = campaign)) +
   geom_boxplot(position = position_dodge(width = 0.8)) +
   labs(
@@ -151,9 +151,12 @@ three <- ggplot(d13CbasePh, aes(x = site, y = d13C_base_phloem, fill = campaign)
   ) +
   theme_minimal()
 
-# no differences between sampling campaigns.
-# significant differences among sites: (ART = BER = ITU) < (MSA = HMO)
-# DIU is not significantly different from any (although DIU-MSA p = 0.07)
+# significant differences between sampling campaigns: more negative d13C in summer
+# significant differences among sites: 
+# (ART = BER = ITU)a HMO-ab DIU-bc MSA-c
+# the interaction is significant: the difference between summer and spring was
+# significant in ART, marginally significant in BER, ITU and MSA
+# and not significant in DIU and HMO
 
 ####3. d13C of the tree ring####
 
@@ -223,7 +226,7 @@ ggplot(subset(d13CstemPh_MSA, canopy_position == "shade_low"),
 # no significant differences among campaigns, although d13C of the stem phloem
 # tends to become more negative over time
 
-# asess differences among sites and campaigns in stem phloem d13C
+# assess differences among sites and campaigns in stem phloem d13C
 
 d13CstemPh <- d13CstemPh %>% 
   filter(sampling_date <= 20230701 | sampling_date >= 20230827) %>%
