@@ -19,6 +19,19 @@ df <- read.csv("gradienteData/sites_Pannual.csv")
 
 points_sf <- st_as_sf(df, coords = c("long", "lat"), crs = 4326)
 
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+iberia <- world[world$admin %in% c("Spain", "Portugal", "Andorra"), ]
+
+iberia_bbox <- st_bbox(c(
+  xmin = -12,
+  xmax = 6,
+  ymin = 34.5,
+  ymax = 45
+), crs = st_crs(spain))
+
+iberia_mainland <- st_crop(iberia, iberia_bbox)
+
 # ---- Get Spain boundary ----
 spain <- ne_countries(
   country = "Spain",
@@ -31,12 +44,10 @@ spain <- ne_countries(
 
 # ---- Plot ----
 ggplot() +
-  geom_sf(data = spain, fill = "gray95", color = "gray60") +
+  geom_sf(data = iberia_mainland, fill = "gray95", color = "gray60") +
   geom_sf(data = points_sf, aes(color = P_annual), size = 4) +
   scale_color_viridis(option = "plasma", direction = 1) +
-  coord_sf(xlim = st_bbox(spain)[c(35,44)],
-           ylim = st_bbox(spain)[c("ymin","ymax")],
-           expand = FALSE) +
+  coord_sf(xlim = c(-12, 6), ylim = c(34.5, 45), expand = FALSE) +
   theme_minimal() +
   labs(
     title = " ",
