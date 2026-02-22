@@ -32,4 +32,26 @@ wp <- read.csv("gradienteData/wp_gradiente_2023/lwp_gradiente_2023.csv") %>%
 
 gradient <- d13CtreeRing %>% 
   full_join(wp, by = c("site", "tree")) %>% 
-  relocate(d13C_ring23, .after = wp_md)
+  relocate(d13C_ring23, .after = wp_md) %>% 
+  full_join(d13CbasePh, by = c("site", "tree", "campaign")) %>% 
+  full_join(d13Cleaf, by = c("site", "tree", "campaign")) %>% 
+  full_join(d13CstemPh, by = c("site", "tree", "campaign")) %>% 
+  mutate(site = factor(site, levels = c("ART", "BER", "ITU", "MSA", "DIU")))
+
+gradient <- subset(gradient, campaign == "spring23" | campaign == "summer23")
+
+####2. Explore correlations####
+
+summary(lm(d13C_base_phloem ~ d13C_stem_phloem * site * campaign,
+           data = gradient))
+anova(lm(d13C_base_phloem ~ d13C_stem_phloem * site * campaign,
+           data = gradient))
+ggplot(gradient, aes(x = d13C_base_phloem, y = d13C_stem_phloem,
+                     shape = site, color = campaign)) +
+  geom_point(size = 3, alpha = 0.8) +
+  geom_smooth(aes(group = 1), method = "lm", color = "black") +
+  labs(title = "",
+       x = expression("Stem phloem " * delta^13 * C~"(\u2030)"),
+       y = expression("Base phloem " * delta^13 * C~"(\u2030)"),
+       shape = "Site", color = "Campaign") +
+  theme_minimal()
