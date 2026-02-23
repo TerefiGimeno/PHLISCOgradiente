@@ -1,9 +1,14 @@
 library(tidyverse)
-#test
 
 wp <- read.csv("gradienteData/wp_gradiente_2023/lwp_gradiente_2023.csv") %>% 
   mutate(site = factor(site, levels = c("ART", "BER", "ITU", "MSA", "DIU"))) %>% 
-  mutate(wp_md = (wp_midday_1 + wp_midday_2)/2)
+  mutate(wp_md = (wp_midday_1 + wp_midday_2)/2) %>% 
+  filter(campaign == "spring23" | campaign == "summer23")
+
+wp_summ <- wp %>% 
+  group_by(site, campaign) %>% 
+  summarise(wp_mean = mean(wp_md, na.rm =T), wp_se = sd(wp_md, na.rm =T)/sqrt(length(wp_md)))
+write.csv(wp_summ, file = "kk.csv")
 
 plot(wp$wp_md, pch = 19, col ="blue", ylim = c(-3.5, -0.2))
 points(wp$wp_midday_1, pch = 19, col = "red")
@@ -32,4 +37,5 @@ ggplot(wp, aes(x = site, y = wp_md, fill = campaign)) +
 
 # differences between seasons: more negative wp_md in summer
 # differences among sites: (ART = BER)ab = (DIU)b < ITUab
+# BER shows the opposite pattern between summer and spring (rainy day)
 

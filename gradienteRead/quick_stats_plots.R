@@ -256,4 +256,4 @@ two <- ggplot(d13CstemPh, aes(x = site, y = d13C_stem_phloem, fill = campaign)) 
 cowplot::plot_grid(one, two, three, four,
                    labels = c("Leaf", "Stem phloem", "Base phloem", "Tree ring"),
                    ncol = 2, nrow = 2)
-
+cowplot::plot_grid(one, two, three, ncol = 1, nrow = 3)

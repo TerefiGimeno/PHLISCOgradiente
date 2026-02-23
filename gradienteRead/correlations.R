@@ -55,3 +55,33 @@ ggplot(gradient, aes(x = d13C_base_phloem, y = d13C_stem_phloem,
        y = expression("Base phloem " * delta^13 * C~"(\u2030)"),
        shape = "Site", color = "Campaign") +
   theme_minimal()
+
+ggplot(gradient, aes(x = d13C_base_phloem, y = d13C_leaf,
+                     shape = site, color = campaign)) +
+  geom_point(size = 3, alpha = 0.8) +
+  geom_smooth(aes(group = 1), method = "lm", color = "black") +
+  labs(title = "",
+       x = expression("Base phloem " * delta^13 * C~"(\u2030)"),
+       y = expression("Leaf " * delta^13 * C~"(\u2030)"),
+       shape = "Site", color = "Campaign") +
+  theme_minimal()
+
+anova(lm(d13C_base_phloem ~ d13C_leaf * site * campaign,
+        data = gradient))
+summary(lm(d13C_base_phloem ~ d13C_leaf * site * campaign,
+         data = gradient))
+
+ggplot(gradient, aes(x = d13C_stem_phloem, y = d13C_leaf,
+                     shape = site, color = campaign)) +
+  geom_point(size = 3, alpha = 0.8) +
+  geom_smooth(aes(group = 1), method = "lm", color = "black") +
+  labs(title = "",
+       x = expression("Stem phloem " * delta^13 * C~"(\u2030)"),
+       y = expression("Leaf " * delta^13 * C~"(\u2030)"),
+       shape = "Site", color = "Campaign") +
+  theme_minimal()
+
+summary(lm(d13C_stem_phloem ~ d13C_leaf * site * campaign,
+           data = gradient))
+anova(lm(d13C_stem_phloem ~ d13C_leaf * site * campaign,
+           data = gradient))
