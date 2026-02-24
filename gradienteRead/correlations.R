@@ -9,6 +9,12 @@ d13CtreeRing <- read.csv("gradienteData/isotopes_gradiente_2023/Tabla_S2025-3401
   select(-c(year, perc_C)) %>%
   rename(d13C_ring23 = d13C_permil)
 
+d13Ctree_ring_summ <- d13CtreeRing %>% 
+  group_by(site) %>% 
+  summarise(d13ring = mean(d13C_ring23, na.rm = T),
+            d13ring_se = sd(d13C_ring23, na.rm = T)/sqrt(length(d13C_ring23)))
+write.csv(d13Ctree_ring_summ, file = "kkk.csv")
+
 d13CbasePh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_base_phloem.csv") %>% 
   filter(sampling_date <= 20230701 | sampling_date >= 20230827) %>%
   mutate(campaign = ifelse(sampling_date <= 20230701, "spring23", "summer23")) %>% 
@@ -39,6 +45,16 @@ gradient <- d13CtreeRing %>%
   mutate(site = factor(site, levels = c("ART", "BER", "ITU", "MSA", "DIU")))
 
 gradient <- subset(gradient, campaign == "spring23" | campaign == "summer23")
+
+gradient_summ <- gradient %>% 
+  group_by(site, campaign) %>% 
+  summarise(d13leaf = mean(d13C_leaf, na.rm = T),
+            d13leaf_se = sd(d13C_leaf, na.rm = T)/sqrt(length(d13C_leaf)),
+            d13stemP = mean(d13C_stem_phloem, na.rm = T),
+            d13stemP_se = sd(d13C_stem_phloem, na.rm = T)/sqrt(length(d13C_stem_phloem)),
+            d13baseP = mean(d13C_base_phloem, na.rm = T),
+            d13baseP_se = sd(d13C_base_phloem, na.rm = T)/sqrt(length(d13C_base_phloem)))
+write.csv(gradient_summ, file = "kk.csv")
 
 ####2. Explore correlations####
 
