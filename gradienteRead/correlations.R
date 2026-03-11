@@ -9,11 +9,10 @@ d13CtreeRing <- read.csv("gradienteData/isotopes_gradiente_2023/Tabla_S2025-3401
   select(-c(year, perc_C)) %>%
   rename(d13C_ring23 = d13C_permil)
 
-d13Ctree_ring_summ <- d13CtreeRing %>% 
-  group_by(site) %>% 
-  summarise(d13ring = mean(d13C_ring23, na.rm = T),
-            d13ring_se = sd(d13C_ring23, na.rm = T)/sqrt(length(d13C_ring23)))
-write.csv(d13Ctree_ring_summ, file = "kkk.csv")
+# d13Ctree_ring_summ <- d13CtreeRing %>% 
+#   group_by(site) %>% 
+#   summarise(d13ring = mean(d13C_ring23, na.rm = T),
+#             d13ring_se = sd(d13C_ring23, na.rm = T)/sqrt(length(d13C_ring23)))
 
 d13CbasePh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_base_phloem.csv") %>% 
   filter(sampling_date <= 20230701 | sampling_date >= 20230827) %>%
