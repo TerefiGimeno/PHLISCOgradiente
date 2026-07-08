@@ -1,26 +1,37 @@
 ##METEO HISTORICA SITIOS
 ### load libraries and sources ####
-# read script with a few libreries that I use for phytotron databases
 library(tidyverse)
+s.err.na <- function(x) {
+  return(sd(x, na.rm =T)/sqrt(length(which(!is.na(x)))))}
 
-####meteo historica artikutza 2000-2025 datos diarios####
-meteo_art_2000_2025_daily <- read.csv('gradienteData/meterologia sitios/meteo_art_2000_2025_daily.csv')
-meteo_art_2000_2025_daily<-meteo_art_2000_2025_daily %>% 
-  rename(temp_max=temperatura_maxima,
-         temp_min=temperatura_minima,
-         temp_mean_celcius=temp_air_celcius)
-meteo_art_2000_2025_daily  <- meteo_art_2000_2025_daily  %>%
-  mutate(
-    date = trimws(date),
-    date = parse_date_time(date, orders = c("ymd", "dmy", "mdy", "Ymd")))
-fallos <-meteo_art_2000_2025_daily %>%
-  filter(is.na(date))
-meteo_art_2000_2025_daily$date <- as.Date(meteo_art_2000_2025_daily$date)
-range(meteo_art_2000_2025_daily$date, na.rm = TRUE)
-
-
-####meteo historica ARTIKUTZA 2000-2025 datos por meses####
-meteo_art_2000_2025_month <- meteo_art_2000_2025_daily %>%
+####1. Clean and compile meteo data for all the sites####
+#####1.1 Artikutza #####
+######1.1.1 Clean and process the data######
+Pday_ART <- read.csv("gradienteData/meterologia sitios/Artikutza/Pday_Artikutza.csv") |> 
+  mutate(date = ymd(YYYYMMDD)) |> 
+  select(-c(YYYYMMDD, X1021)) |> 
+  rename(Pday_mm_old = Pday_mm)
+Tday_ART <- read.csv("gradienteData/meterologia sitios/Artikutza/TmeanDay_Artikutza.csv") |> 
+  mutate(date = ymd(as.character(YYYYMMDD))) |> 
+  left_join(Pday_ART, by = "date") |> 
+  select(-c(YYYYMMDD, X1021)) |> 
+  relocate(TmeanDay_C, .after = date) |> 
+  rename(TmeanDay_C_old = TmeanDay_C)
+meteo_art <- read.csv("gradienteData/meterologia sitios/Artikutza/meteo_art_2000_2025_daily.csv") |> 
+  mutate(date = ymd(date)) |> 
+  rename(Pday_mm_new = precip_mm) |> 
+  rename(TmaxDay_C = temperatura_maxima) |> 
+  rename(TminDay_C = temperatura_minima) |> 
+  rename(TmeanDay_C_new = temp_air_celcius) |> 
+  full_join(Tday_ART, by = "date") |>
+  arrange(date) |> 
+  mutate(Pday_mm = ifelse(is.na(Pday_mm_new), Pday_mm_old, Pday_mm_new)) |> 
+  mutate(TmeanDay_C = ifelse(is.na(TmeanDay_C_new), TmeanDay_C_old, TmeanDay_C_new)) |>
+  select(-c(X, Pday_mm_old, Pday_mm_new, TmeanDay_C_old, TmeanDay_C_new))
+rm(Pday_ART, Tday_ART)
+  
+######1.1.2 Calculation of monthly and yearly average values######
+meteo_art_month <- meteo_art %>%
   mutate(
     year = year(date),
     month_num = month(date),
@@ -28,31 +39,29 @@ meteo_art_2000_2025_month <- meteo_art_2000_2025_daily %>%
     month_date = as.Date(format(date, "%Y-%m-01"))) %>%
   group_by(month_date,month_num) %>%
   summarise(
-    precip_month_mm = sum(precip_mm, na.rm = TRUE),
-    temp_max_month = mean(temp_max, na.rm = TRUE),
-    se_temp_max_month = s.err.na(temp_max),
-    temp_min_month = mean(temp_min, na.rm = TRUE),
-    se_temp_min_month = s.err.na(temp_min),
-    temp_mean_month = mean(temp_mean_celcius, na.rm = TRUE),
-    se_temp_month = s.err.na(temp_mean_celcius),
+    precip_month_mm = sum(Pday_mm, na.rm = TRUE),
+    temp_max_month = mean(TmaxDay_C, na.rm = TRUE),
+    se_temp_max_month = s.err.na(TmaxDay_C),
+    temp_min_month = mean(TminDay_C, na.rm = TRUE),
+    se_temp_min_month = s.err.na(TminDay_C),
+    temp_mean_month = mean(TmeanDay_C, na.rm = TRUE),
+    se_temp_month = s.err.na(TmeanDay_C),
     .groups = "drop")
 
-####meteo historica ARTIKUTZA 2000-2025 datos por años####
-meteo_art_2000_2025_years <- meteo_art_2000_2025_daily %>%
+meteo_art_years <- meteo_art %>%
   mutate(year = year(date)) %>%
   group_by(year) %>%
   summarise(
-    precip_year_mm = sum(precip_mm, na.rm = TRUE),
-    temp_max_year = mean(temp_max, na.rm = TRUE),
-    se_temp_max_year = s.err.na(temp_max),
-    temp_min_year = mean(temp_min, na.rm = TRUE),
-    se_temp_min_year = s.err.na(temp_min),
-    temp_mean_year = mean(temp_mean_celcius, na.rm = TRUE),
-    se_temp_year = s.err.na(temp_mean_celcius),
+    precip_year_mm = sum(Pday_mm, na.rm = TRUE),
+    temp_max_year = mean(TmaxDay_C, na.rm = TRUE),
+    se_temp_max_year = s.err.na(TmaxDay_C),
+    temp_min_year = mean(TminDay_C, na.rm = TRUE),
+    se_temp_min_year = s.err.na(TminDay_C),
+    temp_mean_year = mean(TmeanDay_C, na.rm = TRUE),
+    se_temp_year = s.err.na(TmeanDay_C),
     .groups = "drop")
 
-####historico por mes ARTIKUTZA 2000-2025####
-meteo_art_month_hist <- meteo_art_2000_2025_month %>%
+meteo_art_month_avg <- meteo_art_month %>%
   group_by(month_num) %>%
   summarise(
     precip_month_mm_hist = mean(precip_month_mm, na.rm = TRUE),
@@ -65,24 +74,9 @@ meteo_art_month_hist <- meteo_art_2000_2025_month %>%
     se_temp_min_month_hist = s.err.na(temp_min_month),
     .groups = "drop" )
 
-####historico anual proveniente del promedio de meteo historica ARTIKUTZA 2000-2025 ####
-meteo_art_hist_10years <- meteo_art_2000_2025_years %>%
-  summarise(
-    precip_annual_mm_hist = mean(precip_year_mm, na.rm = TRUE),
-    se_precip_annual_mm_hist = s.err.na(precip_year_mm),
-    temp_mean_annual_hist = mean(temp_mean_year, na.rm = TRUE),
-    se_temp_annual_hist = s.err.na(se_temp_year),
-    temp_max_annual_hist = mean(temp_max_year, na.rm = TRUE),
-    se_temp_max_annual_hist = s.err.na(temp_max_year),
-    temp_min_annual_hist = mean(temp_min_year, na.rm = TRUE),
-    se_temp_min_annual_hist = s.err.na(temp_min_year),
-    .groups = "drop")
+#####1.2 Bertiz #####
+######1.1.1 Clean and process the data######
 
-
-
-
-
-####meteo historica BERTIZ 2000-2025 datos diarios####
 meteo_ber_2000_2025_daily <- read.csv('gradienteData/meterologia sitios/meteo_ber_2000_2025_daily.csv')
 meteo_ber_2000_2025_daily<-meteo_ber_2000_2025_daily %>% 
   rename(temp_max=temperatura_maxima,

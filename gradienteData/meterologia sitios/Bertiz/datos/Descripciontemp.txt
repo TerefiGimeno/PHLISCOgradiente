@@ -1,0 +1,73 @@
+Campos incluidos:
+     Indicativo: Indicativo climatológico
+     NOMBRE: Nombre estación
+     ALTITUD: Altitud de la estación (metros)
+     NOM_PROV: Provincia
+     TMAX1: Temperatura máxima día 1
+     TMAX2: Temperatura máxima día 2
+     TMAX3: Temperatura máxima día 3
+     TMAX4: Temperatura máxima día 4
+     TMAX5: Temperatura máxima día 5
+     TMAX6: Temperatura máxima día 6
+     TMAX7: Temperatura máxima día 7
+     TMAX8: Temperatura máxima día 8
+     TMAX9: Temperatura máxima día 9
+     TMAX10: Temperatura máxima día 10
+     TMAX11: Temperatura máxima día 11
+     TMAX12: Temperatura máxima día 12
+     TMAX13: Temperatura máxima día 13
+     TMAX14: Temperatura máxima día 14
+     TMAX15: Temperatura máxima día 15
+     TMAX16: Temperatura máxima día 16
+     TMAX17: Temperatura máxima día 17
+     TMAX18: Temperatura máxima día 18
+     TMAX19: Temperatura máxima día 19
+     TMAX20: Temperatura máxima día 20
+     TMAX21: Temperatura máxima día 21
+     TMAX22: Temperatura máxima día 22
+     TMAX23: Temperatura máxima día 23
+     TMAX24: Temperatura máxima día 24
+     TMAX25: Temperatura máxima día 25
+     TMAX26: Temperatura máxima día 26
+     TMAX27: Temperatura máxima día 27
+     TMAX28: Temperatura máxima día 28
+     TMAX29: Temperatura máxima día 29
+     TMAX30: Temperatura máxima día 30
+     TMAX31: Temperatura máxima día 31
+     TMIN1: Temperatura mínima día 1
+     TMIN2: Temperatura mínima día 2
+     TMIN3: Temperatura mínima día 3
+     TMIN4: Temperatura mínima día 4
+     TMIN5: Temperatura mínima día 5
+     TMIN6: Temperatura mínima día 6
+     TMIN7: Temperatura mínima día 7
+     TMIN8: Temperatura mínima día 8
+     TMIN9: Temperatura mínima día 9
+     TMIN10: Temperatura mínima día 10
+     TMIN11: Temperatura mínima día 11
+     TMIN12: Temperatura mínima día 12
+     TMIN13: Temperatura mínima día 13
+     TMIN14: Temperatura mínima día 14
+     TMIN15: Temperatura mínima día 15
+     TMIN16: Temperatura mínima día 16
+     TMIN17: Temperatura mínima día 17
+     TMIN18: Temperatura mínima día 18
+     TMIN19: Temperatura mínima día 19
+     TMIN20: Temperatura mínima día 20
+     TMIN21: Temperatura mínima día 21
+     TMIN22: Temperatura mínima día 22
+     TMIN23: Temperatura mínima día 23
+     TMIN24: Temperatura mínima día 24
+     TMIN25: Temperatura mínima día 25
+     TMIN26: Temperatura mínima día 26
+     TMIN27: Temperatura mínima día 27
+     TMIN28: Temperatura mínima día 28
+     TMIN29: Temperatura mínima día 29
+     TMIN30: Temperatura mínima día 30
+     TMIN31: Temperatura mínima día 31
+
+Unidades y valores especiales:
+
+     Horas UTC (Tiempo Universal Coordinado)
+
+     Temperaturas en décimas de grado celsius
