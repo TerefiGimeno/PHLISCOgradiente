@@ -76,6 +76,8 @@ meteo_art_month_avg <- meteo_art_month %>%
 
 #####1.2 Bertiz #####
 ######1.1.1 Clean and process the data######
+Pday_ber <- read.csv("gradienteData/meterologia sitios/Bertiz/datos/precip.csv")
+
 
 meteo_ber_2000_2025_daily <- read.csv('gradienteData/meterologia sitios/meteo_ber_2000_2025_daily.csv')
 meteo_ber_2000_2025_daily<-meteo_ber_2000_2025_daily %>% 
