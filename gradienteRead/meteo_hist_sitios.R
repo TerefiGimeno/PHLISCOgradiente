@@ -4,9 +4,7 @@ library(tidyverse)
 s.err.na <- function(x) {
   return(sd(x, na.rm =T)/sqrt(length(which(!is.na(x)))))}
 
-####1. Clean and compile meteo data for all the sites####
-#####1.1 Artikutza #####
-######1.1.1 Clean and process the data######
+####1. Artikutza ####
 Pday_ART <- read.csv("gradienteData/meterologia sitios/Artikutza/Pday_Artikutza.csv") |> 
   mutate(date = ymd(YYYYMMDD)) |> 
   select(-c(YYYYMMDD, X1021)) |> 
@@ -30,7 +28,6 @@ meteo_art <- read.csv("gradienteData/meterologia sitios/Artikutza/meteo_art_2000
   select(-c(X, Pday_mm_old, Pday_mm_new, TmeanDay_C_old, TmeanDay_C_new))
 rm(Pday_ART, Tday_ART)
   
-######1.1.2 Calculation of monthly and yearly average values######
 meteo_art_month <- meteo_art %>%
   mutate(
     year = year(date),
@@ -74,8 +71,7 @@ meteo_art_month_avg <- meteo_art_month %>%
     se_temp_min_month_hist = s.err.na(temp_min_month),
     .groups = "drop" )
 
-#####1.2 Bertiz #####
-######1.1.1 Clean and process the data######
+####2. Bertiz ####
 
 Pday_ber <- read.csv("gradienteData/meterologia sitios/Bertiz/datos/precip - copia.csv") |> 
   select(-c(INDICATIVO, NOMBRE, ALTITUD, NOM_PROV)) |> 
@@ -105,8 +101,6 @@ Tday_ber$date <- make_date(Tday_ber$year, Tday_ber$month, Tday_ber$day)
 
 meteo_ber <- full_join(Pday_ber[, c("date", "Pday_mm")], Tday_ber, by = "date")
 rm(Tday_ber, Pday_ber)
-
-######1.2.2 Calculation of monthly and yearly average values######
 
 meteo_ber_month <- meteo_ber %>%
   group_by(year, month) %>%
@@ -158,57 +152,53 @@ meteo_ber_hist <- meteo_ber_years %>%
     .groups = "drop")
 
 
-#####1.3 Monte Santiago #####
-######1.3.1 Clean and process the data######
-Pms <- read.csv("gradienteData/meterologia sitios/Monte Satiago/Pday_Orduna.csv")
+####3. Monte Santiago ####
+Pms <- read.csv("gradienteData/meterologia sitios/Monte Satiago/Pday_Orduna.csv")[, c(1,4)]
+Tms <- read.csv("gradienteData/meterologia sitios/Monte Satiago/TmeanDay_Orduna.csv")[, c(1,4)] |> 
+  left_join(read.csv("gradienteData/meterologia sitios/Monte Satiago/TmaxDay_Orduna.csv")[, c(1,4)],
+            by = "YYYYMMDD") |>
+  left_join(read.csv("gradienteData/meterologia sitios/Monte Satiago/TminDay_Orduna.csv")[, c(1,4)],
+            by = "YYYYMMDD") |>
+  left_join(Pms, by = "YYYYMMDD") |> 
+  mutate(date = ymd(YYYYMMDD)) |> 
+  select(-c(YYYYMMDD))
 
-
-meteo_ms_2014_2023_daily <- read.csv('gradienteData/meterologia sitios/meteo_ms_2014_2023_daily.csv')
-meteo_ms_2014_2023_daily<-meteo_ms_2014_2023_daily %>% 
+meteo_ms <- read.csv('gradienteData/meterologia sitios/Monte Satiago/meteo_ms_2014_2023_daily.csv') |> 
+  mutate(date = ymd(date)) |> 
+  full_join(Tms, by = "date") |> 
+  arrange(date) |> 
+  mutate(Pday_mm = ifelse(is.na(Pday_mm), precip_day_mm, Pday_mm)) |> 
+  mutate(TmaxDay_C = ifelse(is.na(TmaxDay_C), temp_max_day, TmaxDay_C)) |> 
+  mutate(TminDay_C = ifelse(is.na(TminDay_C), temp_min_day, TminDay_C)) |> 
+  mutate(TmeanDay_C = ifelse(is.na(TmeanDay_C), temp_mean_day, TmeanDay_C)) |>
   select(-c(rh_mean_day,se_rh_day,
             rh_max_day,se_rh_max,
             rh_min_day,se_rh_min,
             se_temp_day,se_temp_max,
-            se_temp_min,X)) %>% 
-  rename(precip_mm=precip_day_mm,
-    temp_max=temp_max_day,
-         temp_min=temp_min_day,
-         temp_mean_celcius=temp_mean_day)
-meteo_ms_2014_2023_daily <- meteo_ms_2014_2023_daily %>%
-  mutate(
-    date = trimws(date),
-    date = parse_date_time(date, orders = c("ymd", "dmy", "mdy", "Ymd")))
-fallos <-meteo_ms_2014_2023_daily %>%
-  filter(is.na(date))
-meteo_ms_2014_2023_daily$date <- as.Date(meteo_ms_2014_2023_daily$date)
-range(meteo_ms_2014_2023_daily$date, na.rm = TRUE)
+            se_temp_min,X,
+            precip_day_mm, temp_mean_day,
+            temp_max_day, temp_min_day))
 
-
-####meteo historica MS 2014-2023 datos de euskalmet por meses####
-meteo_ms_2014_2023_month <- meteo_ms_2014_2023_daily %>%
+meteo_ms_month <- meteo_ms %>%
   mutate(
     year = year(date),
-    month_num = month(date),
-    day_num = day(date),
-    month_date = as.Date(format(date, "%Y-%m-01"))) %>%
-  group_by(month_date,month_num) %>%
+    month = month(date)) %>%
+  group_by(year, month) %>%
   summarise(
-    precip_month_mm = sum(precip_mm, na.rm = TRUE),
-    temp_mean_month = mean(temp_mean_celcius, na.rm = TRUE),
-    se_temp_month = s.err.na(temp_mean_celcius),
-    temp_max_month = mean(temp_max, na.rm = TRUE),
-    se_temp_max_month = s.err.na(temp_max),
-    temp_min_month = mean(temp_min, na.rm = TRUE),
-    se_temp_min_month = s.err.na(temp_min),
+    precip_month_mm = sum(Pday_mm, na.rm = TRUE),
+    temp_mean_month = mean(TmeanDay_C, na.rm = TRUE),
+    se_temp_month = s.err.na(TmeanDay_C),
+    temp_max_month = mean(TmaxDay_C, na.rm = TRUE),
+    se_temp_max_month = s.err.na(TmaxDay_C),
+    temp_min_month = mean(TminDay_C, na.rm = TRUE),
+    se_temp_min_month = s.err.na(TminDay_C),
     .groups = "drop")
 
-
-####meteo historica MS 2014-2023 datos de euskalmet por años####
-meteo_ms_2014_2023_years <- meteo_ms_2014_2023_daily %>%
+meteo_ms_years <- meteo_ms %>%
   mutate(year = year(date)) %>%
   group_by(year) %>%
   summarise(
-    precip_year_mm = sum(precip_mm, na.rm = TRUE),
+    precip_year_mm = sum(Pday_mm, na.rm = TRUE),
     temp_mean_year = mean(temp_mean_celcius, na.rm = TRUE),
     se_temp_year = s.err.na(temp_mean_celcius),
     temp_max_year = mean(temp_max, na.rm = TRUE),
@@ -217,7 +207,6 @@ meteo_ms_2014_2023_years <- meteo_ms_2014_2023_daily %>%
     se_temp_min_year = s.err.na(temp_min),
     .groups = "drop")
 
-####historico por mes proveniente de meteo historica MS 2014-2023####
 meteo_ms_month_hist <- meteo_ms_2014_2023_month %>%
   group_by(month_num) %>%
   summarise(
@@ -231,7 +220,6 @@ meteo_ms_month_hist <- meteo_ms_2014_2023_month %>%
     se_temp_min_month_hist = s.err.na(temp_min_month),
     .groups = "drop")
 
-####historico anual proveniente del promedio de meteo historica MS 2014-2023 ####
 meteo_hist_10years_ms <- meteo_ms_2014_2023_years %>%
   summarise(
     precip_annual_mm_hist = mean(precip_year_mm, na.rm = TRUE),
@@ -244,8 +232,7 @@ meteo_hist_10years_ms <- meteo_ms_2014_2023_years %>%
     se_temp_min_annual_hist = s.err.na(temp_min_year),
     .groups = "drop")
 
-#####1.4 Iturrieta #####
-######1.4.1 Clean and process the data######
+####4. Iturrieta ####
 Pday_itu <- read.csv("gradienteData/meterologia sitios/Iturrieta/Pday_Iturrieta.csv") |> 
   mutate(date = ymd(YYYYMMDD)) |> 
   select(-c(YYYYMMDD, C024, G024))
@@ -271,7 +258,6 @@ meteo_itu <- read.csv('gradienteData/meterologia sitios/Iturrieta/meteo_itu_2014
             se_temp_min,X,
             Pday_mm_new, TmeanDay_C_new))
 
-######1.4.2 Calculate means######
 meteo_itu_month <- meteo_itu %>%
   mutate(
     year = year(date),
@@ -327,7 +313,7 @@ meteo_hist_itu <- meteo_itu_years %>%
     .groups = "drop")
 
 
-#####1.5 Montejo de la Sierra #####
+####5. Montejo de la Sierra ####
 # summarised monthly data from the local meteorological station
 #(at the actual site). Data go from 1994 to 2021
 meteo_hm_month_hist <- read.csv("gradienteData/meterologia sitios/Montejo de la sierra/resumen_mensual_clima_HM.csv") |> 
@@ -346,60 +332,45 @@ meteo_hm <- read.csv("gradienteData/meterologia sitios/Montejo de la sierra/deta
             TmeanDay_C = mean(air_temperature_c, na.rm = T)) |> 
   mutate(date = ymd(date))
 
-#####1.6 Diustes #####
-
-###meteo historica DIUSTES 1968-2023 datos diarios####
-meteo_diu_1968_2023_daily <- read.csv('gradienteData/meterologia sitios/meteo_diu_1968_2023_daily.csv')
-meteo_diu_1968_2023_daily<-meteo_diu_1968_2023_daily%>% 
+####6. Diustes ####
+meteo_diu <- read.csv('gradienteData/meterologia sitios/Diustes/meteo_diu_1968_2023_daily.csv') |> 
   select(-c(X,sitio)) %>% 
-  rename(precip_mm=precipitacion,
-         temp_max=tempmax,
-         temp_min=tempmin,
-         temp_mean_celcius=temp_air_celcius)
-meteo_diu_1968_2023_daily  <- meteo_diu_1968_2023_daily  %>%
-  mutate(
-    date = trimws(date),
-    date = parse_date_time(date, orders = c("ymd", "dmy", "mdy", "Ymd")))
-fallos <-meteo_diu_1968_2023_daily %>%
-  filter(is.na(date))
-meteo_diu_1968_2023_daily$date <- as.Date(meteo_diu_1968_2023_daily$date)
-range(meteo_diu_1968_2023_daily$date, na.rm = TRUE)
+  rename(Pday_mm=precipitacion,
+         TmaxDay_C=tempmax,
+         TminDay_C=tempmin,
+         TmeanDay_C=temp_air_celcius) |> 
+  mutate(date = dmy(as.character(date))) |> 
+  arrange(date)
 
-
-####meteo historica DIUSTES 1968-2023 datos por meses####
-meteo_diu_1968_2023_month <- meteo_diu_1968_2023_daily %>%
+meteo_diu_month <- meteo_diu %>%
   mutate(year = year(date),
-         month_num = month(date),
-         day_num = day(date),
-         month_date = as.Date(format(date, "%Y-%m-01"))) %>%
-  group_by(month_date,month_num) %>%
+         month = month(date)) %>%
+  group_by(year, month) %>%
   summarise(
-    precip_month_mm = sum(precip_mm, na.rm = TRUE),
-    temp_max_month = mean(temp_max, na.rm = TRUE),
-    se_temp_max_month = s.err.na(temp_max),
-    temp_min_month = mean(temp_min, na.rm = TRUE),
-    se_temp_min_month = s.err.na(temp_min),
-    temp_mean_month = mean(temp_mean_celcius, na.rm = TRUE),
-    se_temp_month = s.err.na(temp_mean_celcius),
+    precip_month_mm = sum(Pday_mm, na.rm = TRUE),
+    temp_max_month = mean(TmaxDay_C, na.rm = TRUE),
+    se_temp_max_month = s.err.na(TmaxDay_C),
+    temp_min_month = mean(TminDay_C, na.rm = TRUE),
+    se_temp_min_month = s.err.na(TminDay_C),
+    temp_mean_month = mean(TmeanDay_C, na.rm = TRUE),
+    se_temp_month = s.err.na(TmeanDay_C),
     .groups = "drop")
 
-####meteo historica DIUSTES 1968-2023 datos por años####
-meteo_diu_1968_2023_years <- meteo_diu_1968_2023_daily %>%
+meteo_diu_years <- meteo_diu %>%
   mutate(year = year(date)) %>%
   group_by(year) %>%
   summarise(
-    precip_year_mm = sum(precip_mm, na.rm = TRUE),
-    temp_max_year = mean(temp_max, na.rm = TRUE),
-    se_temp_max_year = s.err.na(temp_max),
-    temp_min_year = mean(temp_min, na.rm = TRUE),
-    se_temp_min_year = s.err.na(temp_min),
-    temp_mean_year = mean(temp_mean_celcius, na.rm = TRUE),
-    se_temp_year = s.err.na(temp_mean_celcius),
+    precip_year_mm = sum(Pday_mm, na.rm = TRUE),
+    temp_max_year = mean(TmaxDay_C, na.rm = TRUE),
+    se_temp_max_year = s.err.na(TmaxDay_C),
+    temp_min_year = mean(TminDay_C, na.rm = TRUE),
+    se_temp_min_year = s.err.na(TminDay_C),
+    temp_mean_year = mean(TmeanDay_C, na.rm = TRUE),
+    se_temp_year = s.err.na(TmeanDay_C),
     .groups = "drop")
 
-####historico por mes DIUSTES 1968-2023####
-meteo_diu_month_hist <- meteo_diu_1968_2023_month %>%
-  group_by(month_num) %>%
+meteo_diu_month_hist <- meteo_diu_month %>%
+  group_by(month) %>%
   summarise(
     precip_month_mm_hist = mean(precip_month_mm, na.rm = TRUE),
     se_precip_month_hist = s.err.na(precip_month_mm),
@@ -411,8 +382,7 @@ meteo_diu_month_hist <- meteo_diu_1968_2023_month %>%
     se_temp_min_month_hist = s.err.na(temp_min_month),
     .groups = "drop" )
 
-####historico anual proveniente del promedio de meteo historica DIUSTES 1968-2023 ####
-meteo_diu_hist_10years <- meteo_diu_1968_2023_years %>%
+meteo_diu_hist <- meteo_diu_years %>%
   summarise(
     precip_annual_mm_hist = mean(precip_year_mm, na.rm = TRUE),
     se_precip_annual_mm_hist = s.err.na(precip_year_mm),
