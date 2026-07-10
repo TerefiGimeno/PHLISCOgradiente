@@ -78,9 +78,9 @@ Pday_ber <- read.csv("gradienteData/meterologia sitios/Bertiz/datos/precip - cop
   rename(Year = ANO) |> 
   rename(Month = MES) |> 
   pivot_longer(cols = starts_with("P"), names_to = "day_",
-               values_to = "Pday_mm_", values_drop_na = TRUE) |> 
+               values_to = "Pday_mm", values_drop_na = TRUE) |> 
   mutate(Day = as.numeric(str_remove_all(day_, "P"))) |> 
-  mutate(Pday_mm = (ifelse(Pday_mm_ == -3, 0, Pday_mm_)*0.1))
+  mutate(Pday_mm = (ifelse(Pday_mm == -3, 0, Pday_mm)*0.1))
 Pday_ber$date <- make_date(Pday_ber$Year, Pday_ber$Month, Pday_ber$Day)
   
 Tday_ber <- read.csv("gradienteData/meterologia sitios/Bertiz/datos/temp - copia.csv") |> 
@@ -99,7 +99,8 @@ Tday_ber <- read.csv("gradienteData/meterologia sitios/Bertiz/datos/temp - copia
   mutate(TmeanDay_C = (TmaxDay_C + TminDay_C)*0.5)
 Tday_ber$date <- make_date(Tday_ber$year, Tday_ber$month, Tday_ber$day)
 
-meteo_ber <- full_join(Pday_ber[, c("date", "Pday_mm")], Tday_ber, by = "date")
+meteo_ber <- full_join(Pday_ber[, c("date", "Pday_mm")], Tday_ber, by = "date") |> 
+  arrange(date)
 rm(Tday_ber, Pday_ber)
 
 meteo_ber_month <- meteo_ber %>%
@@ -151,7 +152,6 @@ meteo_ber_hist <- meteo_ber_years %>%
     se_temp_min_annual_hist = s.err.na(temp_min_year),
     .groups = "drop")
 
-
 ####3. Monte Santiago ####
 Pms <- read.csv("gradienteData/meterologia sitios/Monte Satiago/Pday_Orduna.csv")[, c(1,4)]
 Tms <- read.csv("gradienteData/meterologia sitios/Monte Satiago/TmeanDay_Orduna.csv")[, c(1,4)] |> 
@@ -178,6 +178,7 @@ meteo_ms <- read.csv('gradienteData/meterologia sitios/Monte Satiago/meteo_ms_20
             se_temp_min,X,
             precip_day_mm, temp_mean_day,
             temp_max_day, temp_min_day))
+rm(Pms, Tms)
 
 meteo_ms_month <- meteo_ms %>%
   mutate(
@@ -199,16 +200,16 @@ meteo_ms_years <- meteo_ms %>%
   group_by(year) %>%
   summarise(
     precip_year_mm = sum(Pday_mm, na.rm = TRUE),
-    temp_mean_year = mean(temp_mean_celcius, na.rm = TRUE),
-    se_temp_year = s.err.na(temp_mean_celcius),
-    temp_max_year = mean(temp_max, na.rm = TRUE),
-    se_temp_max_year = s.err.na(temp_max),
-    temp_min_year = mean(temp_min, na.rm = TRUE),
-    se_temp_min_year = s.err.na(temp_min),
+    temp_mean_year = mean(TmeanDay_C, na.rm = TRUE),
+    se_temp_year = s.err.na(TmeanDay_C),
+    temp_max_year = mean(TmaxDay_C, na.rm = TRUE),
+    se_temp_max_year = s.err.na(TmaxDay_C),
+    temp_min_year = mean(TminDay_C, na.rm = TRUE),
+    se_temp_min_year = s.err.na(TminDay_C),
     .groups = "drop")
 
-meteo_ms_month_hist <- meteo_ms_2014_2023_month %>%
-  group_by(month_num) %>%
+meteo_ms_month_hist <- meteo_ms_month %>%
+  group_by(month) %>%
   summarise(
     precip_month_mm_hist = mean(precip_month_mm, na.rm = TRUE),
     se_precip_month_hist = s.err.na(precip_month_mm),
@@ -220,7 +221,7 @@ meteo_ms_month_hist <- meteo_ms_2014_2023_month %>%
     se_temp_min_month_hist = s.err.na(temp_min_month),
     .groups = "drop")
 
-meteo_hist_10years_ms <- meteo_ms_2014_2023_years %>%
+meteo_ms_hist <- meteo_ms_years %>%
   summarise(
     precip_annual_mm_hist = mean(precip_year_mm, na.rm = TRUE),
     se_precip_annual_mm_hist = s.err.na(precip_year_mm),
@@ -257,12 +258,11 @@ meteo_itu <- read.csv('gradienteData/meterologia sitios/Iturrieta/meteo_itu_2014
             se_temp_day,se_temp_max,
             se_temp_min,X,
             Pday_mm_new, TmeanDay_C_new))
+rm(Pday_itu, Tday_itu)
 
 meteo_itu_month <- meteo_itu %>%
-  mutate(
-    year = year(date),
-    month = month(date),
-    day = day(date)) %>%
+  mutate(year = year(date),
+    month = month(date)) %>%
   group_by(year, month) %>%
   summarise(
     precip_month_mm = sum(Pday_mm, na.rm = TRUE),
@@ -393,3 +393,13 @@ meteo_diu_hist <- meteo_diu_years %>%
     temp_min_annual_hist = mean(temp_min_year, na.rm = TRUE),
     se_temp_min_annual_hist = s.err.na(temp_min_year),
     .groups = "drop")
+
+campaign_dates <- read.csv("gradienteData/sampling_dates.csv") |> 
+  mutate(sampling_dates = dmy(as.character(sampling_dates))) 
+for (i in 1:10){
+  campaign_dates[, paste0("dayAgo_", i)] <- campaign_dates[, "sampling_dates"] - i
+}
+
+library(slider)
+k <- meteo_art |> select(c(date, TmeanDay_C)) |> 
+  mutate(before10 = slide_index_dbl(.i = date, .f = mean, before = 10, complete =T))
