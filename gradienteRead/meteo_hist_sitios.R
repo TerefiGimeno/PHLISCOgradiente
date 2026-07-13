@@ -1,6 +1,7 @@
 ##METEO HISTORICA SITIOS
 ### load libraries and sources ####
 library(tidyverse)
+library(slider)
 s.err.na <- function(x) {
   return(sd(x, na.rm =T)/sqrt(length(which(!is.na(x)))))}
 
@@ -25,7 +26,8 @@ meteo_art <- read.csv("gradienteData/meterologia sitios/Artikutza/meteo_art_2000
   arrange(date) |> 
   mutate(Pday_mm = ifelse(is.na(Pday_mm_new), Pday_mm_old, Pday_mm_new)) |> 
   mutate(TmeanDay_C = ifelse(is.na(TmeanDay_C_new), TmeanDay_C_old, TmeanDay_C_new)) |>
-  select(-c(X, Pday_mm_old, Pday_mm_new, TmeanDay_C_old, TmeanDay_C_new))
+  select(-c(X, Pday_mm_old, Pday_mm_new, TmeanDay_C_old, TmeanDay_C_new)) |> 
+  relocate(Pday_mm, .after = date)
 rm(Pday_ART, Tday_ART)
   
 meteo_art_month <- meteo_art %>%
@@ -127,6 +129,8 @@ meteo_ber_years <- meteo_ber %>%
     se_temp_year = s.err.na(TmeanDay_C),
     .groups = "drop")
 
+meteo_ber <- meteo_ber |> select(-c(year, month, day))
+
 meteo_ber_month_hist <- meteo_ber_month %>%
   group_by(month) %>%
   summarise(
@@ -163,7 +167,7 @@ Tms <- read.csv("gradienteData/meterologia sitios/Monte Satiago/TmeanDay_Orduna.
   mutate(date = ymd(YYYYMMDD)) |> 
   select(-c(YYYYMMDD))
 
-meteo_ms <- read.csv('gradienteData/meterologia sitios/Monte Satiago/meteo_ms_2014_2023_daily.csv') |> 
+meteo_msa <- read.csv('gradienteData/meterologia sitios/Monte Satiago/meteo_ms_2014_2023_daily.csv') |> 
   mutate(date = ymd(date)) |> 
   full_join(Tms, by = "date") |> 
   arrange(date) |> 
@@ -177,10 +181,12 @@ meteo_ms <- read.csv('gradienteData/meterologia sitios/Monte Satiago/meteo_ms_20
             se_temp_day,se_temp_max,
             se_temp_min,X,
             precip_day_mm, temp_mean_day,
-            temp_max_day, temp_min_day))
+            temp_max_day, temp_min_day)) |> 
+  relocate(Pday_mm, .after = date) |> 
+  relocate(TmeanDay_C, .after = TminDay_C)
 rm(Pms, Tms)
 
-meteo_ms_month <- meteo_ms %>%
+meteo_msa_month <- meteo_msa %>%
   mutate(
     year = year(date),
     month = month(date)) %>%
@@ -195,7 +201,7 @@ meteo_ms_month <- meteo_ms %>%
     se_temp_min_month = s.err.na(TminDay_C),
     .groups = "drop")
 
-meteo_ms_years <- meteo_ms %>%
+meteo_msa_years <- meteo_msa %>%
   mutate(year = year(date)) %>%
   group_by(year) %>%
   summarise(
@@ -208,7 +214,7 @@ meteo_ms_years <- meteo_ms %>%
     se_temp_min_year = s.err.na(TminDay_C),
     .groups = "drop")
 
-meteo_ms_month_hist <- meteo_ms_month %>%
+meteo_msa_month_hist <- meteo_msa_month %>%
   group_by(month) %>%
   summarise(
     precip_month_mm_hist = mean(precip_month_mm, na.rm = TRUE),
@@ -221,7 +227,7 @@ meteo_ms_month_hist <- meteo_ms_month %>%
     se_temp_min_month_hist = s.err.na(temp_min_month),
     .groups = "drop")
 
-meteo_ms_hist <- meteo_ms_years %>%
+meteo_msa_hist <- meteo_msa_years %>%
   summarise(
     precip_annual_mm_hist = mean(precip_year_mm, na.rm = TRUE),
     se_precip_annual_mm_hist = s.err.na(precip_year_mm),
@@ -257,7 +263,8 @@ meteo_itu <- read.csv('gradienteData/meterologia sitios/Iturrieta/meteo_itu_2014
             rh_min_day,se_rh_min,
             se_temp_day,se_temp_max,
             se_temp_min,X,
-            Pday_mm_new, TmeanDay_C_new))
+            Pday_mm_new, TmeanDay_C_new)) |> 
+  relocate(Pday_mm, .after = date)
 rm(Pday_itu, Tday_itu)
 
 meteo_itu_month <- meteo_itu %>%
@@ -316,7 +323,7 @@ meteo_hist_itu <- meteo_itu_years %>%
 ####5. Montejo de la Sierra ####
 # summarised monthly data from the local meteorological station
 #(at the actual site). Data go from 1994 to 2021
-meteo_hm_month_hist <- read.csv("gradienteData/meterologia sitios/Montejo de la sierra/resumen_mensual_clima_HM.csv") |> 
+meteo_hmo_month_hist <- read.csv("gradienteData/meterologia sitios/Montejo de la sierra/resumen_mensual_clima_HM.csv") |> 
   select(-c(Tmin.abs, Tmax.abs)) |> 
   rename(temp_mean_month_hist = Tmean,
          temp_max_month_hist = Tmax.mean,
@@ -324,7 +331,7 @@ meteo_hm_month_hist <- read.csv("gradienteData/meterologia sitios/Montejo de la 
          precip_month_mm_hist = Pp.mean)
 
 # daily data are not available, retrieve for a short period from hourly data:
-meteo_hm <- read.csv("gradienteData/meterologia sitios/Montejo de la sierra/detailed_climate_montejo.csv") |> 
+meteo_hmo <- read.csv("gradienteData/meterologia sitios/Montejo de la sierra/detailed_climate_montejo.csv") |> 
   group_by(date) |> 
   summarise(Pday_mm = sum(precipitation_mm, na.rm = T),
             TmaxDay_C = max(air_temperature_c, na.rm = T),
@@ -394,12 +401,54 @@ meteo_diu_hist <- meteo_diu_years %>%
     se_temp_min_annual_hist = s.err.na(temp_min_year),
     .groups = "drop")
 
+####7. Calcualte campaign values ####
+
 campaign_dates <- read.csv("gradienteData/sampling_dates.csv") |> 
-  mutate(sampling_dates = dmy(as.character(sampling_dates))) 
-for (i in 1:10){
-  campaign_dates[, paste0("dayAgo_", i)] <- campaign_dates[, "sampling_dates"] - i
+  mutate(date = dmy(as.character(date)))
+
+meteoList <- list()
+meteoList[[1]] <- as.data.frame(meteo_art)
+meteoList[[2]] <- as.data.frame(meteo_ber)
+meteoList[[3]] <- as.data.frame(meteo_diu)
+meteoList[[4]] <- as.data.frame(meteo_itu)
+meteoList[[5]] <- as.data.frame(meteo_hmo)
+meteoList[[6]] <- as.data.frame(meteo_msa)
+
+nameVars <- c(paste0("T", c("max", "min", "mean"), "Day_C"))
+sites <- c(unique(levels(as.factor(campaign_dates$site))))
+results <- list()
+
+for(i in 1:length(meteoList)){
+  df <- subset(meteoList[[i]], date >= as.Date("2023-05-01") & date <= as.Date("2023-10-31"))
+  df <- df %>%
+    arrange(date)
+
+  for (n in 2:10) {
+    
+    # Rolling means
+    for (v in 1:length(nameVars)) {
+      df[[paste0(nameVars[v], "_", n, "d")]] <-
+        slide_index_dbl(
+          .x = df[, nameVars[v]],
+          .i = df$date,
+          .f = ~mean(.x, na.rm = TRUE),
+          .before = n - 1,
+          .complete = TRUE
+        )
+    }
+    
+    # Rolling cumulative precipitation
+    df[[paste0("P_", n, "d")]] <-
+      slide_index_dbl(
+        .x = df$Pday_mm,
+        .i = df$date,
+        .f = ~sum(.x, na.rm = TRUE),
+        .before = n - 1,
+        .complete = TRUE
+      )
+  }
+  
+  results[[i]] <- left_join(subset(campaign_dates, site == sites[i]), df, by = "date")
 }
 
-library(slider)
-k <- meteo_art |> select(c(date, TmeanDay_C)) |> 
-  mutate(before10 = slide_index_dbl(.i = date, .f = mean, before = 10, complete =T))
+summary_meteo_campaigns <- do.call(rbind, results)
