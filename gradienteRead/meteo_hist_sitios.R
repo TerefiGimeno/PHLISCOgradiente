@@ -73,18 +73,31 @@ meteo_art_month_avg <- meteo_art_month %>%
     se_temp_min_month_hist = s.err.na(temp_min_month),
     .groups = "drop" )
 
+meteo_art_hist <- meteo_art_years %>%
+  summarise(
+    precip_annual_mm_hist = mean(precip_year_mm, na.rm = TRUE),
+    se_precip_annual_mm_hist = s.err.na(precip_year_mm),
+    temp_mean_annual_hist = mean(temp_mean_year, na.rm = TRUE),
+    se_temp_annual_hist = s.err.na(se_temp_year),
+    temp_max_annual_hist = mean(temp_max_year, na.rm = TRUE),
+    se_temp_max_annual_hist = s.err.na(temp_max_year),
+    temp_min_annual_hist = mean(temp_min_year, na.rm = TRUE),
+    se_temp_min_annual_hist = s.err.na(temp_min_year),
+    series_start = min(year), series_end = max(year),
+    .groups = "drop") |> 
+  mutate(series_length = series_end - series_start + 1)
+
 ####2. Bertiz ####
 
 Pday_ber <- read.csv("gradienteData/meterologia sitios/Bertiz/datos/precip - copia.csv") |> 
   select(-c(INDICATIVO, NOMBRE, ALTITUD, NOM_PROV)) |> 
-  rename(Year = ANO) |> 
-  rename(Month = MES) |> 
-  pivot_longer(cols = starts_with("P"), names_to = "day_",
+  rename(year = ANO) |> 
+  rename(month = MES) |> 
+  pivot_longer(cols = starts_with("P"), names_to = "day",
                values_to = "Pday_mm", values_drop_na = TRUE) |> 
-  mutate(Day = as.numeric(str_remove_all(day_, "P"))) |> 
+  mutate(day = as.numeric(str_remove_all(day, "P"))) |> 
   mutate(Pday_mm = (ifelse(Pday_mm == -3, 0, Pday_mm)*0.1))
-Pday_ber$date <- make_date(Pday_ber$Year, Pday_ber$Month, Pday_ber$Day)
-  
+
 Tday_ber <- read.csv("gradienteData/meterologia sitios/Bertiz/datos/temp - copia.csv") |> 
   select(-c(INDICATIVO, NOMBRE, ALTITUD, NOM_PROV)) |> 
   rename(year = ANO) |> 
@@ -99,10 +112,8 @@ Tday_ber <- read.csv("gradienteData/meterologia sitios/Bertiz/datos/temp - copia
   rename(TmaxDay_C = TMAX) |> 
   rename(TminDay_C = TMIN) |> 
   mutate(TmeanDay_C = (TmaxDay_C + TminDay_C)*0.5)
-Tday_ber$date <- make_date(Tday_ber$year, Tday_ber$month, Tday_ber$day)
 
-meteo_ber <- full_join(Pday_ber[, c("date", "Pday_mm")], Tday_ber, by = "date") |> 
-  arrange(date)
+meteo_ber <- full_join(Pday_ber, Tday_ber, by = c("year", "month", "day"))
 rm(Tday_ber, Pday_ber)
 
 meteo_ber_month <- meteo_ber %>%
@@ -117,7 +128,13 @@ meteo_ber_month <- meteo_ber %>%
     se_temp_month = s.err.na(TmeanDay_C),
     .groups = "drop")
 
+meteo_ber <- meteo_ber |> 
+  mutate(date = make_date(year, month, day)) |> 
+  select(-c(year, month, day)) |> 
+  relocate(date, .before = Pday_mm)
+
 meteo_ber_years <- meteo_ber %>%
+  mutate(year = year(date)) |> 
   group_by(year) %>%
   summarise(
     precip_year_mm = sum(Pday_mm, na.rm = TRUE),
@@ -128,8 +145,6 @@ meteo_ber_years <- meteo_ber %>%
     temp_mean_year = mean(TmeanDay_C, na.rm = TRUE),
     se_temp_year = s.err.na(TmeanDay_C),
     .groups = "drop")
-
-meteo_ber <- meteo_ber |> select(-c(year, month, day))
 
 meteo_ber_month_hist <- meteo_ber_month %>%
   group_by(month) %>%
@@ -154,7 +169,10 @@ meteo_ber_hist <- meteo_ber_years %>%
     se_temp_max_annual_hist = s.err.na(temp_max_year),
     temp_min_annual_hist = mean(temp_min_year, na.rm = TRUE),
     se_temp_min_annual_hist = s.err.na(temp_min_year),
-    .groups = "drop")
+    se_temp_min_annual_hist = s.err.na(temp_min_year),
+    series_start = min(year), series_end = max(year),
+    .groups = "drop") |> 
+  mutate(series_length = series_end - series_start + 1)
 
 ####3. Monte Santiago ####
 Pms <- read.csv("gradienteData/meterologia sitios/Monte Satiago/Pday_Orduna.csv")[, c(1,4)]
@@ -317,7 +335,9 @@ meteo_hist_itu <- meteo_itu_years %>%
     se_temp_max_annual_hist = s.err.na(temp_max_year),
     temp_min_annual_hist = mean(temp_min_year, na.rm = TRUE),
     se_temp_min_annual_hist = s.err.na(temp_min_year),
-    .groups = "drop")
+    series_start = min(year), series_end = max(year),
+    .groups = "drop") |> 
+  mutate(series_length = series_end - series_start + 1)
 
 
 ####5. Montejo de la Sierra ####
@@ -329,6 +349,11 @@ meteo_hmo_month_hist <- read.csv("gradienteData/meterologia sitios/Montejo de la
          temp_max_month_hist = Tmax.mean,
          temp_min_month_hist = Tmin.mean,
          precip_month_mm_hist = Pp.mean)
+
+meteo_hist_hmo <- meteo_hmo_month_hist |> 
+  summarise(precip_annual_mm_hist = mean(temp_mean_month_hist),
+            temp_mean_annual_hist = mean(temp_max_month_hist),
+            temp_min_annual_hist = mean(temp_min_month_hist))
 
 # daily data are not available, retrieve for a short period from hourly data:
 meteo_hmo <- read.csv("gradienteData/meterologia sitios/Montejo de la sierra/detailed_climate_montejo.csv") |> 
@@ -399,7 +424,9 @@ meteo_diu_hist <- meteo_diu_years %>%
     se_temp_max_annual_hist = s.err.na(temp_max_year),
     temp_min_annual_hist = mean(temp_min_year, na.rm = TRUE),
     se_temp_min_annual_hist = s.err.na(temp_min_year),
-    .groups = "drop")
+    series_start = min(year), series_end = max(year),
+    .groups = "drop") |> 
+  mutate(series_length = series_end - series_start + 1)
 
 ####7. Calcualte campaign values ####
 
