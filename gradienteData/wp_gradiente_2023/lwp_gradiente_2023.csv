@@ -61,3 +61,13 @@ sampling_date,site,campaign,tree,canopy_position,wp_midday_1,wp_midday_2
 20230904,MSA,summer23,MSA4,shade low,-2.56,-2.99
 20230904,MSA,summer23,MSA5,shade low,-2.68,-2.47
 20230904,MSA,summer23,MSA6,shade low,-2.96,-3.01
+20230721,HMO,summer23,HMO1,shade low,-2.6,NA
+20230721,HMO,summer23,HMO2,shade low,-2.05,NA
+20230721,HMO,summer23,HMO3,shade low,-2,NA
+20230721,HMO,summer23,HMO4,shade low,-1.6,NA
+20230721,HMO,summer23,HMO5,shade low,-1.8,NA
+20230927,HMO,late_summer23,HMO1,shade low,-2.39,NA
+20230927,HMO,late_summer23,HMO2,shade low,-1.94,NA
+20230927,HMO,late_summer23,HMO3,shade low,-1.9,NA
+20230927,HMO,late_summer23,HMO4,shade low,-2.93,NA
+20230927,HMO,late_summer23,HMO5,shade low,-2.65,NA

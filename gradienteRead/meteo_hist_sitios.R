@@ -254,8 +254,10 @@ meteo_msa_hist <- meteo_msa_years %>%
     temp_max_annual_hist = mean(temp_max_year, na.rm = TRUE),
     se_temp_max_annual_hist = s.err.na(temp_max_year),
     temp_min_annual_hist = mean(temp_min_year, na.rm = TRUE),
-    se_temp_min_annual_hist = s.err.na(temp_min_year),
-    .groups = "drop")
+    se_temp_min_annual_hist = s.err.na(temp_min_year),,
+    series_start = min(year), series_end = max(year),
+    .groups = "drop") |> 
+  mutate(series_length = series_end - series_start + 1)
 
 ####4. Iturrieta ####
 Pday_itu <- read.csv("gradienteData/meterologia sitios/Iturrieta/Pday_Iturrieta.csv") |> 
@@ -351,7 +353,7 @@ meteo_hmo_month_hist <- read.csv("gradienteData/meterologia sitios/Montejo de la
          precip_month_mm_hist = Pp.mean)
 
 meteo_hist_hmo <- meteo_hmo_month_hist |> 
-  summarise(precip_annual_mm_hist = mean(temp_mean_month_hist),
+  summarise(precip_annual_mm_hist = sum(precip_month_mm_hist),
             temp_mean_annual_hist = mean(temp_max_month_hist),
             temp_min_annual_hist = mean(temp_min_month_hist))
 

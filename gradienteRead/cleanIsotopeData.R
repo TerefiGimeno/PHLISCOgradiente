@@ -12,13 +12,10 @@ d13CtreeRing <- read.csv("gradienteData/isotopes_gradiente_2023/Tabla_S2025-3401
   relocate(d13C_ring23, .after = h_m)
 
 d13CbasePh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_base_phloem.csv") %>% 
-  #full_join(read.csv("gradienteData/alturas_individuos/dbh_height.csv"),
-   #         by = c("site", "tree")) %>%
   filter(sampling_date <= 20230701 | sampling_date >= 20230827) %>%
   mutate(campaign = ifelse(sampling_date <= 20230701, "spring23", "summer23")) %>% 
-  select(-c(d15N_base_phloem)) %>% 
-  relocate(dbh_cm, .after = tree) %>% 
-  relocate(h_m, .after = dbh_cm)
+  select(-c(d15N_base_phloem)) |> 
+  rename(d13C_stem_ph = d13C_base_phloem)
 
 d13Cleaf <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_leaf.csv") %>% 
   mutate(ratio_CN_leaf = C_perc_leaf/N_perc_leaf) %>% 
@@ -30,5 +27,12 @@ d13CstemPh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_stem_phlo
   filter(sampling_date <= 20230701 | sampling_date >= 20230827) %>%
   filter(canopy_position == "shade_low") %>%
   mutate(campaign = ifelse(sampling_date <= 20230701, "spring23", "summer23")) %>% 
-  select(-c(d15N_stem_phloem, canopy_position, canopy_position2, sampling_date))
+  select(-c(d15N_stem_phloem, canopy_position, canopy_position2, sampling_date)) |> 
+  rename(d13C_branch_ph = d13C_stem_phloem)
+
+d13C_gradiente <- full_join(d13CstemPh, d13CbasePh, by = c("site", "tree", "campaign")) |> 
+  full_join(d13Cleaf, by = c("site", "tree", "campaign")) |> 
+  full_join(d13CtreeRing, by = c("site", "tree")) |> 
+  relocate(c(dbh_cm, h_m, d13C_ring23), .after = campaign) |> 
+  relocate(sampling_date, .after = campaign)
 
