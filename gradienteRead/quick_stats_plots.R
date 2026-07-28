@@ -3,8 +3,7 @@ library(cowplot)
 ####0. load and read the data
 library(tidyverse)
 
-# selection of data from the various campaigns and canopy positions is based on
-# the results of the statistical analyses detailed in "quick_stats_plots"
+# selection of data from the various campaigns and canopy positions 
 
 d13Cleaf <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_leaf.csv") %>% 
   select(-c(weight_mg, d15N_leaf)) %>% 

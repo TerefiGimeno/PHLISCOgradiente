@@ -16,31 +16,32 @@ points(wp$wp_midday_2, pch = 19, col = "green")
 # some differences between replicates within leaves, but within range.
 # We do not discard any values.
 
-wp <- wp |> select(-c(wp_midday_1, wp_midday_2, canopy_position))
+wp <- wp[, c("site", "campaign", "tree", "wp_md")]
   
 wp_summ <- wp %>% 
   group_by(site, campaign) %>% 
   summarise(wp_mean = mean(wp_md, na.rm =T), wp_se = sd(wp_md, na.rm = T)/sqrt(length(which(!is.na(wp_md)))))
-write.csv(wp_summ, file = "kk.csv")
+#write.csv(wp_summ, file = "kk.csv")
 
 hist(wp$wp_md)
 model <- lm(wp_md ~ site * campaign, data = wp)
 summary(model)
 anova(lm(wp_md ~ site * campaign, data = wp))
 model_means <- emmeans(model, ~ site * campaign)
-model_means_cld <- cld(model_means, adjust = "tukey", Letters = "letters", alpha = 0.05, sort = FALSE)
-# more negative overall WP in summer
-TukeyHSD(aov(wp_md ~ site, data = wp))
-# less negative WP in BER than in MSA and HMO
-TukeyHSD(aov(wp_md ~ site *campaign, data = wp))
-# significant differnces between summer and spring in BER (the opposite! summer > spring)
-# then ITU, MSA and DIU, but not in ART (no data for spring HMO)
+model_means_cld <- cld(model_means, adjust = "sidak",
+                       Letters = c("a", "b", "c", "d", "e", "f", "g"),
+                       alpha = 0.05, sort = FALSE)
+model_means2 <- emmeans(model, ~ site)
+model_means_cld2 <- cld(model_means2, adjust = "sidak",
+                       Letters = c("a", "b", "c", "d", "e", "f", "g"),
+                       alpha = 0.05, sort = FALSE)
 
-ggplot(wp, aes(x = site, y = wp_md)) +
-  geom_boxplot(position = position_dodge(width = 0.8))
+# more negative overall WP in summer
 
 ggplot(wp, aes(x = site, y = wp_md, fill = campaign)) +
-  geom_boxplot(position = position_dodge(width = 0.8)) +
+  geom_boxplot(
+    position = position_dodge2(width = 0.8, preserve = "single")) +
+  scale_fill_manual(values=c("magenta1", "orange")) +
   labs(
     x = "",
     y = expression(Psi[md]~"(MPa)"),

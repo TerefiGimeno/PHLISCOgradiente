@@ -1,4 +1,9 @@
 library(tidyverse)
+library(emmeans)
+library(multcomp)
+library(multcompView)
+
+####1. Prepare the data####
 
 # selection of data from the various campaigns and canopy positions is based on
 # the results of the statistical analyses detailed in "quick_stats_plots"
@@ -34,5 +39,27 @@ d13C_gradiente <- full_join(d13CstemPh, d13CbasePh, by = c("site", "tree", "camp
   full_join(d13Cleaf, by = c("site", "tree", "campaign")) |> 
   full_join(d13CtreeRing, by = c("site", "tree")) |> 
   relocate(c(dbh_cm, h_m, d13C_ring23), .after = campaign) |> 
-  relocate(sampling_date, .after = campaign)
+  relocate(sampling_date, .after = campaign) |> 
+  mutate(site = factor(site, levels = c("ART", "BER", "ITU", "MSA", "DIU", "HMO")))
 
+####2. Analyses####
+#####2.1. Nitrogen#####
+hist(d13C_gradiente$N_perc_leaf)
+modelN <- lm(N_perc_leaf ~ site * campaign, data = d13C_gradiente)
+plot(modelN)
+summary(modelN)
+anova(modelN)
+modelN_means <- emmeans(modelN, ~ site)
+model_means_cld <- cld(modelN_means, adjust = "sidak",
+                       Letters = c("a", "b", "c", "d", "e", "f", "g"),
+                       alpha = 0.05, sort = FALSE)
+ggplot(d13C_gradiente, aes(x = site, y = N_perc_leaf, fill = campaign)) +
+  geom_boxplot(
+    position = position_dodge2(width = 0.8, preserve = "single")) +
+  scale_fill_manual(values=c("magenta1", "orange")) +
+  labs(
+    x = "",
+    y = expression("["*N[leaf]*"]"~("%")),
+    fill = "Campaign"
+  ) +
+  theme_minimal()

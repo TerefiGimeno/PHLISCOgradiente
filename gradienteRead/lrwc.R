@@ -22,7 +22,7 @@ lrwc_summ <- lrwc %>%
   summarise(lrwc_mean = mean(lrwc, na.rm =T), wp_se = sd(lrwc, na.rm = T)/sqrt(length(which(!is.na(lrwc)))))
 
 hist(lrwc$lrwc)
-summary(lm(lrwc ~ site * campaign, data = lrwc))
+summary(lm(lrwc ~ site * campaign, data = subset(lrwc, site != "ART")))
 anova(lm(lrwc ~ site * campaign, data = lrwc))
 # more negative overall LRWC in SPRING!!!
 TukeyHSD(aov(lrwc ~ site, data = lrwc))
@@ -33,8 +33,11 @@ TukeyHSD(aov(lrwc ~ site *campaign, data = lrwc))
 ggplot(lrwc*100, aes(x = site, y = lrwc)) +
   geom_boxplot(position = position_dodge(width = 0.8))
 
-ggplot(lrwc, aes(x = site, y = lrwc, fill = campaign)) +
-  geom_boxplot(position = position_dodge(width = 0.8)) +
+
+ggplot(lrwc, aes(x = site, y = lrwc*100, fill = campaign)) +
+  geom_boxplot(
+    position = position_dodge2(width = 0.8, preserve = "single")) +
+  scale_fill_manual(values=c("magenta1", "orange")) +
   labs(
     x = "",
     y = "LRWC (%)",
