@@ -1,7 +1,7 @@
-library(tidyverse)
 library(emmeans)
 library(multcomp)
 library(multcompView)
+library(tidyverse)
 
 ####1. Prepare the data####
 
@@ -26,7 +26,7 @@ d13Cleaf <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_leaf.csv") 
   mutate(ratio_CN_leaf = C_perc_leaf/N_perc_leaf) %>% 
   filter(canopy_position == "shade_low") %>% 
   filter(sampling_date <= 20230731 | sampling_date >= 20230827) %>% 
-  select(-c(weight_mg, d15N_leaf, canopy_position, canopy_position2, sampling_date))
+  select(-c(weight_mg, canopy_position, canopy_position2, sampling_date))
 
 d13CstemPh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_stem_phloem.csv") %>%
   filter(sampling_date <= 20230701 | sampling_date >= 20230827) %>%
@@ -43,6 +43,26 @@ d13C_gradiente <- full_join(d13CstemPh, d13CbasePh, by = c("site", "tree", "camp
   mutate(site = factor(site, levels = c("ART", "BER", "ITU", "MSA", "DIU", "HMO")))
 
 ####2. Analyses####
+#####2.1. d15N#####
+hist(d13C_gradiente$d15N_leaf)
+modeld15N <- lm(d15N_leaf ~ site * campaign, data = d13C_gradiente)
+plot(modeld15N)
+summary(modeld15N)
+anova(modeld15N)
+modeld15N_means <- emmeans(modeld15N, ~ site)
+model_means_cld <- cld(modeld15N_means, adjust = "sidak",
+                       Letters = c("a", "b", "c", "d", "e", "f", "g"),
+                       alpha = 0.05, sort = FALSE)
+ggplot(d13C_gradiente, aes(x = site, y = d15N_leaf, fill = campaign)) +
+  geom_boxplot(
+    position = position_dodge2(width = 0.8, preserve = "single")) +
+  scale_fill_manual(values=c("magenta1", "orange")) +
+  labs(
+    x = "",
+    y = expression("Leaf" * delta^15 * "N (\u2030)"),
+    fill = "Campaign"
+  ) +
+  theme_minimal()
 #####2.1. Nitrogen#####
 hist(d13C_gradiente$N_perc_leaf)
 modelN <- lm(N_perc_leaf ~ site * campaign, data = d13C_gradiente)
@@ -60,6 +80,27 @@ ggplot(d13C_gradiente, aes(x = site, y = N_perc_leaf, fill = campaign)) +
   labs(
     x = "",
     y = expression("["*N[leaf]*"]"~("%")),
+    fill = "Campaign"
+  ) +
+  theme_minimal()
+
+#####2.1. C:N#####
+hist(d13C_gradiente$ratio_CN_leaf)
+modelratio <- lm(ratio_CN_leaf ~ site * campaign, data = d13C_gradiente)
+plot(modelratio)
+summary(modelratio)
+anova(modelratio)
+modelratio_means <- emmeans(modelratio, ~ site)
+model_means_cld <- cld(modelratio_means, adjust = "sidak",
+                       Letters = c("a", "b", "c", "d", "e", "f", "g"),
+                       alpha = 0.05, sort = FALSE)
+ggplot(d13C_gradiente, aes(x = site, y = ratio_CN_leaf, fill = campaign)) +
+  geom_boxplot(
+    position = position_dodge2(width = 0.8, preserve = "single")) +
+  scale_fill_manual(values=c("magenta1", "orange")) +
+  labs(
+    x = "",
+    y = expression("["*C[leaf]*"]/["*N[leaf]*"]"),
     fill = "Campaign"
   ) +
   theme_minimal()
