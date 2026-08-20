@@ -32,3 +32,5 @@ ggplot(sla, aes(x = site, y = sla, fill = campaign)) +
     fill = "Campaign"
   ) +
   theme_minimal()
+
+wd <- 

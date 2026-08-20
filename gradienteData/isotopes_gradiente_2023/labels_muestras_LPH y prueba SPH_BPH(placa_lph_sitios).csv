@@ -1,0 +1,34 @@
+id_lab;season;site;id_samples;ug_c_total;pocillo;Ampl  44;d13CVPDB
+lph1;spring;monte santiago;1 and 2 sun;13,14;a1;4091;-24,8653274
+lph2;spring;monte santiago;1 and 2 shade ;11,94;a2;3425;-26,05564289
+lph3;spring;monte santiago;5 and 6 sun;9,29;a3;1916;-25,339977
+lph4;spring;monte santiago;5 and 6 shade;12,48;a4;2863;-25,69589865
+lph5;spring;monte santiago;3 sun;22,43;a5;3635;-24,5857861
+lph6;spring;monte santiago;3 shade;15,26;a6;2412;-25,82999944
+lph7;spring;monte santiago;4 sun ;13,27;a7;1984;-26,03367131
+lph8;spring;monte santiago;4 shade;49,64;a8;9332;-28,09862181
+lph9;spring;monte santiago;1 and 2 shade low ;14,47;a9;3179;-26,17483004
+lph10;spring;monte santiago;5 and 6 shade low;11,28;a10;2390;-25,68581588
+lph11;spring;monte santiago;3 shade low;13,01;a11;1651;-26,83827605
+lph12;summer;monte santiago;all sun;17,50;a12;11658;-27,42105993
+lph13;summer;monte santiago;all shade;23,20;b1;10327;-27,47752342
+lph14;summer;monte santiago;all shade low;20,86;b2;9958;-27,61868215
+lph15;late summer;monte santiago;all shade low;45,81;b3;9462;-28,49285797
+lph16;spring;artikutza;all;8,90;b4;8079;-29,54852358
+lph17;summer;artikutza;all;16,06;b5;11036;-29,7027899
+lph18;spring;Iturrieta;all;20,70;b6;7891;-28,46664278
+lph19;summer;Iturrieta;all;18,29;b7;12288;-28,53318903
+lph20;spring;Bertiz;1 and 3;12,48;b8;4028;-29,48197732
+lph21;spring;Bertiz;4 and 5;11,81;b9;3611;-28,56747044
+lph22;spring;Bertiz;2;16,72;b10;2813;-28,07442317
+lph23;spring;Bertiz;6;18,32;b11;4353;-30,69190926
+lph24;summer;Bertiz;1-2-3 and 6 ;11,72;b12;8911;-28,46059312
+lph25;summer;Bertiz;4;9,69;c1;3351;-29,52432494
+lph26;summer;Bertiz;5;9,56;c2;3294;-29,73505475
+lph27;spring;Diustes;1-2-5 and 6;14,20;c3;4092;-25,75639524
+lph28;spring;Diustes;3;13,01;c4;1345;-27,19923908
+lph29;spring;Diustes;4;58,00;c5;2941;-26,86953262
+lph30;summer;Diustes;1 and 3;10,68;c6;6674;-27,53297863
+lph31;summer;Diustes;5 and 6;11,33;c7;5574;-27,74169189
+lph32;summer;Diustes;2;14,75;c8;3879;-27,22242944
+lph33;summer;Diustes;4;9,60;c9;3575;-27,71749325
