@@ -17,11 +17,11 @@ d13CtreeRing <- read.csv("gradienteData/isotopes_gradiente_2023/Tabla_S2025-3401
   rename(d13C_ring23 = d13C_permil) %>% 
   relocate(d13C_ring23, .after = h_m)
 
-d13CbasePh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_base_phloem.csv") %>% 
+d13CtrunkPh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_base_phloem.csv") %>% 
   filter(sampling_date <= 20230701 | sampling_date >= 20230827) %>%
   mutate(campaign = ifelse(sampling_date <= 20230701, "spring23", "summer23")) %>% 
   select(-c(d15N_base_phloem)) |> 
-  rename(d13C_stem_ph = d13C_base_phloem)
+  rename(d13C_trunk_ph = d13C_base_phloem)
 
 d13Cleaf <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_leaf.csv") %>% 
   mutate(ratio_CN_leaf = C_perc_leaf/N_perc_leaf) %>% 
@@ -29,20 +29,27 @@ d13Cleaf <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_leaf.csv") 
   filter(sampling_date <= 20230731 | sampling_date >= 20230827) %>% 
   select(-c(weight_mg, canopy_position, canopy_position2, sampling_date))
 
-d13CstemPh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_stem_phloem.csv") %>%
+d13CbranchPh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_stem_phloem.csv") %>%
   filter(sampling_date <= 20230701 | sampling_date >= 20230827) %>%
   filter(canopy_position == "shade_low") %>%
   mutate(campaign = ifelse(sampling_date <= 20230701, "spring23", "summer23")) %>% 
   select(-c(d15N_stem_phloem, canopy_position, canopy_position2, sampling_date)) |> 
   rename(d13C_branch_ph = d13C_stem_phloem)
 
-d13C_gradiente <- full_join(d13CstemPh, d13CbasePh, by = c("site", "tree", "campaign")) |> 
-  full_join(d13Cleaf, by = c("site", "tree", "campaign")) |> 
+d13CleafPh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_leaf_phloem.csv") |> 
+  filter(sampling_date <= 20230701 | sampling_date >= 20230827) %>%
+  mutate(campaign = ifelse(sampling_date <= 20230701, "spring23", "summer23")) %>% 
+  select(-c(sampling_date))
+
+d13C_gradiente <- full_join(d13CbranchPh, d13CtrunkPh, by = c("site", "tree", "campaign")) |> 
+  full_join(d13Cleaf, by = c("site", "tree", "campaign")) |>
+  full_join(d13CleafPh, by = c("site", "tree", "campaign")) |> 
   full_join(d13CtreeRing, by = c("site", "tree")) |> 
   relocate(c(dbh_cm, h_m, d13C_ring23), .after = campaign) |> 
   relocate(sampling_date, .after = campaign) |> 
   mutate(site = factor(site, levels = c("ART", "BER", "ITU", "MSA", "DIU", "HMO"))) |> 
-  mutate(campaign = ifelse(campaign == "spring23", "Spring", "Summer"))
+  # remove a value of tree ring d13C where we have no other records
+  filter(tree != "MSA7")
 
 ####2. Analyses####
 #####2.1. Leaf stoichiometry#####
@@ -259,6 +266,34 @@ ggplot(d13C_gradiente, aes(x = site, y = d13C_ring23, fill = "#06D6A0")) +
     axis.text.y  = element_text(size = 12),
     )
 
+####3. Correlations####
 
+summary(lm(d13C_branch_ph ~ d13C_leaf_ph * campaign, data = d13C_gradiente))
+ggplot(d13C_gradiente, aes(x = d13C_leaf_ph, y = d13C_branch_ph)) +
+  geom_smooth(aes(group = campaign, color = campaign),
+    method = "lm", fill = "lightgrey", se = TRUE) +
+  scale_color_manual(values=c("spring23" = "magenta1", "summer23" = "orange")) +
+  geom_abline(slope = 1, interecept = 0, lintype = "dashed", color = "black") +
+  geom_point(aes(fill = campaign, shape = site), size = 2.5, alpha = 0.5) +
+  scale_shape_manual(values = c("ART" = 21, "BER" = 22, "ITU" = 23,
+                                "MSA" = 24, "DIU" = 25)) +
+  scale_fill_manual(values=c("magenta1", "orange")) +
+  ylim(-34.5, -25.5) +
+  xlim(-34.5, -25.5) +
+  labs(
+    x = expression(delta^13*C[leaf~phloem]~"(\u2030)"),
+    y = expression(delta^13*C[branch~phloem]~"(\u2030)"),
+  ) +
+  theme(
+    panel.background = element_blank(),
+    plot.background  = element_blank(),
+    panel.border = element_rect(color = "black",
+                                fill = NA,
+                                linewidth = .5),
+    axis.line = element_blank(),
+    axis.title.y = element_text(size = 15),
+    axis.text.x  = element_text(size = 13),
+    axis.text.y  = element_text(size = 12),
+  )
 
-
+  
