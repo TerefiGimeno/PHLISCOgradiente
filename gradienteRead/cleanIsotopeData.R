@@ -273,7 +273,7 @@ ggplot(d13C_gradiente, aes(x = d13C_leaf_ph, y = d13C_branch_ph)) +
   geom_smooth(aes(group = campaign, color = campaign),
     method = "lm", fill = "lightgrey", se = TRUE) +
   scale_color_manual(values=c("spring23" = "magenta1", "summer23" = "orange")) +
-  geom_abline(slope = 1, interecept = 0, lintype = "dashed", color = "black") +
+  geom_abline(slope = 1, interecept = 0, linetype = "dashed", color = "black") +
   geom_point(aes(fill = campaign, shape = site), size = 2.5, alpha = 0.5) +
   scale_shape_manual(values = c("ART" = 21, "BER" = 22, "ITU" = 23,
                                 "MSA" = 24, "DIU" = 25)) +
