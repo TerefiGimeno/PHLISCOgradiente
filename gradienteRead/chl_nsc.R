@@ -116,7 +116,7 @@ nsc <- read.csv("gradienteData/sugars_gradiente_2023/nsc_grad_2023_updated.csv")
   mutate(surface_cm2 = ifelse(sample_type == "BPH", pi*(0.25^2)*5, surface_cm2)) |>
   mutate(surface_cm2 = ifelse(sample_type == "LPH", la_cm2, surface_cm2)) |> 
   mutate(volume_mL = ifelse(sample_type == "LPH", 0.5, 10)) |> 
-  mutate(umol_suc_cm2 = umol_suc_ml * volume_mL/surface_cm2) |> 
+  mutate(umol_suc_m2 = umol_suc_ml * volume_mL/(surface_cm2/10000)) |> 
   mutate(umol_suc_g = umol_suc_ml * volume_mL/dw_lph_g) |> 
   filter(canopy_position != "sun") |>
   filter(canopy_position != "shade") |>
@@ -174,19 +174,19 @@ trunkSuc <- ggplot(subset(nsc, site == "MSA" & sample_type == "BPH"),
 
 cowplot::plot_grid(leafSuc, branchSuc, trunkSuc, ncol = 3)
 
-summary(aov(umol_suc_cm2 ~ campaign,
+summary(aov(umol_suc_m2 ~ campaign,
             data = subset(nsc, site == "HMO" & sample_type == "BPH")))
-TukeyHSD(aov(umol_suc_ml ~ campaign,
+TukeyHSD(aov(umol_suc_m2 ~ campaign,
              data = subset(nsc, site == "HMO" & sample_type == "BPH")))
 
 ggplot(subset(nsc, site == "HMO" & sample_type == "BPH"),
-       aes(x = campaign, y = umol_suc_ml)) +
+       aes(x = campaign, y = umol_suc_m2*0.001)) +
   geom_boxplot(
     position = position_dodge2(width = 0.8, preserve = "single")) +
-  ylim(0, 2) +
+  #ylim(0, 2) +
   labs(
     x = "",
-    y = expression("[Sucrose]"[stem]~"("*mu*mol~ml^-1*")"),
+    y = expression("[Sucrose]"[stem]~"("*mmol~m^-2*")"),
   ) +
   theme_minimal()+
   guides(fill = FALSE)
@@ -212,35 +212,35 @@ nsc <- nsc |>
   rename(tree = id_plant)
 
 nsc <- nsc[, c("site", "campaign", "tree", "sample_type",
-               "umol_suc_ml", "umol_suc_cm2", "umol_suc_g")]
+               "umol_suc_ml", "umol_suc_m2", "umol_suc_g")]
 nsc <- nsc |> 
-  pivot_wider(names_from = sample_type, values_from = c(umol_suc_ml, umol_suc_cm2, umol_suc_g))
+  pivot_wider(names_from = sample_type, values_from = c(umol_suc_ml, umol_suc_m2, umol_suc_g))
 nsc <- nsc[, c(1:10)] |> 
   rename(leafSuc_umol_ml = umol_suc_ml_LPH) |> 
   rename(branchSuc_umol_ml = umol_suc_ml_SPH) |> 
   rename(trunkSuc_umol_ml = umol_suc_ml_BPH) |>
   rename(leafSuc_umol_g = umol_suc_g_LPH) |> 
-  rename(leafSuc_umol_cm2 = umol_suc_cm2_LPH) |> 
-  rename(branchSuc_umol_cm2 = umol_suc_cm2_SPH) |> 
-  rename(trunkSuc_umol_cm2 = umol_suc_cm2_BPH)
+  rename(leafSuc_umol_m2 = umol_suc_m2_LPH) |> 
+  rename(branchSuc_umol_m2 = umol_suc_m2_SPH) |> 
+  rename(trunkSuc_umol_m2 = umol_suc_m2_BPH)
 
 hist(nsc$leafSuc_umol_g)
 subset(nsc, leafSuc_umol_g >= 0.7)
 # there is an outlier that looks like a a measurement error -> discard
 nsc[which(nsc$leafSuc_umol_ml >= 0.8),
-    c("leafSuc_umol_ml", "leafSuc_umol_cm2", "leafSuc_umol_g")] <- NA
+    c("leafSuc_umol_ml", "leafSuc_umol_m2", "leafSuc_umol_g")] <- NA
 hist(nsc$leafSuc_umol_g)
 hist(log(nsc$leafSuc_umol_g))
-hist(nsc$leafSuc_umol_cm2)
-hist(log(nsc$leafSuc_umol_cm2))
-hist(nsc$branchSuc_umol_cm2)
-hist(log(nsc$branchSuc_umol_cm2))
-hist(nsc$trunkSuc_umol_cm2)
+hist(nsc$leafSuc_umol_m2)
+hist(log(nsc$leafSuc_umol_m2))
+hist(nsc$branchSuc_umol_m2)
+hist(log(nsc$branchSuc_umol_m2))
+hist(nsc$trunkSuc_umol_m2/1000)
 
-summary(aov(log(leafSuc_umol_cm2) ~ site * campaign, data = nsc))
+summary(aov(log(leafSuc_umol_m2) ~ site * campaign, data = nsc))
 summary(aov(log(leafSuc_umol_g) ~ site * campaign, data = nsc))
 plot(aov(log(leafSuc_umol_cm2) ~ site * campaign, data = nsc))
-model_means_leaf <- emmeans(lm(log(leafSuc_umol_cm2) ~ site * campaign, data = nsc),
+model_means_leaf <- emmeans(lm(log(leafSuc_umol_m2) ~ site * campaign, data = nsc),
                               ~ site * campaign)
 model_means_cld <- cld(model_means_leaf, adjust = "sidak",
                        Letters = c("a", "b", "c", "d", "e", "f", "g", "h", "i"),
@@ -262,40 +262,40 @@ model_means_cld <- cld(model_means_trunk, adjust = "sidak",
                        Letters = c("a", "b", "c", "d", "e", "f", "g", "h", "i"),
                        alpha = 0.05, sort = FALSE)
 
-leafSuc <- ggplot(nsc, aes(x = site, y = log(leafSuc_umol_cm2), fill = campaign)) +
+leafSuc <- ggplot(nsc, aes(x = site, y = leafSuc_umol_m2, fill = campaign)) +
   geom_boxplot(
     position = position_dodge2(width = 0.8, preserve = "single")) +
   #ylim(-0.022, 1.61) +
   scale_fill_manual(values=c("magenta1", "orange")) +
   labs(
     x = "",
-    y = expression("Log ([Sucrose]"[leaf]~"("*mu*mol~cm^-2*"))"),
+    y = expression("[Sucrose]"[leaf]~"("*mu*mol~m^-2*")"),
     fill = "Campaign"
   ) +
   theme_minimal()+
   guides(fill = FALSE)
 
-branchSuc <- ggplot(nsc, aes(x = site, y = log(branchSuc_umol_cm2), fill = campaign)) +
+branchSuc <- ggplot(nsc, aes(x = site, y = log(branchSuc_umol_m2), fill = campaign)) +
   geom_boxplot(
     position = position_dodge2(width = 0.8, preserve = "single")) +
   #ylim(-0.022, 1.61) +
   scale_fill_manual(values=c("magenta1", "orange")) +
   labs(
     x = "",
-    y = expression("Log ([Sucrose]"[branch]~"("*mu*mol~cm^-2*"))"),
+    y = expression("[Sucrose]"[branch]~"("*mu*mol~m^-2*")"),
     fill = "Campaign"
   ) +
   theme_minimal()+
   guides(fill = FALSE)
 
-trunkSuc <- ggplot(nsc, aes(x = site, y = trunkSuc_umol_cm2, fill = campaign)) +
+trunkSuc <- ggplot(nsc, aes(x = site, y = trunkSuc_umol_m2/1000, fill = campaign)) +
   geom_boxplot(
     position = position_dodge2(width = 0.8, preserve = "single")) +
   #ylim(-0.022, 1.61) +
   scale_fill_manual(values=c("magenta1", "orange")) +
   labs(
     x = "",
-    y = expression("[Sucrose]"[trunk]~"("*mu*mol~cm^-2*")"),
+    y = expression("[Sucrose]"[trunk]~"("*bold(m)*mol~m^-2*")"),
     fill = "Campaign"
   ) +
   theme_minimal()+

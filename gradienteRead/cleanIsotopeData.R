@@ -116,6 +116,36 @@ ggplot(d13C_gradiente, aes(x = site, y = ratio_CN_leaf, fill = campaign)) +
   theme_minimal()
 
 #####2.2. d13C#####
+######2.2.0 Leaf phloem d13C######
+fig_13C_leaf_ph <- ggplot(d13C_gradiente, aes(x = site, y = d13C_leaf_ph, fill = campaign)) +
+  geom_boxplot(
+    position = position_dodge2(width = 0.8, preserve = "single")) +
+  scale_fill_manual(values=c("#EF476F", "#FFD166")) +
+  ylim(-35, -24)+
+  labs(
+    x = "",
+    y = expression("Leaf " * delta^13*C[ph]~"(\u2030)"),
+    fill = "Campaign"
+  ) +
+  theme(
+    panel.background = element_blank(),
+    plot.background  = element_blank(),
+    panel.border = element_rect(color = "black",
+                                fill = NA,
+                                linewidth = .5),
+    axis.line = element_blank(),
+    axis.title.y = element_text(size = 15),
+    axis.text.x  = element_text(size = 13),
+    axis.text.y  = element_text(size = 12),
+    legend.title = element_blank(),
+    legend.text = element_text(size = 11),
+    legend.position = c(0.98, 0.05),
+    legend.justification = c("right", "bottom"),
+    legend.background = element_blank(),
+    legend.key = element_blank(),
+    panel.grid = element_blank()
+  )
+
 ######2.2.1 Leaf d13C######
 hist(d13C_gradiente$d13C_leaf)
 modeld13C_leaf <- lm(d13C_leaf ~ site * campaign, data = d13C_gradiente)
@@ -168,14 +198,14 @@ modeld13C_branch_ph_means <- emmeans(modeld13C_branch_ph, ~ site * campaign)
 model_means_cld <- cld(modeld13C_branch_ph_means, adjust = "sidak",
                        Letters = c("a", "b", "c", "d", "e", "f", "g"),
                        alpha = 0.05, sort = FALSE)
-ggplot(d13C_gradiente, aes(x = site, y = d13C_branch_ph, fill = campaign)) +
+fig_13C_branch_ph <- ggplot(d13C_gradiente, aes(x = site, y = d13C_branch_ph, fill = campaign)) +
   geom_boxplot(
     position = position_dodge2(width = 0.8, preserve = "single")) +
   scale_fill_manual(values=c("#EF476F", "#FFD166")) +
-  ylim(-35, -26)+
+  ylim(-35, -24)+
   labs(
     x = "",
-    y = expression("Phloem " * delta^13*C[branch]~"(\u2030)"),
+    y = expression("Branch " * delta^13*C[ph]~"(\u2030)"),
     fill = "Campaign"
   ) +
   theme(
@@ -197,24 +227,24 @@ ggplot(d13C_gradiente, aes(x = site, y = d13C_branch_ph, fill = campaign)) +
     panel.grid = element_blank()
   )
 
-######2.2.3 Stem phloem d13C######
-hist(d13C_gradiente$d13C_stem_ph)
-modeld13C_stem_ph <- lm(d13C_stem_ph ~ site * campaign, data = d13C_gradiente)
-plot(modeld13C_stem_ph)
-summary(modeld13C_stem_ph)
-anova(modeld13C_stem_ph)
-modeld13C_stem_ph_means <- emmeans(modeld13C_stem_ph, ~ site * campaign)
-model_means_cld <- cld(modeld13C_stem_ph_means, adjust = "sidak",
+######2.2.3 Trunk phloem d13C######
+hist(d13C_gradiente$d13C_trunk_ph)
+modeld13C_trunk_ph <- lm(d13C_trunk_ph ~ site * campaign, data = d13C_gradiente)
+plot(modeld13C_trunk_ph)
+summary(modeld13C_trunk_ph)
+anova(modeld13C_trunk_ph)
+modeld13C_trunk_ph_means <- emmeans(modeld13C_trunk_ph, ~ site * campaign)
+model_means_cld <- cld(modeld13C_trunk_ph_means, adjust = "sidak",
                        Letters = c("a", "b", "c", "d", "e", "f", "g"),
                        alpha = 0.05, sort = FALSE)
-ggplot(d13C_gradiente, aes(x = site, y = d13C_stem_ph, fill = campaign)) +
+fig_13C_trunk_ph <- ggplot(d13C_gradiente, aes(x = site, y = d13C_trunk_ph, fill = campaign)) +
   geom_boxplot(
     position = position_dodge2(width = 0.8, preserve = "single")) +
   scale_fill_manual(values=c("#EF476F", "#FFD166")) +
   ylim(-35, -24)+
   labs(
     x = "",
-    y = expression("Phloem " * delta^13*C[stem]~"(\u2030)"),
+    y = expression("Trunk " * delta^13*C[ph]~"(\u2030)"),
     fill = "Campaign"
   ) +
   theme(
@@ -235,6 +265,8 @@ ggplot(d13C_gradiente, aes(x = site, y = d13C_stem_ph, fill = campaign)) +
     legend.key = element_blank(),
     panel.grid = element_blank()
   )
+
+cowplot::plot_grid(fig_13C_leaf_ph, fig_13C_branchh_ph, fig_13C_trunk_ph, ncol = 1)
 
 ######2.2.4 Ring cellulose d13C######
 hist(d13C_gradiente$d13C_ring23)
@@ -249,7 +281,12 @@ model_means_cld <- cld(modeld13C_ring_means, adjust = "sidak",
 ggplot(d13C_gradiente, aes(x = site, y = d13C_ring23, fill = "#06D6A0")) +
   geom_boxplot(
     position = position_dodge2(width = 0.8, preserve = "single")) +
-  ylim(-35, -24.3)+
+  geom_signif(y_position=c(-24.5, -24.5, -23.5), xmin=c(0.65, 3.5, 0.65), 
+              xmax=c(3.45, 6.5, 6.5), annotation=c("ns", "ns", "*"),
+              tip_length=0.06, vjust = -0.2, textsize = 6, color="grey40") +
+  geom_abline(slope = 0, intercept = -32.90764, linetype = "dashed", color = "black") +
+  geom_abline(slope = 0, intercept = -29.91724, linetype = "dashed", color = "black") +
+  ylim(-35, -23)+
   labs(
     x = "",
     y = expression("Cellulose " * delta^13*C[ring]~"(\u2030)"),
@@ -268,22 +305,61 @@ ggplot(d13C_gradiente, aes(x = site, y = d13C_ring23, fill = "#06D6A0")) +
 
 ####3. Correlations####
 
+d13C_summary <- d13C_gradiente %>%
+  group_by(campaign, site) %>%
+  summarise(
+    d13C_leaf_mean = mean(d13C_leaf, na.rm = TRUE),
+    d13C_leaf_ph_mean = mean(d13C_leaf_ph, na.rm = TRUE),
+    d13C_branch_ph_mean = mean(d13C_branch_ph, na.rm = TRUE),
+    d13C_trunk_ph_mean = mean(d13C_trunk_ph, na.rm = TRUE),
+    d13C_leaf_se = sd(d13C_leaf, na.rm = TRUE) / sqrt(sum(!is.na(d13C_leaf))),
+    d13C_leaf_ph_se = sd(d13C_leaf_ph, na.rm = TRUE) / sqrt(sum(!is.na(d13C_leaf_ph))),
+    d13C_branch_ph_se = sd(d13C_branch_ph, na.rm = TRUE) / sqrt(sum(!is.na(d13C_branch_ph))),
+    d13C_trunk_ph_se = sd(d13C_trunk_ph, na.rm = TRUE) / sqrt(sum(!is.na(d13C_trunk_ph))),
+    .groups = "drop"
+  )
+
+#####3.1 Leaf phloem with branch phloem#####
 summary(lm(d13C_branch_ph ~ d13C_leaf_ph * campaign, data = d13C_gradiente))
+
 ggplot(d13C_gradiente, aes(x = d13C_leaf_ph, y = d13C_branch_ph)) +
   geom_smooth(aes(group = campaign, color = campaign),
-    method = "lm", fill = "lightgrey", se = TRUE) +
+    method = "lm", se = FALSE) +
   scale_color_manual(values=c("spring23" = "magenta1", "summer23" = "orange")) +
-  geom_abline(slope = 1, interecept = 0, linetype = "dashed", color = "black") +
-  geom_point(aes(fill = campaign, shape = site), size = 2.5, alpha = 0.5) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "black") +
+  geom_point(aes(fill = campaign, shape = site), size = 2, alpha = 0.5) +
+  geom_errorbar(data = d13C_summary, aes(x = d13C_leaf_ph_mean, y = d13C_branch_ph_mean,
+      xmin = d13C_leaf_ph_mean - d13C_leaf_ph_se,
+      xmax = d13C_leaf_ph_mean + d13C_leaf_ph_se
+    ),
+    width = 0,
+    linewidth = 0.7,
+    color = "black"
+  ) +
+  geom_errorbar(data = d13C_summary, aes(x = d13C_leaf_ph_mean, y = d13C_branch_ph_mean,
+      ymin = d13C_branch_ph_mean - d13C_branch_ph_se,
+      ymax = d13C_branch_ph_mean + d13C_branch_ph_se
+    ),
+    width = 0,
+    linewidth = 0.7,
+    color = "black"
+  ) +
+  geom_point(data = d13C_summary, aes(x = d13C_leaf_ph_mean, y = d13C_branch_ph_mean,
+      shape = site, fill = campaign),
+    size = 4, color = "black", stroke = 0.75
+  ) +
   scale_shape_manual(values = c("ART" = 21, "BER" = 22, "ITU" = 23,
                                 "MSA" = 24, "DIU" = 25)) +
-  scale_fill_manual(values=c("magenta1", "orange")) +
-  ylim(-34.5, -25.5) +
-  xlim(-34.5, -25.5) +
+  scale_fill_manual(values=c("spring23" = "magenta1", "summer23" = "orange")) +
+  ylim(-33, -25.5) +
+  xlim(-33, -25.5) +
   labs(
     x = expression(delta^13*C[leaf~phloem]~"(\u2030)"),
     y = expression(delta^13*C[branch~phloem]~"(\u2030)"),
   ) +
+  guides(fill = "none", color = guide_legend(order = 2, override.aes = list(linewidth = 1.2)),
+    shape = guide_legend(order = 1, override.aes =
+                           list(fill = NA, color = "black", size = 4))) +
   theme(
     panel.background = element_blank(),
     plot.background  = element_blank(),
@@ -292,8 +368,198 @@ ggplot(d13C_gradiente, aes(x = d13C_leaf_ph, y = d13C_branch_ph)) +
                                 linewidth = .5),
     axis.line = element_blank(),
     axis.title.y = element_text(size = 15),
-    axis.text.x  = element_text(size = 13),
-    axis.text.y  = element_text(size = 12),
+    axis.title.x = element_text(size = 15),
+    axis.text.x  = element_text(size = 12.5),
+    axis.text.y  = element_text(size = 12.5),
+    legend.position = c(0.15, 0.75),
+    legend.background = element_rect(fill = "white", color = NA),
+    legend.key = element_blank(),
+    legend.text = element_text(size = 11),
+    legend.spacing.y = unit(2, "pt")
   )
 
-  
+#####3.1 Leaf phloem with leaf bulk#####
+summary(lm(d13C_leaf ~ d13C_leaf_ph * campaign, data = d13C_gradiente))
+
+ggplot(d13C_gradiente, aes(x = d13C_leaf_ph, y = d13C_leaf)) +
+  geom_smooth(aes(group = campaign, color = campaign),
+              method = "lm", se = FALSE) +
+  scale_color_manual(values=c("spring23" = "magenta1", "summer23" = "orange")) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "black") +
+  geom_point(aes(fill = campaign, shape = site), size = 2, alpha = 0.5) +
+  geom_errorbar(data = d13C_summary, aes(x = d13C_leaf_ph_mean, y = d13C_leaf_mean,
+                                         xmin = d13C_leaf_ph_mean - d13C_leaf_ph_se,
+                                         xmax = d13C_leaf_ph_mean + d13C_leaf_ph_se
+  ),
+  width = 0,
+  linewidth = 0.7,
+  color = "black"
+  ) +
+  geom_errorbar(data = d13C_summary, aes(x = d13C_leaf_ph_mean, y = d13C_leaf_mean,
+                                         ymin = d13C_leaf_mean - d13C_leaf_se,
+                                         ymax = d13C_leaf_mean + d13C_leaf_se
+  ),
+  width = 0,
+  linewidth = 0.7,
+  color = "black"
+  ) +
+  geom_point(data = d13C_summary, aes(x = d13C_leaf_ph_mean, y = d13C_leaf_mean,
+                                      shape = site, fill = campaign),
+             size = 4, color = "black", stroke = 0.75
+  ) +
+  scale_shape_manual(values = c("ART" = 21, "BER" = 22, "ITU" = 23,
+                                "MSA" = 24, "DIU" = 25)) +
+  scale_fill_manual(values=c("spring23" = "magenta1", "summer23" = "orange")) +
+  ylim(-33, -25.5) +
+  xlim(-33, -25.5) +
+  labs(
+    x = expression(delta^13*C[leaf~phloem]~"(\u2030)"),
+    y = expression(delta^13*C[leaf~bulk]~"(\u2030)"),
+  ) +
+  guides(fill = "none", color = guide_legend(order = 2, override.aes = list(linewidth = 1.2)),
+         shape = guide_legend(order = 1, override.aes =
+                                list(fill = NA, color = "black", size = 4))) +
+  theme(
+    panel.background = element_blank(),
+    plot.background  = element_blank(),
+    panel.border = element_rect(color = "black",
+                                fill = NA,
+                                linewidth = .5),
+    axis.line = element_blank(),
+    axis.title.y = element_text(size = 15),
+    axis.title.x = element_text(size = 15),
+    axis.text.x  = element_text(size = 12.5),
+    axis.text.y  = element_text(size = 12.5),
+    legend.position = c(0.15, 0.75),
+    legend.background = element_rect(fill = "white", color = NA),
+    legend.key = element_blank(),
+    legend.text = element_text(size = 11),
+    legend.spacing.y = unit(2, "pt")
+  )
+
+#####3.2 Leaf bulk with branch phloem#####
+model <- lme4::lmer(d13C_leaf ~ d13C_branch_ph * campaign + (1|site), data = d13C_gradiente)
+options(contrasts = c("contr.helmert", "contr.poly"))
+car::Anova(model)
+MuMIn::r.squaredGLMM(model)
+confint(model)
+
+
+ggplot(d13C_gradiente, aes(x = d13C_leaf, y = d13C_branch_ph)) +
+  geom_smooth(aes(group = campaign, color = campaign),
+              method = "lm", se = FALSE) +
+  scale_color_manual(values=c("spring23" = "magenta1", "summer23" = "orange")) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "black") +
+  geom_point(aes(fill = campaign, shape = site), size = 2, alpha = 0.5) +
+  geom_errorbar(data = d13C_summary, aes(x = d13C_leaf_mean, y = d13C_branch_ph_mean,
+                                         xmin = d13C_leaf_mean - d13C_leaf_se,
+                                         xmax = d13C_leaf_mean + d13C_leaf_se
+  ),
+  width = 0,
+  linewidth = 0.7,
+  color = "black"
+  ) +
+  geom_errorbar(data = d13C_summary, aes(x = d13C_leaf_mean, y = d13C_branch_ph_mean,
+                                         ymin = d13C_branch_ph_mean - d13C_branch_ph_se,
+                                         ymax = d13C_branch_ph_mean + d13C_branch_ph_se
+  ),
+  width = 0,
+  linewidth = 0.7,
+  color = "black"
+  ) +
+  geom_point(data = d13C_summary, aes(x = d13C_leaf_mean, y = d13C_branch_ph_mean,
+                                      shape = site, fill = campaign),
+             size = 4, color = "black", stroke = 0.75
+  ) +
+  scale_shape_manual(values = c("ART" = 21, "BER" = 22, "ITU" = 23,
+                                "MSA" = 24, "DIU" = 25)) +
+  scale_fill_manual(values=c("spring23" = "magenta1", "summer23" = "orange")) +
+  #ylim(-33, -25.5) +
+  #xlim(-33, -25.5) +
+  labs(
+    x = expression(delta^13*C[leaf]~"(\u2030)"),
+    y = expression(delta^13*C[branch~phloem]~"(\u2030)"),
+  ) +
+  guides(fill = "none", color = guide_legend(order = 2, override.aes = list(linewidth = 1.2)),
+         shape = guide_legend(order = 1, override.aes =
+                                list(fill = NA, color = "black", size = 4))) +
+  theme(
+    panel.background = element_blank(),
+    plot.background  = element_blank(),
+    panel.border = element_rect(color = "black",
+                                fill = NA,
+                                linewidth = .5),
+    axis.line = element_blank(),
+    axis.title.y = element_text(size = 15),
+    axis.title.x = element_text(size = 15),
+    axis.text.x  = element_text(size = 12.5),
+    axis.text.y  = element_text(size = 12.5),
+    legend.position = c(0.15, 0.75),
+    legend.background = element_rect(fill = "white", color = NA),
+    legend.key = element_blank(),
+    legend.text = element_text(size = 11),
+    legend.spacing.y = unit(2, "pt")
+  )
+
+#####3.3 Leaf bulk with branch phloem#####
+model <- lme4::lmer(d13C_branch_ph ~ d13C_leaf * campaign + (1|site), data = d13C_gradiente)
+options(contrasts = c("contr.helmert", "contr.poly"))
+car::Anova(model)
+MuMIn::r.squaredGLMM(model)
+
+
+ggplot(d13C_gradiente, aes(x = d13C_trunk_ph, y = d13C_branch_ph)) +
+  geom_smooth(aes(group = campaign, color = campaign),
+              method = "lm", se = FALSE) +
+  scale_color_manual(values=c("spring23" = "magenta1", "summer23" = "orange")) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "black") +
+  geom_point(aes(fill = campaign, shape = site), size = 2, alpha = 0.5) +
+  geom_errorbar(data = d13C_summary, aes(x = d13C_trunk_ph_mean, y = d13C_branch_ph_mean,
+                                         xmin = d13C_trunk_ph_mean - d13C_trunk_ph_se,
+                                         xmax = d13C_trunk_ph_mean + d13C_trunk_ph_se
+  ),
+  width = 0,
+  linewidth = 0.7,
+  color = "black"
+  ) +
+  geom_errorbar(data = d13C_summary, aes(x = d13C_trunk_ph_mean, y = d13C_branch_ph_mean,
+                                         ymin = d13C_branch_ph_mean - d13C_branch_ph_se,
+                                         ymax = d13C_branch_ph_mean + d13C_branch_ph_se
+  ),
+  width = 0,
+  linewidth = 0.7,
+  color = "black"
+  ) +
+  geom_point(data = d13C_summary, aes(x = d13C_trunk_ph_mean, y = d13C_branch_ph_mean,
+                                      shape = site, fill = campaign),
+             size = 4, color = "black", stroke = 0.75
+  ) +
+  scale_shape_manual(values = c("ART" = 21, "BER" = 22, "ITU" = 23,
+                                "MSA" = 24, "DIU" = 25)) +
+  scale_fill_manual(values=c("spring23" = "magenta1", "summer23" = "orange")) +
+  #ylim(-33, -25.5) +
+  #xlim(-33, -25.5) +
+  labs(
+    x = expression(delta^13*C[trunk~phloem]~"(\u2030)"),
+    y = expression(delta^13*C[branch~phloem]~"(\u2030)"),
+  ) +
+  guides(fill = "none", color = guide_legend(order = 2, override.aes = list(linewidth = 1.2)),
+         shape = guide_legend(order = 1, override.aes =
+                                list(fill = NA, color = "black", size = 4))) +
+  theme(
+    panel.background = element_blank(),
+    plot.background  = element_blank(),
+    panel.border = element_rect(color = "black",
+                                fill = NA,
+                                linewidth = .5),
+    axis.line = element_blank(),
+    axis.title.y = element_text(size = 15),
+    axis.title.x = element_text(size = 15),
+    axis.text.x  = element_text(size = 12.5),
+    axis.text.y  = element_text(size = 12.5),
+    legend.position = c(0.15, 0.75),
+    legend.background = element_rect(fill = "white", color = NA),
+    legend.key = element_blank(),
+    legend.text = element_text(size = 11),
+    legend.spacing.y = unit(2, "pt")
+  )

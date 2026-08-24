@@ -6,54 +6,70 @@ library(ggplot2)
 library(viridis)
 library(rnaturalearth)
 library(rnaturalearthdata)
-library(dplyr)
+library(tidyverse)
 
-# ---- Your Data (example; replace with your own) ----
-df <- read.csv("gradienteData/sites_Pannual.csv")
-# df <- data.frame(
-#   name  = c("A", "B", "C", "D", "E"),
-#   lon   = c(-3.7038, -5.98, -0.12, -1.13, 2.17),
-#   lat   = c(40.4168, 37.39, 39.47, 43.36, 41.39),
-#   value = c(10, 30, 50, 70, 90)
-# )
 
-points_sf <- st_as_sf(df, coords = c("long", "lat"), crs = 4326)
+fagus <- st_read("gradienteData/Fagus_sylvatica_shp/Fagus_sylvatica_plg_clip.shp")
 
-world <- ne_countries(scale = "medium", returnclass = "sf")
+st_crs(fagus)
 
-iberia <- world[world$admin %in% c("Spain", "Portugal", "Andorra"), ]
-
-iberia_bbox <- st_bbox(c(
-  xmin = -12,
-  xmax = 6,
-  ymin = 34.5,
-  ymax = 45
-), crs = st_crs(spain))
-
-iberia_mainland <- st_crop(iberia, iberia_bbox)
-
-# ---- Get Spain boundary ----
-spain <- ne_countries(
-  country = "Spain",
-  scale = "large",
+europe <- ne_countries(
+  continent = "Europe",
+  scale = "medium",
   returnclass = "sf"
 )
 
-# ---- Optional: clip points to Spain only ----
-# points_sf <- st_intersection(points_sf, spain)
+df <- read.csv("gradienteData/sites_Pannual.csv")
 
-# ---- Plot ----
+points_sf <- st_as_sf(df, coords = c("long", "lat"), crs = 4326)
+
+xmin <- -10   
+xmax <- 5    
+ymin <- 35    
+ymax <- 45    
+
+fagus_crop <- st_crop(fagus, xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)
+
+europe_crop <- st_crop(europe, xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)
+
 ggplot() +
-  geom_sf(data = iberia_mainland, fill = "gray95", color = "gray60") +
-  geom_sf(data = points_sf, aes(color = P_annual), size = 4) +
-  scale_color_viridis(option = "plasma", direction = 1) +
-  coord_sf(xlim = c(-12, 6), ylim = c(34.5, 45), expand = FALSE) +
+  
+  # Europe
+  geom_sf(data = europe_crop, fill = "white", color = "black", linewidth = 0.3) +
+  
+  # Fagus sylvatica distribution
+  geom_sf(data = fagus_crop, fill = "darkgrey", color = NA, alpha = 0.65) +
+  
+  # Your sampling locations
+  geom_sf(data = points_sf, aes(fill = P_annual), size = 4, shape = 21) +
+  
+  # Continuous colour scale
+  scale_fill_viridis_c(name = "MAP (mm)", direction = -1) +
+  
+  # Geographic extent
+  coord_sf(xlim = c(xmin, xmax), ylim = c(ymin, ymax), expand = FALSE) +
+  
+  labs(title =  " ", x = " ", y = " ") +
+  
   theme_minimal() +
-  labs(
-    title = " ",
-    color = "Annual P (mm)"
-  ) +
+  
   theme(
-    panel.grid = element_line(color = "gray90"),
-    panel.background = element_rect(fill = "white")
+    panel.grid.major = element_line(
+      color = "grey85",
+      linetype = "dashed"
+    ),
+    
+    panel.background = element_rect(
+      fill = "white",
+      color = NA
+    ),
+    
+    plot.title = element_text(
+      size = 16,
+      face = "bold"
+    ),
+    
+    legend.position = "right"
   )
+  
+  
