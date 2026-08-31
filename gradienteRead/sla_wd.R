@@ -1,7 +1,7 @@
-library(tidyverse)
 library(emmeans)
 library(multcomp)
 library(multcompView)
+library(tidyverse)
 
 sla <- read.csv("gradienteData/sla_gradiente_2023/sla_gradiente_2023_updated.csv") |> 
   mutate(SLA = ifelse(SLA == 9999, NA, SLA)) |> 
@@ -33,4 +33,8 @@ ggplot(sla, aes(x = site, y = sla, fill = campaign)) +
   ) +
   theme_minimal()
 
-wd <- 
+wd <- read.csv("gradienteData/wd_gradiente_2023/wd_gradiente_2023_updated.csv")
+  filter(canopy_position == "shade_low") |> 
+  mutate(site = factor(site, levels = c("ART", "BER", "ITU", "MSA", "DIU"))) |> 
+  rename(tree = id_plant) |> 
+  rename(sla = SLA)
