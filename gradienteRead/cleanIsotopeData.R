@@ -266,7 +266,7 @@ fig_13C_trunk_ph <- ggplot(d13C_gradiente, aes(x = site, y = d13C_trunk_ph, fill
     panel.grid = element_blank()
   )
 
-cowplot::plot_grid(fig_13C_leaf_ph, fig_13C_branchh_ph, fig_13C_trunk_ph, ncol = 1)
+cowplot::plot_grid(fig_13C_leaf_ph, fig_13C_branch_ph, fig_13C_trunk_ph, ncol = 1)
 
 ######2.2.4 Ring cellulose d13C######
 hist(d13C_gradiente$d13C_ring23)
