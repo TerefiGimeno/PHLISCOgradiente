@@ -84,3 +84,13 @@ date,site,campaign,id_plant,canopy_position,length_wd_cm,diameter_wd_cm,fw_wd_g,
 20230904,MSA,late_summer,MSA4,shade_low,5.1,0.29,NA,NA,NA,NA
 20230904,MSA,late_summer,MSA5,shade_low,5.34,0.46,NA,NA,NA,NA
 20230904,MSA,late_summer,MSA6,shade_low,6.2,0.49,NA,NA,NA,NA
+NA,HMO,spring23,HMO1,shade_low,NA,NA,NA,NA,NA,NA
+NA,HMO,spring23,HMO2,shade_low,NA,NA,NA,NA,NA,NA
+NA,HMO,spring23,HMO3,shade_low,NA,NA,NA,NA,NA,NA
+NA,HMO,spring23,HMO4,shade_low,NA,NA,NA,NA,NA,NA
+NA,HMO,spring23,HMO5,shade_low,NA,NA,NA,NA,NA,NA
+NA,HMO,summer23,HMO1,shade_low,NA,NA,NA,NA,NA,NA
+NA,HMO,summer23,HMO2,shade_low,NA,NA,NA,NA,NA,NA
+NA,HMO,summer23,HMO3,shade_low,NA,NA,NA,NA,NA,NA
+NA,HMO,summer23,HMO4,shade_low,NA,NA,NA,NA,NA,NA
+NA,HMO,summer23,HMO5,shade_low,NA,NA,NA,NA,NA,NA

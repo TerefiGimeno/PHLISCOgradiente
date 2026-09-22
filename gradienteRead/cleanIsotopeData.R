@@ -83,6 +83,8 @@ modelN_means <- emmeans(modelN, ~ site)
 model_means_cld <- cld(modelN_means, adjust = "sidak",
                        Letters = c("a", "b", "c", "d", "e", "f", "g"),
                        alpha = 0.05, sort = FALSE)
+d13C_gradiente |> group_by(site) |> 
+  summarise(Nleaf = mean(N_perc_leaf, na.rm =T))
 ggplot(d13C_gradiente, aes(x = site, y = N_perc_leaf, fill = campaign)) +
   geom_boxplot(
     position = position_dodge2(width = 0.8, preserve = "single")) +
@@ -321,6 +323,11 @@ d13C_summary <- d13C_gradiente %>%
 
 #####3.1 Leaf phloem with branch phloem#####
 summary(lm(d13C_branch_ph ~ d13C_leaf_ph * campaign, data = d13C_gradiente))
+model <- lme4::lmer(d13C_branch_ph ~ d13C_leaf_ph * campaign + (1|site), data = d13C_gradiente)
+options(contrasts = c("contr.helmert", "contr.poly"))
+car::Anova(model)
+MuMIn::r.squaredGLMM(model)
+confint(model)
 
 ggplot(d13C_gradiente, aes(x = d13C_leaf_ph, y = d13C_branch_ph)) +
   geom_smooth(aes(group = campaign, color = campaign),
@@ -380,6 +387,11 @@ ggplot(d13C_gradiente, aes(x = d13C_leaf_ph, y = d13C_branch_ph)) +
 
 #####3.1 Leaf phloem with leaf bulk#####
 summary(lm(d13C_leaf ~ d13C_leaf_ph * campaign, data = d13C_gradiente))
+model <- lme4::lmer(d13C_branch_ph ~ d13C_leaf_ph * campaign + (1|site), data = d13C_gradiente)
+options(contrasts = c("contr.helmert", "contr.poly"))
+car::Anova(model)
+MuMIn::r.squaredGLMM(model)
+confint(model)
 
 ggplot(d13C_gradiente, aes(x = d13C_leaf_ph, y = d13C_leaf)) +
   geom_smooth(aes(group = campaign, color = campaign),
