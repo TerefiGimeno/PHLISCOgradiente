@@ -15,6 +15,7 @@ chl <- read.csv("gradienteData/chl_gradiente_2023/pigm_gradiente_2023_updated.cs
 
 chl <- chl[, c("site", "campaign", "tree", "chla_ug_ml", "chlb_ug_ml",
                "chla_chlb", "chla_and_chlb")]
+write.csv(chl, file = "gradienteOutput/clean_df/chl.csv", row.names = F)
 
 hist(chl$chla_ug_ml)
 summary(aov(chla_ug_ml ~ site * campaign, data = chl))
@@ -223,6 +224,9 @@ nsc <- nsc[, c(1:10)] |>
   rename(leafSuc_umol_m2 = umol_suc_m2_LPH) |> 
   rename(branchSuc_umol_m2 = umol_suc_m2_SPH) |> 
   rename(trunkSuc_umol_m2 = umol_suc_m2_BPH)
+
+write.csv(nsc[, c(1:3, 8:10)], file = "gradienteOutput/clean_df/sucrose.csv", row.names = F)
+
 
 hist(nsc$leafSuc_umol_g)
 subset(nsc, leafSuc_umol_g >= 0.7)

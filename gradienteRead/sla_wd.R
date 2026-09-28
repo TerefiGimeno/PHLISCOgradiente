@@ -11,6 +11,7 @@ sla <- read.csv("gradienteData/sla_gradiente_2023/sla_gradiente_2023_updated.csv
   rename(sla = SLA)
 
 sla <- sla[, c("site", "campaign", "tree", "sla")]
+write.csv(sla, file = "gradienteOutput/clean_df/sla.csv", row.names = F)
 
 hist(sla$sla)
 model <- lm(sla ~ site * campaign, data = sla)
@@ -37,6 +38,9 @@ wd <- read.csv("gradienteData/wd_gradiente_2023/wd_gradiente_2023_updated.csv") 
   filter(canopy_position == "shade_low") |> 
   mutate(site = factor(site, levels = c("ART", "BER", "ITU", "MSA", "DIU", "HMO"))) |> 
   rename(tree = id_plant)
+write.csv(subset(wd[, c("site", "campaign", "tree", "wd_g_cm3")], campaign != "late_summer"),
+          file = "gradienteOutput/clean_df/wd.csv", row.names = FALSE)
+
 hist(log(wd$wd_g_cm3*1000))
 model_wd <- lm(wd_g_cm3 ~ site * campaign, data = wd)
 summary(model_wd)

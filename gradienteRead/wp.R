@@ -17,11 +17,11 @@ points(wp$wp_midday_2, pch = 19, col = "green")
 # We do not discard any values.
 
 wp <- wp[, c("site", "campaign", "tree", "wp_md")]
+write.csv(wp, file = "gradienteOutput/clean_df/wp.csv", row.names = F)
   
 wp_summ <- wp %>% 
   group_by(site, campaign) %>% 
   summarise(wp_mean = mean(wp_md, na.rm =T), wp_se = sd(wp_md, na.rm = T)/sqrt(length(which(!is.na(wp_md)))))
-#write.csv(wp_summ, file = "kk.csv")
 
 hist(wp$wp_md)
 model <- lm(wp_md ~ site * campaign, data = wp)

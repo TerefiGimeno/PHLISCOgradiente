@@ -434,6 +434,7 @@ meteo_diu_hist <- meteo_diu_years %>%
 
 campaign_dates <- read.csv("gradienteData/sampling_dates.csv") |> 
   mutate(date = dmy(as.character(date)))
+campaign_dates <- subset(campaign_dates, date <= ymd("2023-07-15") | date >= ymd("2023-08-28"))
 
 meteoList <- list()
 meteoList[[1]] <- as.data.frame(meteo_art)
@@ -452,7 +453,7 @@ for(i in 1:length(meteoList)){
   df <- df %>%
     arrange(date)
 
-  for (n in 2:10) {
+  for (n in 2:15) {
     
     # Rolling means
     for (v in 1:length(nameVars)) {
@@ -480,4 +481,8 @@ for(i in 1:length(meteoList)){
   results[[i]] <- left_join(subset(campaign_dates, site == sites[i]), df, by = "date")
 }
 
-summary_meteo_campaigns <- do.call(rbind, results)
+summary_meteo_campaigns <- do.call(rbind, results) |> 
+  mutate(campaign = ifelse(date <= ymd("2023-0715"), "spring23", "summer23")) |> 
+  select(-c(date))
+
+write.csv(summary_meteo_campaigns, file = "gradienteOutput/clean_df/summary_meteo_campaigns.csv", row.names = F)
