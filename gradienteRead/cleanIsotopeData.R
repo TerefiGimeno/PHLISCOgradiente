@@ -260,7 +260,7 @@ modelD13Cleaf_means <- emmeans(modelD13C_leaf, ~ site)
 model_means_cld <- cld(modelD13Cleaf_means, adjust = "sidak",
                        Letters = c("a", "b", "c", "d", "e", "f", "g"),
                        alpha = 0.05, sort = FALSE)
-ggplot(d13C_gradiente, aes(x = site, y = D13C_leaf, fill = campaign)) +
+fig_D13C_leaf <- ggplot(d13C_gradiente, aes(x = site, y = D13C_leaf, fill = campaign)) +
   geom_boxplot(
     position = position_dodge2(width = 0.8, preserve = "single")) +
   geom_signif(y_position=c(-27.1, -27.1, -26.5), xmin=c(0.65, 3.5, 0.65), 
@@ -347,7 +347,7 @@ fig_D13C_branch_ph <- ggplot(d13C_gradiente, aes(x = site, y = D13C_branch_ph, f
   ylim(16, 26)+
   labs(
     x = "",
-    y = expression(Delta^13*C[branch~phloem]~"(\u2030)"),
+    y = expression("Branch "*Delta^13*C[ph]~"(\u2030)"),
     fill = "Campaign"
   ) +
   theme(
@@ -424,7 +424,7 @@ fig_D13C_trunk_ph <- ggplot(d13C_gradiente, aes(x = site, y = D13C_trunk_ph, fil
   ylim(16, 26)+
   labs(
     x = "",
-    y = expression(Delta^13*C[trunk~phloem]~"(\u2030)"),
+    y = expression("Trunk "*Delta^13*C[ph]~"(\u2030)"),
     fill = "Campaign"
   ) +
   theme(
@@ -439,7 +439,7 @@ fig_D13C_trunk_ph <- ggplot(d13C_gradiente, aes(x = site, y = D13C_trunk_ph, fil
     axis.text.y  = element_text(size = 12),
     legend.title = element_blank(),
     legend.text = element_text(size = 11),
-    legend.position = c(0.98, 0.05),
+    legend.position = c(0.98, 0.55),
     legend.justification = c("right", "bottom"),
     legend.background = element_blank(),
     legend.key = element_blank(),
@@ -447,6 +447,7 @@ fig_D13C_trunk_ph <- ggplot(d13C_gradiente, aes(x = site, y = D13C_trunk_ph, fil
   )
 
 cowplot::plot_grid(fig_13C_leaf_ph, fig_13C_branch_ph, fig_13C_trunk_ph, ncol = 1)
+cowplot::plot_grid(fig_D13C_leaf_ph, fig_D13C_branch_ph, fig_D13C_trunk_ph, ncol = 1)
 
 ######2.2.4 Ring cellulose d13C######
 hist(d13C_gradiente$d13C_ring23)
@@ -503,9 +504,10 @@ ggplot(d13C_gradiente, aes(x = site, y = D13C_ring23, fill = "#06D6A0")) +
   ylim(16, 26)+
   labs(
     x = "",
-    y = expression(Delta^13*C[ring]~"(\u2030)"),
+    y = expression("Ring "*Delta^13*C[celulose]~"(\u2030)"),
   ) +
   theme(
+    legend.position = "none",
     panel.background = element_blank(),
     plot.background  = element_blank(),
     panel.border = element_rect(color = "black",
