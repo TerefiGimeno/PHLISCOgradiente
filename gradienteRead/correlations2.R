@@ -1,3 +1,4 @@
+library(corrplot)
 library(ggplot2)
 library(tidyverse)
 
@@ -38,7 +39,7 @@ d13CleafPh <- read.csv("gradienteData/isotopes_gradiente_2023/isotopes_leaf_phlo
   mutate(campaign = ifelse(sampling_date <= 20230701, "spring23", "summer23")) %>% 
   select(-c(sampling_date))
 
-gradiente <- full_join(d13CbranchPh, d13CtrunkPh, by = c("site", "tree", "campaign")) |> 
+gradienteFull <- full_join(d13CbranchPh, d13CtrunkPh, by = c("site", "tree", "campaign")) |> 
   full_join(d13Cleaf, by = c("site", "tree", "campaign")) |>
   full_join(d13CleafPh, by = c("site", "tree", "campaign")) |> 
   full_join(d13CtreeRing, by = c("site", "tree")) |> 
@@ -46,7 +47,6 @@ gradiente <- full_join(d13CbranchPh, d13CtrunkPh, by = c("site", "tree", "campai
   relocate(sampling_date, .after = campaign) |> 
   # remove a value of tree ring d13C where we have no other records
   filter(tree != "MSA7") |>
-  mutate(site = factor(site, levels = c("ART", "BER", "ITU", "MSA", "DIU", "HMO"))) |> 
   mutate(d13Camb_month = ifelse(campaign == "spring23", -8.75, -8.64)) |> 
   mutate(d13Camb_year = -8.64) |> 
   mutate(D13C_leaf = (d13Camb_month - d13C_leaf)/(1+d13C_leaf*0.001)) |> 
@@ -62,13 +62,23 @@ gradiente <- full_join(d13CbranchPh, d13CtrunkPh, by = c("site", "tree", "campai
   select(-c(sampling_date)) |> 
   select(-c(starts_with("d13C", ignore.case = FALSE))) |> 
   # leave out variable that gave low correlations in the first screening
-  select(-c(d15N_leaf, C_perc_leaf, ratio_CN_leaf, chla_ug_ml, chlb_ug_ml, chla_chlb))
+  select(-c(d15N_leaf, C_perc_leaf, ratio_CN_leaf, chla_ug_ml, chlb_ug_ml, chla_chlb)) |> 
+  mutate(site = factor(as.factor(site), levels = c("ART", "BER", "ITU", "MSA", "DIU", "HMO")))
 
-myOrder <- c("dbh_cm", "h_m", "sla", "wd_g_cm3", "N_perc_leaf", "wp_md",
-             "chla_and_chlb",, "leafSuc_umol_g", "branchSuc_umol_g", "trunkSuc_umol_g",
-             "D13C_leaf", "D13C_leaf_ph", "D13C_branch_ph", "D13C_trunk_ph","D13C_ring23")
+gradiente <- gradienteFull |> 
+  filter(site != "HMO") |> 
+  mutate(site = droplevels(site))
 
-sites <- levels(as.factor(gradiente$site))
+myOrder <- c("site", "tree", "campaign", "sla", "wd_g_cm3",
+             "N_perc_leaf", "wp_md", "chla_and_chlb", "leafSuc_umol_g",
+             "branchSuc_umol_m2", "trunkSuc_umol_m2","D13C_leaf", "D13C_leaf_ph",
+             "D13C_branch_ph", "D13C_trunk_ph","D13C_ring23")
+
+gradiente <- gradiente[, myOrder]
+
+####2. Calcualte and plot correlation matrices####
+
+sites <- levels(gradiente$site)
 gradienteList <- list()
 for(i in 1:length(sites)){
   gradienteList[[i]] <- subset(gradiente, site == sites[i])[, 4:ncol(gradiente)]
@@ -79,53 +89,21 @@ for(i in 1:length(gradienteList)){
   corrList[[i]] <- cor(gradienteList[[i]], use = "pairwise.complete.obs")
 }
 
+windows(18,8)
+par(mfrow=c(2,3))
+
 corrPlots <- list()
 for(i in 1:length(corrList)){
   corrPlots[[i]] <- corrplot::corrplot(corrList[[i]],
-                                       method = "square", order = "alphabet",
-                                       type = "lower", diag = F, main = site[i])
+                                       method = "square", order = "original",
+                                       type = "lower", diag = F, main = sites[i])
 }
 
+####3. Correlations with climate####
 
-# corr <- cor(gradienteAll, use = "pairwise.complete.obs")
-# corrplot::corrplot(corr, method = "square", order = "alphabet", type = "lower", diag = F, main = "All")
-# 
-# gradienteSpring <- gradiente |>
-#   filter(campaign == "spring23") |> 
-#   select(-c("tree", "site", "campaign"))
-# 
-# gradienteSummer <- gradiente |>
-#   filter(campaign == "summer23") |> 
-#   select(-c("tree", "site", "campaign"))
-# 
-# corrSpring <- cor(gradienteSpring, use = "pairwise.complete.obs")
-# corrplot::corrplot(corrSpring, method = "square", order = "alphabet", type = "lower", diag = F, main = "Spring")
-# 
-# corrSummer <- cor(gradienteSummer, use = "pairwise.complete.obs")
-# corrplot::corrplot(corrSummer, method = "square", order = "alphabet", type = "lower", diag = F, main = "Summer")
-
-corrArt <- cor(gradienteList[[1]], use = "pairwise.complete.obs")
-artCorr <- corrplot::corrplot(corrArt, method = "square", order = "alphabet", type = "lower", diag = F, main = "Artikutza")
-
-corrBer <- cor(subset(gradiente, site == "BER")[, 4:ncol(gradiente)], use = "pairwise.complete.obs")
-berCorr <- corrplot::corrplot(corrBer, method = "square", order = "alphabet", type = "lower", diag = F, main = "Bertiz")
-
-corrItu <- cor(subset(gradiente, site == "ITU")[, 4:ncol(gradiente)], use = "pairwise.complete.obs")
-ItuCorr <- corrplot::corrplot(corrItu, method = "square", order = "alphabet", type = "lower", diag = F, main = "Iturrieta")
-
-corrMsa <- cor(subset(gradiente, site == "MSA")[, 4:ncol(gradiente)], use = "pairwise.complete.obs")
-MsaCorr <- corrplot::corrplot(corrMsa, method = "square", order = "alphabet", type = "lower", diag = F, main = "Monte S")
-
-corrDiu <- cor(subset(gradiente, site == "DIU")[, 4:ncol(gradiente)], use = "pairwise.complete.obs")
-DiuCorr <- corrplot::corrplot(corrDiu, method = "square", order = "alphabet", type = "lower", diag = F, main = "Diustes")
-
-windows(12,8)
-par(mfrow=c(2,3))
-artCorr
-
-climate <- read.csv("gradienteOutput/clean_df/summary_meteo_campaigns.csv") |> 
-  select(-c(starts_with("P_", ignore.case = FALSE))) |> 
-  select(-c(starts_with("Tmin", ignore.case = FALSE)))
+climate <- read.csv("gradienteOutput/clean_df/summary_meteo_campaigns.csv")# |> 
+  #select(-c(starts_with("P_", ignore.case = FALSE))) |> 
+  #select(-c(starts_with("Tmin", ignore.case = FALSE)))
 
 D13C_summary <- gradiente %>%
   group_by(campaign, site) %>%
@@ -140,4 +118,6 @@ D13C_summary <- gradiente %>%
   left_join(climate, by = c("site", "campaign"))
 
 corrClimate <- cor(D13C_summary[, -c(1:2)], use = "pairwise.complete.obs")
+write.csv(corrClimate, file = "crap2.csv", row.names = F)
 
+myCorrClim <- read.csv("crap.csv")
