@@ -125,9 +125,9 @@ nsc <- read.csv("gradienteData/sugars_gradiente_2023/nsc_grad_2023_updated.csv")
 
 # explore differences among campaigns within HMO and MSA
 
-summary(aov(log(umol_suc_cm2) ~ campaign,
+summary(aov(log(umol_suc_m2) ~ campaign,
             data = subset(nsc, site == "MSA" & sample_type == "SPH")))
-TukeyHSD(aov(log(umol_suc_cm2) ~ campaign,
+TukeyHSD(aov(log(umol_suc_m2) ~ campaign,
              data = subset(nsc, site == "MSA" & sample_type == "SPH")))
 summary(aov(umol_suc_g ~ campaign,
             data = subset(nsc,site == "MSA" & sample_type == "LPH"
@@ -135,13 +135,13 @@ summary(aov(umol_suc_g ~ campaign,
 summary(aov(umol_suc_cm2 ~ campaign,
             data = subset(nsc,site == "MSA" & sample_type == "LPH"
                           & campaign != "late_summer")))
-summary(aov(log(umol_suc_cm2) ~ campaign,
+summary(aov(log(umol_suc_m2) ~ campaign,
             data = subset(nsc, site == "MSA" & sample_type == "BPH")))
-TukeyHSD(aov(log(umol_suc_cm2) ~ campaign,
+TukeyHSD(aov(log(umol_suc_m2) ~ campaign,
              data = subset(nsc, site == "MSA" & sample_type == "BPH")))
 
 branchSuc <- ggplot(subset(nsc, site == "MSA" & sample_type == "SPH"),
-                    aes(x = campaign, y = umol_suc_cm2)) +
+                    aes(x = campaign, y = umol_suc_m2)) +
   geom_boxplot(
     position = position_dodge2(width = 0.8, preserve = "single")) +
   #ylim(0, 15) +
@@ -152,7 +152,7 @@ branchSuc <- ggplot(subset(nsc, site == "MSA" & sample_type == "SPH"),
   theme_minimal()
 
 leafSuc <- ggplot(subset(nsc, site == "MSA" & sample_type == "LPH"),
-                  aes(x = campaign, y = umol_suc_cm2)) +
+                  aes(x = campaign, y = umol_suc_m2)) +
   geom_boxplot(
     position = position_dodge2(width = 0.8, preserve = "single")) +
   #ylim(0, 15) +
@@ -163,7 +163,7 @@ leafSuc <- ggplot(subset(nsc, site == "MSA" & sample_type == "LPH"),
   theme_minimal()
 
 trunkSuc <- ggplot(subset(nsc, site == "MSA" & sample_type == "BPH"),
-                   aes(x = campaign, y = umol_suc_cm2)) +
+                   aes(x = campaign, y = umol_suc_m2)) +
   geom_boxplot(
     position = position_dodge2(width = 0.8, preserve = "single")) +
   #ylim(0, 15) +
@@ -203,7 +203,7 @@ ggplot(subset(nsc, site == "HMO" & sample_type == "BPH"),
 
 nscCheat <- subset(nsc, campaign == "summer23" & site == "MSA" & sample_type == "LPH")
 nsc <- nsc |>
-  filter(date <= 20230630 | date >= 20230827) |> 
+  filter(date <= 20230622 | date >= 20230827) |> 
   mutate(campaign = ifelse(date >= 20230622, "summer23", "spring23"))
 nsc <- nsc[-which(is.na(nsc$surface_cm2)),]
 nsc <- rbind(nsc, nscCheat)
@@ -223,7 +223,8 @@ nsc <- nsc[, c(1:10)] |>
   rename(leafSuc_umol_g = umol_suc_g_LPH) |> 
   rename(leafSuc_umol_m2 = umol_suc_m2_LPH) |> 
   rename(branchSuc_umol_m2 = umol_suc_m2_SPH) |> 
-  rename(trunkSuc_umol_m2 = umol_suc_m2_BPH)
+  rename(trunkSuc_umol_m2 = umol_suc_m2_BPH) |> 
+  filter(leafSuc_umol_ml >= 0)
 
 write.csv(nsc[, c(1:3, 8:10)], file = "gradienteOutput/clean_df/sucrose.csv", row.names = F)
 

@@ -1,3 +1,4 @@
+library(jmuOutlier)
 library(corrplot)
 library(ggplot2)
 library(tidyverse)
@@ -59,7 +60,8 @@ gradienteFull <- full_join(d13CbranchPh, d13CtrunkPh, by = c("site", "tree", "ca
   full_join(read.csv("gradienteOutput/clean_df/wd.csv"), by = c("site", "campaign", "tree")) |> 
   full_join(read.csv("gradienteOutput/clean_df/chl.csv"), by = c("site", "campaign", "tree")) |> 
   full_join(read.csv("gradienteOutput/clean_df/sucrose.csv"), by = c("site", "campaign", "tree")) |> 
-  select(-c(sampling_date)) |> 
+  mutate(lg_leafSuc_umol_mg = log(leafSuc_umol_g*1000)) |> 
+  select(-c(sampling_date, leafSuc_umol_g)) |> 
   select(-c(starts_with("d13C", ignore.case = FALSE))) |> 
   # leave out variable that gave low correlations in the first screening
   select(-c(d15N_leaf, C_perc_leaf, ratio_CN_leaf, chla_ug_ml, chlb_ug_ml, chla_chlb)) |> 
@@ -70,7 +72,7 @@ gradiente <- gradienteFull |>
   mutate(site = droplevels(site))
 
 myOrder <- c("site", "tree", "campaign", "sla", "wd_g_cm3",
-             "N_perc_leaf", "wp_md", "chla_and_chlb", "leafSuc_umol_g",
+             "N_perc_leaf", "wp_md", "chla_and_chlb", "lg_leafSuc_umol_mg",
              "branchSuc_umol_m2", "trunkSuc_umol_m2","D13C_leaf", "D13C_leaf_ph",
              "D13C_branch_ph", "D13C_trunk_ph","D13C_ring23")
 
@@ -89,17 +91,263 @@ for(i in 1:length(gradienteList)){
   corrList[[i]] <- cor(gradienteList[[i]], use = "pairwise.complete.obs")
 }
 
-windows(18,8)
-par(mfrow=c(2,3))
+# windows(18,8)
+# par(mfrow=c(2,3))
+# 
+# corrPlots <- list()
+# for(i in 1:length(corrList)){
+#   corrPlots[[i]] <- corrplot::corrplot(corrList[[i]],
+#                                        method = "square", order = "original",
+#                                        type = "lower", diag = F, main = sites[i])
+# }
 
-corrPlots <- list()
-for(i in 1:length(corrList)){
-  corrPlots[[i]] <- corrplot::corrplot(corrList[[i]],
-                                       method = "square", order = "original",
-                                       type = "lower", diag = F, main = sites[i])
+
+####3. Significant p-values####
+
+method <- "pearson"  # or "spearman"
+nperm <- 20000
+p <- ncol(gradienteList[[1]])
+# this is slow for each site, I do it one by one
+
+#####3.1 Artikutza#####
+
+# Create an empty matrix for permutation P-values
+datArt <- gradienteList[[1]]
+p_matrixArt <- matrix(NA_real_, nrow = p, ncol = p,
+  dimnames = list(names(datArt), names(datArt)))
+set.seed(123)  # makes results reproducible
+
+for (i in 1:(p - 1)) {
+  for (j in (i + 1):p) {
+    
+    # Keep only rows with both measurements present
+    ok <- complete.cases(datArt[[i]], datArt[[j]])
+    x <- datArt[[i]][ok]
+    y <- datArt[[j]][ok]
+    
+    # Test only if enough observations and both variables vary
+    if (length(x) >= 3 &&
+        length(unique(x)) > 1 &&
+        length(unique(y)) > 1) {
+      
+      test <- jmuOutlier::perm.cor.test(x = x, y = y,
+        method = method, num.sim = nperm, alternative = "two.sided")
+      p_matrixArt[i, j] <- test$p.value
+      p_matrixArt[j, i] <- test$p.value
+    }
+  }
 }
 
-####3. Correlations with climate####
+diag(p_matrixArt) <- NA_real_
+
+# Create a table of significant correlations
+resultsArt <- data.frame(Variable1 = character(),  Variable2 = character(),
+  r = numeric(), P_value = numeric())
+
+for (i in 1:(p - 1)) {
+  for (j in (i + 1):p) {
+    resultsArt <- rbind(resultsArt,
+      data.frame(Variable1 = names(datArt)[i], Variable2 = names(datArt)[j],
+        r = corrList[[1]][i, j], P_value = p_matrixArt[i, j]))}}
+write.csv(resultsArt, file = "gradienteOutput/pairwise_correlations_results/resultsArt.csv", row.names = F)
+
+#####3.2 Bertiz#####
+
+# Create an empty matrix for permutation P-values
+datBer <- gradienteList[[2]]
+p_matrixBer <- matrix(NA_real_, nrow = p, ncol = p,
+                      dimnames = list(names(datBer), names(datBer)))
+set.seed(123)  # makes results reproducible
+
+for (i in 1:(p - 1)) {
+  for (j in (i + 1):p) {
+    
+    # Keep only rows with both measurements present
+    ok <- complete.cases(datBer[[i]], datBer[[j]])
+    x <- datBer[[i]][ok]
+    y <- datBer[[j]][ok]
+    
+    # Test only if enough observations and both variables vary
+    if (length(x) >= 3 &&
+        length(unique(x)) > 1 &&
+        length(unique(y)) > 1) {
+      
+      test <- jmuOutlier::perm.cor.test(x = x, y = y,
+                                        method = method, num.sim = nperm, alternative = "two.sided")
+      p_matrixBer[i, j] <- test$p.value
+      p_matrixBer[j, i] <- test$p.value
+    }
+  }
+}
+
+diag(p_matrixBer) <- NA_real_
+
+# Create a table of significant correlations
+resultsBer <- data.frame(Variable1 = character(),  Variable2 = character(),
+                         r = numeric(), P_value = numeric())
+
+for (i in 1:(p - 1)) {
+  for (j in (i + 1):p) {
+    resultsBer <- rbind(resultsBer,
+                        data.frame(Variable1 = names(datBer)[i], Variable2 = names(datBer)[j],
+                                   r = corrList[[2]][i, j], P_value = p_matrixBer[i, j]))}}
+write.csv(resultsBer, file = "gradienteOutput/pairwise_correlations_results/resultsBer.csv", row.names = F)
+
+#####3.3 Iturrieta#####
+
+# Create an empty matrix for permutation P-values
+datItu <- gradienteList[[3]]
+p_matrixItu <- matrix(NA_real_, nrow = p, ncol = p,
+                      dimnames = list(names(datItu), names(datItu)))
+set.seed(123)  # makes results reproducible
+
+for (i in 1:(p - 1)) {
+  for (j in (i + 1):p) {
+    
+    # Keep only rows with both measurements present
+    ok <- complete.cases(datItu[[i]], datItu[[j]])
+    x <- datItu[[i]][ok]
+    y <- datItu[[j]][ok]
+    
+    # Test only if enough observations and both variables vary
+    if (length(x) >= 3 &&
+        length(unique(x)) > 1 &&
+        length(unique(y)) > 1) {
+      
+      test <- jmuOutlier::perm.cor.test(x = x, y = y,
+                                        method = method, num.sim = nperm, alternative = "two.sided")
+      p_matrixItu[i, j] <- test$p.value
+      p_matrixItu[j, i] <- test$p.value
+    }
+  }
+}
+
+diag(p_matrixItu) <- NA_real_
+
+# Create a table of significant correlations
+resultsItu <- data.frame(Variable1 = character(),  Variable2 = character(),
+                         r = numeric(), P_value = numeric())
+
+for (i in 1:(p - 1)) {
+  for (j in (i + 1):p) {
+    resultsItu <- rbind(resultsItu,
+                        data.frame(Variable1 = names(datItu)[i], Variable2 = names(datItu)[j],
+                                   r = corrList[[3]][i, j], P_value = p_matrixItu[i, j]))}}
+write.csv(resultsItu, file = "gradienteOutput/pairwise_correlations_results/resultsItu.csv", row.names = F)
+
+#####3.4 Monte Santiago#####
+
+# Create an empty matrix for permutation P-values
+datMsa <- gradienteList[[4]]
+p_matrixMsa <- matrix(NA_real_, nrow = p, ncol = p,
+                      dimnames = list(names(datMsa), names(datMsa)))
+set.seed(123)  # makes results reproducible
+
+for (i in 1:(p - 1)) {
+  for (j in (i + 1):p) {
+    
+    # Keep only rows with both measurements present
+    ok <- complete.cases(datMsa[[i]], datMsa[[j]])
+    x <- datMsa[[i]][ok]
+    y <- datMsa[[j]][ok]
+    
+    # Test only if enough observations and both variables vary
+    if (length(x) >= 3 &&
+        length(unique(x)) > 1 &&
+        length(unique(y)) > 1) {
+      
+      test <- jmuOutlier::perm.cor.test(x = x, y = y,
+                                        method = method, num.sim = nperm, alternative = "two.sided")
+      p_matrixMsa[i, j] <- test$p.value
+      p_matrixMsa[j, i] <- test$p.value
+    }
+  }
+}
+
+diag(p_matrixMsa) <- NA_real_
+
+# Create a table of significant correlations
+resultsMsa <- data.frame(Variable1 = character(),  Variable2 = character(),
+                         r = numeric(), P_value = numeric())
+
+for (i in 1:(p - 1)) {
+  for (j in (i + 1):p) {
+    resultsMsa <- rbind(resultsMsa,
+                        data.frame(Variable1 = names(datMsa)[i], Variable2 = names(datMsa)[j],
+                                   r = corrList[[4]][i, j], P_value = p_matrixMsa[i, j]))}}
+write.csv(resultsMsa, file = "gradienteOutput/pairwise_correlations_results/resultsMsa.csv", row.names = F)
+
+#####3.5 Diustes#####
+
+# Create an empty matrix for permutation P-values
+datDiu <- gradienteList[[5]]
+p_matrixDiu <- matrix(NA_real_, nrow = p, ncol = p,
+                      dimnames = list(names(datDiu), names(datDiu)))
+set.seed(123)  # makes results reproducible
+
+for (i in 1:(p - 1)) {
+  for (j in (i + 1):p) {
+    
+    # Keep only rows with both measurements present
+    ok <- complete.cases(datDiu[[i]], datDiu[[j]])
+    x <- datDiu[[i]][ok]
+    y <- datDiu[[j]][ok]
+    
+    # Test only if enough observations and both variables vary
+    if (length(x) >= 3 &&
+        length(unique(x)) > 1 &&
+        length(unique(y)) > 1) {
+      
+      test <- jmuOutlier::perm.cor.test(x = x, y = y,
+                                        method = method, num.sim = nperm, alternative = "two.sided")
+      p_matrixDiu[i, j] <- test$p.value
+      p_matrixDiu[j, i] <- test$p.value
+    }
+  }
+}
+
+diag(p_matrixDiu) <- NA_real_
+
+# Create a table of significant correlations
+resultsDiu <- data.frame(Variable1 = character(),  Variable2 = character(),
+                         r = numeric(), P_value = numeric())
+
+for (i in 1:(p - 1)) {
+  for (j in (i + 1):p) {
+    resultsDiu <- rbind(resultsDiu,
+                        data.frame(Variable1 = names(datDiu)[i], Variable2 = names(datDiu)[j],
+                                   r = corrList[[5]][i, j], P_value = p_matrixDiu[i, j]))}}
+write.csv(resultsDiu, file = "gradienteOutput/pairwise_correlations_results/resultsDiu.csv", row.names = F)
+
+
+# Show significance on corrplot figure (only significant correlations are plotted)
+
+par(mfrow=c(2,3))
+
+corrplot(corrList[[1]], method = "color", order = "original",
+                       type = "lower", diag = F, tl.col = "black", tl.srt = 45,
+                       p.mat = p_matrixArt, sig.level = 0.05, insig = "blank")
+
+corrplot(corrList[[2]], method = "color", order = "original",
+         type = "lower", diag = F, tl.col = "black", tl.srt = 45,
+         p.mat = p_matrixBer, sig.level = 0.05, insig = "blank")
+
+corrplot(corrList[[3]], method = "color", order = "original",
+         type = "lower", diag = F, tl.col = "black", tl.srt = 45,
+         p.mat = p_matrixItu, sig.level = 0.05, insig = "blank")
+
+corrplot(corrList[[4]], method = "color", order = "original",
+         type = "lower", diag = F, tl.col = "black", tl.srt = 45,
+         p.mat = p_matrixMsa, sig.level = 0.05, insig = "blank")
+
+corrplot(corrList[[5]], method = "color", order = "original",
+         type = "lower", diag = F, tl.col = "black", tl.srt = 45,
+         p.mat = p_matrixDiu, sig.level = 0.05, insig = "blank")
+
+
+
+
+####4. Correlations with climate####
 
 climate <- read.csv("gradienteOutput/clean_df/summary_meteo_campaigns.csv")# |> 
   #select(-c(starts_with("P_", ignore.case = FALSE))) |> 
