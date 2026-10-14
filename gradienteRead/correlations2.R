@@ -353,7 +353,8 @@ climate <- read.csv("gradienteOutput/clean_df/summary_meteo_campaigns.csv")# |>
   #select(-c(starts_with("P_", ignore.case = FALSE))) |> 
   #select(-c(starts_with("Tmin", ignore.case = FALSE)))
 
-D13C_summary <- gradiente %>%
+
+D13C_summary <- gradienteFull %>%
   group_by(campaign, site) %>%
   summarise(
     D13C_leaf_mean = mean(D13C_leaf, na.rm = TRUE),
@@ -365,7 +366,154 @@ D13C_summary <- gradiente %>%
   ) |> 
   left_join(climate, by = c("site", "campaign"))
 
-corrClimate <- cor(D13C_summary[, -c(1:2)], use = "pairwise.complete.obs")
-write.csv(corrClimate, file = "crap2.csv", row.names = F)
 
-myCorrClim <- read.csv("crap.csv")
+library(jmuOutlier)
+
+# Data frame containing averages across all sites
+dat <- D13C_summary[, 3:ncol(D13C_summary)]
+
+# Select only the pairs you want to test
+Deltas <- c(paste0("D13C_", c("leaf", "leaf_ph", "branch_ph", "trunk_ph", "ring23"), "_mean"))
+climVars <- names(climate)[2:61]
+pairs_of_interest <- expand.grid(
+  Variable1 = Deltas,
+  Variable2 = climVars
+)
+
+method <- "pearson"
+nperm <- 20000
+
+set.seed(123)
+
+# Run permutation tests only for the selected pairs
+results <- lapply(seq_len(nrow(pairs_of_interest)), function(i) {
+  x_name <- pairs_of_interest$Variable1[i]
+  y_name <- pairs_of_interest$Variable2[i]
+  # Remove missing values for this pair
+  ok <- complete.cases(dat[, c(x_name, y_name)])
+  x <- dat[[x_name]][ok]
+  y <- dat[[y_name]][ok]
+    if (length(x) < 3 ||
+      length(unique(x)) < 2 ||
+      length(unique(y)) < 2) {
+        return(data.frame(
+      Variable1 = x_name,
+      Variable2 = y_name,
+      n = length(x),
+      r = NA_real_,
+      P_value = NA_real_
+    ))
+  }
+  
+  test <- jmuOutlier::perm.cor.test(
+    x = x,
+    y = y,
+    method = method,
+    num.sim = nperm,
+    alternative = "two.sided"
+  )
+  
+  data.frame(
+    Variable1 = x_name,
+    Variable2 = y_name,
+    n = length(x),
+    r = unname(cor(x, y, method = method)),
+    P_value = test$p.value
+  )
+})
+
+results <- do.call(rbind, results)
+
+
+
+results
+
+
+corrClimate <- cor(D13C_summary[, -c(1:2)], use = "pairwise.complete.obs")
+
+method <- "pearson"  # or "spearman"
+nperm <- 20000
+datClim <- D13C_summary[, -c(1:2)]
+p <- ncol(datClim)
+
+# Create an empty matrix for permutation P-values
+p_matrixClim <- matrix(NA_real_, nrow = p, ncol = p,
+                      dimnames = list(names(datClim), names(datClim)))
+set.seed(123)  # makes results reproducible
+
+for (i in 1:(p - 1)) {
+  for (j in (i + 1):p) {
+    
+    # Keep only rows with both measurements present
+    ok <- complete.cases(datClim[[i]], datClim[[j]])
+    x <- datClim[[i]][ok]
+    y <- datClim[[j]][ok]
+    
+    # Test only if enough observations and both variables vary
+    if (length(x) >= 3 &&
+        length(unique(x)) > 1 &&
+        length(unique(y)) > 1) {
+      
+      test <- jmuOutlier::perm.cor.test(x = x, y = y,
+                                        method = method, num.sim = nperm, alternative = "two.sided")
+      p_matrixClim[i, j] <- test$p.value
+      p_matrixClim[j, i] <- test$p.value
+    }
+  }
+}
+
+diag(p_matrixClim) <- NA_real_
+
+# Create a table of significant correlations
+resultsClim <- data.frame(Variable1 = character(),  Variable2 = character(),
+                         r = numeric(), P_value = numeric())
+
+for (i in 1:(p - 1)) {
+  for (j in (i + 1):p) {
+    resultsClim <- rbind(resultsClim,
+                        data.frame(Variable1 = names(datClim)[i], Variable2 = names(datClim)[j],
+                                   r = corrClimate[i, j], P_value = p_matrixClim[i, j]))}}
+write.csv(resultsArt, file = "gradienteOutput/pairwise_correlations_results/resultsClim.csv", row.names = F)
+
+
+
+
+corrClimateShort <- corrClimate[6:nrow(corrClimate), 1:5]
+corrP <- corrClimateShort[startsWith(rownames(corrClimateShort), "P"), , drop = FALSE]
+rownames(corrP)[1] <- "P_1d"
+ndays <- as.numeric(str_extract(rownames(corrP), "\\d+"))
+corrP <- as.data.frame(corrP)
+corrP$ndays <- ndays
+
+corrPlong <- corrP |> 
+  pivot_longer(cols = starts_with("D13C", ignore.case = F),
+               names_to = "tissue", values_to = "D13C")
+
+precip <- ggplot(data = corrPlong, aes(x = ndays, y = D13C, color = tissue, group = tissue))+
+  geom_line()+
+  geom_point(size =2)+
+  labs(x = "No. Days", y = expression(Delta^13*C~"(\u2030)"),
+       title = "Precipitation", color = "Tissue")+
+  theme_minimal()
+
+corrTmean <- corrClimateShort[startsWith(rownames(corrClimateShort), "Tmean"), , drop = FALSE]
+rownames(corrTmean)[1] <- "TemanDay_C_1d"
+ndays <- as.numeric(str_extract(rownames(corrTmean), "\\d+"))
+corrTmean <- as.data.frame(corrTmean)
+corrTmean$ndays <- ndays
+
+corrTmeanlong <- corrTmean |> 
+  pivot_longer(cols = starts_with("D13C", ignore.case = F),
+               names_to = "tissue", values_to = "D13C")
+
+Tmean <- ggplot(data = corrTmeanlong, aes(x = ndays, y = D13C, color = tissue, group = tissue))+
+  geom_line()+
+  geom_point(size =2)+
+  labs(x = "No. Days", y = expression(Delta^13*C~"(\u2030)"),
+       title = "Tmean", color = "Tissue")+
+  theme_minimal()
+
+combined_plot <- precip + Tmean
+precip + Tmean +
+  plot_layout(ncol = 2, guides = "collect") &
+  theme(legend.position = "bottom")
