@@ -367,14 +367,12 @@ D13C_summary <- gradienteFull %>%
   left_join(climate, by = c("site", "campaign"))
 
 
-library(jmuOutlier)
-
 # Data frame containing averages across all sites
 dat <- D13C_summary[, 3:ncol(D13C_summary)]
 
 # Select only the pairs you want to test
 Deltas <- c(paste0("D13C_", c("leaf", "leaf_ph", "branch_ph", "trunk_ph", "ring23"), "_mean"))
-climVars <- names(climate)[2:61]
+climVars <- names(climate)[2:120]
 pairs_of_interest <- expand.grid(
   Variable1 = Deltas,
   Variable2 = climVars
@@ -385,135 +383,215 @@ nperm <- 20000
 
 set.seed(123)
 
-# Run permutation tests only for the selected pairs
-results <- lapply(seq_len(nrow(pairs_of_interest)), function(i) {
-  x_name <- pairs_of_interest$Variable1[i]
-  y_name <- pairs_of_interest$Variable2[i]
-  # Remove missing values for this pair
-  ok <- complete.cases(dat[, c(x_name, y_name)])
-  x <- dat[[x_name]][ok]
-  y <- dat[[y_name]][ok]
-    if (length(x) < 3 ||
-      length(unique(x)) < 2 ||
-      length(unique(y)) < 2) {
-        return(data.frame(
-      Variable1 = x_name,
-      Variable2 = y_name,
-      n = length(x),
-      r = NA_real_,
-      P_value = NA_real_
-    ))
-  }
-  
-  test <- jmuOutlier::perm.cor.test(
-    x = x,
-    y = y,
-    method = method,
-    num.sim = nperm,
-    alternative = "two.sided"
-  )
-  
-  data.frame(
-    Variable1 = x_name,
-    Variable2 = y_name,
-    n = length(x),
-    r = unname(cor(x, y, method = method)),
-    P_value = test$p.value
-  )
-})
+# # Run permutation tests only for the selected pairs
+# results <- lapply(seq_len(nrow(pairs_of_interest)), function(i) {
+#   x_name <- pairs_of_interest$Variable1[i]
+#   y_name <- pairs_of_interest$Variable2[i]
+#   # Remove missing values for this pair
+#   ok <- complete.cases(dat[, c(x_name, y_name)])
+#   x <- dat[[x_name]][ok]
+#   y <- dat[[y_name]][ok]
+#     if (length(x) < 3 ||
+#       length(unique(x)) < 2 ||
+#       length(unique(y)) < 2) {
+#         return(data.frame(
+#       Variable1 = x_name,
+#       Variable2 = y_name,
+#       n = length(x),
+#       r = NA_real_,
+#       P_value = NA_real_
+#     ))
+#   }
+# 
+#   test <- jmuOutlier::perm.cor.test(
+#     x = x,
+#     y = y,
+#     method = method,
+#     num.sim = nperm,
+#     alternative = "two.sided"
+#   )
+# 
+#   data.frame(
+#     Variable1 = x_name,
+#     Variable2 = y_name,
+#     n = length(x),
+#     r = unname(cor(x, y, method = method)),
+#     P_value = test$p.value
+#   )
+# })
 
-results <- do.call(rbind, results)
+results <- read.csv("safeLong.csv") |> 
+  mutate(climVar = as.character(Variable2)) |> 
+  mutate(climVar = ifelse(climVar == "Pday_mm", "P_1d", climVar)) |> 
+  mutate(climVar = ifelse(climVar == "TmaxDay_C", "TmaxDay_C_1d", climVar)) |>
+  mutate(climVar = ifelse(climVar == "TmeanDay_C", "TmeanDay_C_1d", climVar)) |>
+  mutate(climVar = ifelse(climVar == "TminDay_C", "TminDay_C_1d", climVar)) |>
+  mutate(ndays = as.numeric(str_extract(climVar, "\\d+"))) |> 
+  mutate(cliVarShort = sub("_.*", "", climVar)) |> 
+  mutate(sig = (ifelse(P_value < 0.05, "yes", "no"))) #|> 
+  # mutate(Variable1 = factor(Variable1, levels = c("Delta_ring23_mean", "Delta_trunk_ph_mean",
+  #                                                 "Delta_branch_ph_mean", "Delta_leaf_ph_mean",
+  #                                                 "Delta_leaf_mean")))
 
+p <- subset(results, cliVarShort == "P")
+tmax <- subset(results, cliVarShort == "TmaxDay")
+tmin <- subset(results, cliVarShort == "TminDay")
+tmean <- subset(results, cliVarShort == "TmeanDay")
 
+precip <- ggplot(p, aes(x = ndays, y = r, color = Variable1))+
+  geom_line(aes(group = Variable1), size = 1.2,  show.legend = FALSE)+
+  geom_point(data = subset(p, sig == "no"),
+             shape = 21, size = 3, fill = "white", show.legend = FALSE)+
+  geom_point(data = subset(p, sig == "yes"), aes(fill = Variable1),
+             shape = 21, size = 3, show.legend = FALSE)+
+  scale_color_manual(name = NULL, values = c("D13C_branch_ph_mean" = "darkorange1",
+                                "D13C_leaf_mean" = "darkgreen",
+                                "D13C_leaf_ph_mean" = "green",
+                                "D13C_ring23_mean" = "blue1",
+                                 "D13C_trunk_ph_mean" = "darkred"),
+                     labels = c("D13C_branch_ph_mean" = expression(Delta^13*C[branch~PH]),
+                                "D13C_leaf_mean" = expression(Delta^13*C[leaf]),
+                                "D13C_leaf_ph_mean" = expression(Delta^13*C[leaf~PH]),
+                                "D13C_ring23_mean" = expression(Delta^13*C[ring]),
+                                "D13C_trunk_ph_mean" = expression(Delta^13*C[trunk~PH])))+
+  scale_fill_manual(values = c("D13C_branch_ph_mean" = "darkorange1",
+                               "D13C_leaf_mean" = "darkgreen",
+                               "D13C_leaf_ph_mean" = "green",
+                               "D13C_ring23_mean" = "blue1",
+                               "D13C_trunk_ph_mean" = "darkred"))+
+  xlim(0, 20)+
+  ylim(-0.65, 0.75) +
+  labs(title = "(a) Precipiation", y = expression(italic(r)), x = "") +
+  theme(panel.background = element_blank(),
+        plot.background  = element_blank(),
+        panel.border = element_rect(color = "black", fill = NA, linewidth = .5),
+        axis.line = element_blank(),
+        axis.title.y = element_text(size = 15),
+        axis.title.x = element_text(size = 15),
+        axis.text.x  = element_text(size = 12.5),
+        axis.text.y  = element_text(size = 12.5),
+        title = element_text(size = 15, face = "bold"),
+        legend.position = c(0.85, 0.2),
+        legend.background = element_rect(fill = NA, color = NA),
+        legend.key = element_blank(),
+        legend.text = element_text(size = 11),
+        legend.spacing.y = unit(2, "pt"))
 
-results
+Tmean <- ggplot(tmean, aes(x = ndays, y = r, color = Variable1))+
+  geom_line(aes(group = Variable1), size = 1.2,  show.legend = FALSE)+
+  geom_point(data = subset(tmean, sig == "no"),
+             shape = 21, size = 3, fill = "white", show.legend = FALSE)+
+  geom_point(data = subset(tmean, sig == "yes"), aes(fill = Variable1),
+             shape = 21, size = 3, show.legend = FALSE)+
+  scale_color_manual(name = NULL, values = c("D13C_branch_ph_mean" = "darkorange1",
+                                             "D13C_leaf_mean" = "darkgreen",
+                                             "D13C_leaf_ph_mean" = "green",
+                                             "D13C_ring23_mean" = "blue1",
+                                             "D13C_trunk_ph_mean" = "darkred"),
+                     labels = c("D13C_branch_ph_mean" = expression(Delta^13*C[branch~PH]),
+                                "D13C_leaf_mean" = expression(Delta^13*C[leaf]),
+                                "D13C_leaf_ph_mean" = expression(Delta^13*C[leaf~PH]),
+                                "D13C_ring23_mean" = expression(Delta^13*C[ring]),
+                                "D13C_trunk_ph_mean" = expression(Delta^13*C[trunk~PH])))+
+  scale_fill_manual(values = c("D13C_branch_ph_mean" = "darkorange1",
+                               "D13C_leaf_mean" = "darkgreen",
+                               "D13C_leaf_ph_mean" = "green",
+                               "D13C_ring23_mean" = "blue1",
+                               "D13C_trunk_ph_mean" = "darkred"))+
+  xlim(0, 20)+
+  ylim(-0.65, 0.75) +
+  labs(title = "(c) Mean Daily Temperature", y = expression(italic(r)), x = "No. days") +
+  theme(panel.background = element_blank(),
+        plot.background  = element_blank(),
+        panel.border = element_rect(color = "black", fill = NA, linewidth = .5),
+        axis.line = element_blank(),
+        axis.title.y = element_text(size = 15),
+        axis.title.x = element_text(size = 15),
+        axis.text.x  = element_text(size = 12.5),
+        axis.text.y  = element_text(size = 12.5),
+        title = element_text(size = 15, face = "bold"),
+        legend.position = c(0.85, 0.2),
+        legend.background = element_rect(fill = NA, color = NA),
+        legend.key = element_blank(),
+        legend.text = element_text(size = 11),
+        legend.spacing.y = unit(2, "pt"))
 
+Tmax <- ggplot(tmax, aes(x = ndays, y = r, color = Variable1))+
+  geom_line(aes(group = Variable1), size = 1.2)+
+  geom_point(data = subset(tmax, sig == "no"),
+             shape = 21, size = 3, fill = "white", show.legend = FALSE)+
+  geom_point(data = subset(tmax, sig == "yes"), aes(fill = Variable1),
+             shape = 21, size = 3, show.legend = FALSE)+
+  scale_color_manual(name = NULL, values = c("D13C_branch_ph_mean" = "darkorange1",
+                                             "D13C_leaf_mean" = "darkgreen",
+                                             "D13C_leaf_ph_mean" = "green",
+                                             "D13C_ring23_mean" = "blue1",
+                                             "D13C_trunk_ph_mean" = "darkred"),
+                     labels = c("D13C_branch_ph_mean" = expression(Delta^13*C[branch~PH]),
+                                "D13C_leaf_mean" = expression(Delta^13*C[leaf]),
+                                "D13C_leaf_ph_mean" = expression(Delta^13*C[leaf~PH]),
+                                "D13C_ring23_mean" = expression(Delta^13*C[ring]),
+                                "D13C_trunk_ph_mean" = expression(Delta^13*C[trunk~PH])))+
+  scale_fill_manual(values = c("D13C_branch_ph_mean" = "darkorange1",
+                               "D13C_leaf_mean" = "darkgreen",
+                               "D13C_leaf_ph_mean" = "green",
+                               "D13C_ring23_mean" = "blue1",
+                               "D13C_trunk_ph_mean" = "darkred"))+
+  xlim(0, 20)+
+  ylim(-0.65, 0.75) +
+  labs(title = "(b) Maximum Daily Temperature", y = "", x = "") +
+  theme(panel.background = element_blank(),
+        plot.background  = element_blank(),
+        panel.border = element_rect(color = "black", fill = NA, linewidth = .5),
+        axis.line = element_blank(),
+        axis.title.y = element_text(size = 15),
+        axis.title.x = element_text(size = 15),
+        axis.text.x  = element_text(size = 12.5),
+        axis.text.y  = element_text(size = 12.5),
+        title = element_text(size = 15, face = "bold"),
+        legend.position = c(0.85, 0.2),
+        legend.background = element_rect(fill = NA, color = NA),
+        legend.key = element_blank(),
+        legend.text = element_text(size = 14),
+        legend.spacing.y = unit(2, "pt"))
 
-corrClimate <- cor(D13C_summary[, -c(1:2)], use = "pairwise.complete.obs")
+Tmin<- ggplot(tmin, aes(x = ndays, y = r, color = Variable1))+
+  geom_line(aes(group = Variable1), size = 1.2, show.legend = FALSE)+
+  geom_point(data = subset(tmin, sig == "no"),
+             shape = 21, size = 3, fill = "white", show.legend = FALSE)+
+  geom_point(data = subset(tmin, sig == "yes"), aes(fill = Variable1),
+             shape = 21, size = 3, show.legend = FALSE)+
+  scale_color_manual(name = NULL, values = c("D13C_branch_ph_mean" = "darkorange1",
+                                             "D13C_leaf_mean" = "darkgreen",
+                                             "D13C_leaf_ph_mean" = "green",
+                                             "D13C_ring23_mean" = "blue1",
+                                             "D13C_trunk_ph_mean" = "darkred"),
+                     labels = c("D13C_branch_ph_mean" = expression(Delta^13*C[branch~PH]),
+                                "D13C_leaf_mean" = expression(Delta^13*C[leaf]),
+                                "D13C_leaf_ph_mean" = expression(Delta^13*C[leaf~PH]),
+                                "D13C_ring23_mean" = expression(Delta^13*C[ring]),
+                                "D13C_trunk_ph_mean" = expression(Delta^13*C[trunk~PH])))+
+  scale_fill_manual(values = c("D13C_branch_ph_mean" = "darkorange1",
+                               "D13C_leaf_mean" = "darkgreen",
+                               "D13C_leaf_ph_mean" = "green",
+                               "D13C_ring23_mean" = "blue1",
+                               "D13C_trunk_ph_mean" = "darkred"))+
+  xlim(0, 20)+
+  ylim(-0.65, 0.75) +
+  labs(title = "(d) Minimum Daily Temperature", y = "", x = "") +
+  theme(panel.background = element_blank(),
+        plot.background  = element_blank(),
+        panel.border = element_rect(color = "black", fill = NA, linewidth = .5),
+        axis.line = element_blank(),
+        axis.title.y = element_text(size = 15),
+        axis.title.x = element_text(size = 15),
+        axis.text.x  = element_text(size = 12.5),
+        axis.text.y  = element_text(size = 12.5),
+        title = element_text(size = 15, face = "bold"),
+        legend.position = c(0.85, 0.2),
+        legend.background = element_rect(fill = NA, color = NA),
+        legend.key = element_blank(),
+        legend.text = element_text(size = 11),
+        legend.spacing.y = unit(2, "pt"))
 
-method <- "pearson"  # or "spearman"
-nperm <- 20000
-datClim <- D13C_summary[, -c(1:2)]
-p <- ncol(datClim)
-
-# Create an empty matrix for permutation P-values
-p_matrixClim <- matrix(NA_real_, nrow = p, ncol = p,
-                      dimnames = list(names(datClim), names(datClim)))
-set.seed(123)  # makes results reproducible
-
-for (i in 1:(p - 1)) {
-  for (j in (i + 1):p) {
-    
-    # Keep only rows with both measurements present
-    ok <- complete.cases(datClim[[i]], datClim[[j]])
-    x <- datClim[[i]][ok]
-    y <- datClim[[j]][ok]
-    
-    # Test only if enough observations and both variables vary
-    if (length(x) >= 3 &&
-        length(unique(x)) > 1 &&
-        length(unique(y)) > 1) {
-      
-      test <- jmuOutlier::perm.cor.test(x = x, y = y,
-                                        method = method, num.sim = nperm, alternative = "two.sided")
-      p_matrixClim[i, j] <- test$p.value
-      p_matrixClim[j, i] <- test$p.value
-    }
-  }
-}
-
-diag(p_matrixClim) <- NA_real_
-
-# Create a table of significant correlations
-resultsClim <- data.frame(Variable1 = character(),  Variable2 = character(),
-                         r = numeric(), P_value = numeric())
-
-for (i in 1:(p - 1)) {
-  for (j in (i + 1):p) {
-    resultsClim <- rbind(resultsClim,
-                        data.frame(Variable1 = names(datClim)[i], Variable2 = names(datClim)[j],
-                                   r = corrClimate[i, j], P_value = p_matrixClim[i, j]))}}
-write.csv(resultsArt, file = "gradienteOutput/pairwise_correlations_results/resultsClim.csv", row.names = F)
-
-
-
-
-corrClimateShort <- corrClimate[6:nrow(corrClimate), 1:5]
-corrP <- corrClimateShort[startsWith(rownames(corrClimateShort), "P"), , drop = FALSE]
-rownames(corrP)[1] <- "P_1d"
-ndays <- as.numeric(str_extract(rownames(corrP), "\\d+"))
-corrP <- as.data.frame(corrP)
-corrP$ndays <- ndays
-
-corrPlong <- corrP |> 
-  pivot_longer(cols = starts_with("D13C", ignore.case = F),
-               names_to = "tissue", values_to = "D13C")
-
-precip <- ggplot(data = corrPlong, aes(x = ndays, y = D13C, color = tissue, group = tissue))+
-  geom_line()+
-  geom_point(size =2)+
-  labs(x = "No. Days", y = expression(Delta^13*C~"(\u2030)"),
-       title = "Precipitation", color = "Tissue")+
-  theme_minimal()
-
-corrTmean <- corrClimateShort[startsWith(rownames(corrClimateShort), "Tmean"), , drop = FALSE]
-rownames(corrTmean)[1] <- "TemanDay_C_1d"
-ndays <- as.numeric(str_extract(rownames(corrTmean), "\\d+"))
-corrTmean <- as.data.frame(corrTmean)
-corrTmean$ndays <- ndays
-
-corrTmeanlong <- corrTmean |> 
-  pivot_longer(cols = starts_with("D13C", ignore.case = F),
-               names_to = "tissue", values_to = "D13C")
-
-Tmean <- ggplot(data = corrTmeanlong, aes(x = ndays, y = D13C, color = tissue, group = tissue))+
-  geom_line()+
-  geom_point(size =2)+
-  labs(x = "No. Days", y = expression(Delta^13*C~"(\u2030)"),
-       title = "Tmean", color = "Tissue")+
-  theme_minimal()
-
-combined_plot <- precip + Tmean
-precip + Tmean +
-  plot_layout(ncol = 2, guides = "collect") &
-  theme(legend.position = "bottom")
+cowplot::plot_grid(precip, Tmax, Tmean, Tmin, ncol =2)

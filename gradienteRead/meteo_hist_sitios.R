@@ -453,7 +453,7 @@ for(i in 1:length(meteoList)){
   df <- df %>%
     arrange(date)
 
-  for (n in 2:15) {
+  for (n in 2:30) {
     
     # Rolling means
     for (v in 1:length(nameVars)) {
