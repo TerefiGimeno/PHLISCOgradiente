@@ -87,6 +87,25 @@ chlRatio <- ggplot(chl, aes(x = site, y = chla_chlb, fill = campaign)) +
 
 cowplot::plot_grid(chla, chlb, chlSum, chlRatio, ncol = 2)
 
+chlPlot <- ggplot(chl, aes(x = site, y = chla_and_chlb, fill = campaign)) +
+  geom_boxplot(position = position_dodge2(width = 0.8)) +
+  scale_fill_manual(values=c("#EF476F", "#FFD166")) +
+  guides(fill = F)+
+  labs(x = "", y = expression("[Chla] + [Chlb] ("*mu*g~ml^-1*")"), fill = "") +
+  theme(strip.background = element_blank(),
+        strip.text = element_blank(),
+        panel.background = element_blank(),
+        plot.background  = element_blank(),
+        panel.border = element_rect(color = "black",
+                                    fill = NA,
+                                    linewidth = .5),
+        axis.line = element_blank(),
+        axis.title.y = element_text(size = 18),
+        axis.text.x  = element_text(size = 15),
+        axis.text.y  = element_text(size = 15),
+        panel.grid = element_blank())
+
+
 #### NSC ####
 
 dimensions <- read.csv("gradienteData/sugars_gradiente_2023/dimensions_gradiente_2023_updated.csv") |> 
@@ -223,13 +242,14 @@ nsc <- nsc[, c(1:10)] |>
   rename(leafSuc_umol_g = umol_suc_g_LPH) |> 
   rename(leafSuc_umol_m2 = umol_suc_m2_LPH) |> 
   rename(branchSuc_umol_m2 = umol_suc_m2_SPH) |> 
-  rename(trunkSuc_umol_m2 = umol_suc_m2_BPH) |> 
-  filter(leafSuc_umol_ml >= 0)
+  rename(trunkSuc_umol_m2 = umol_suc_m2_BPH) |>
+  # there is an outlier that looks like a a measurement error -> discard
+  filter(leafSuc_umol_ml >= 0 & leafSuc_umol_ml <= 0.8)
 
 write.csv(nsc[, c(1:3, 8:10)], file = "gradienteOutput/clean_df/sucrose.csv", row.names = F)
 
 
-hist(nsc$leafSuc_umol_g)
+hist(nsc$leafSuc_umol_ml)
 subset(nsc, leafSuc_umol_g >= 0.7)
 # there is an outlier that looks like a a measurement error -> discard
 nsc[which(nsc$leafSuc_umol_ml >= 0.8),

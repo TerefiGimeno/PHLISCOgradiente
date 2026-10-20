@@ -1,8 +1,8 @@
 library(emmeans)
 library(multcomp)
 library(multcompView)
-library(tidyverse)
 library(ggsignif)
+library(tidyverse)
 
 ####1. Prepare the data####
 
@@ -211,7 +211,7 @@ fig_D13C_leaf_ph <- ggplot(d13C_gradiente, aes(x = site, y = D13C_leaf_ph, fill 
   )
 
 ######2.2.1 Leaf d13C######
-hist(d13C_gradiente$d13C_leaf)
+hist(d13C_gradiente$D13C_leaf)
 modeld13C_leaf <- lm(d13C_leaf ~ site * campaign, data = d13C_gradiente)
 plot(modeld13C_leaf)
 summary(modeld13C_leaf)
@@ -254,7 +254,7 @@ ggplot(d13C_gradiente, aes(x = site, y = d13C_leaf, fill = campaign)) +
 hist(d13C_gradiente$D13C_leaf)
 modelD13C_leaf <- lm(D13C_leaf ~ site * campaign, data = d13C_gradiente)
 plot(modelD13C_leaf)
-summary(modeld13C_leaf)
+summary(modelD13C_leaf)
 anova(modelD13C_leaf)
 modelD13Cleaf_means <- emmeans(modelD13C_leaf, ~ site)
 model_means_cld <- cld(modelD13Cleaf_means, adjust = "sidak",
