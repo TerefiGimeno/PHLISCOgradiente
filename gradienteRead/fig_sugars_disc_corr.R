@@ -1,4 +1,6 @@
-library(ggplot2)
+library(emmeans)
+library(multcomp)
+library(multcompView)
 library(tidyverse)
 library(patchwork)
 
@@ -58,6 +60,11 @@ gradient_summ <- gradiente %>%
 ####2. make correlation plots####
 
 #####2.1. D13C of leaf ph vs leaf bulk#####
+model <- lme4::lmer(D13C_leaf_ph ~ D13C_leaf * campaign + (1|site), data = gradiente)
+summary(model)
+car::Anova(model)
+MuMIn::r.squaredGLMM(model)
+confint(model)
 
 fig2a <- ggplot(gradiente, aes(y = D13C_leaf_ph, x = D13C_leaf)) +
   geom_smooth(aes(group = campaign, color = campaign),
@@ -102,6 +109,11 @@ fig2a <- ggplot(gradiente, aes(y = D13C_leaf_ph, x = D13C_leaf)) +
   )
 
 #####2.2. D13C of branch ph vs leaf bulk#####
+model <- lme4::lmer(D13C_branch_ph ~ D13C_leaf * campaign + (1|site), data = gradiente)
+summary(model)
+car::Anova(model)
+MuMIn::r.squaredGLMM(model)
+confint(model)
 
 fig2b <- ggplot(gradiente, aes(y = D13C_branch_ph, x = D13C_leaf)) +
   geom_smooth(aes(group = campaign, color = campaign),
@@ -140,10 +152,15 @@ fig2b <- ggplot(gradiente, aes(y = D13C_branch_ph, x = D13C_leaf)) +
   )
 
 #####2.3. D13C of trunk ph vs leaf bulk#####
+model <- lme4::lmer(D13C_trunk_ph ~ D13C_leaf * campaign + (1|site), data = gradiente)
+summary(model)
+car::Anova(model)
+MuMIn::r.squaredGLMM(model)
+confint(model)
 
 fig2c <- ggplot(gradiente, aes(y = D13C_trunk_ph, x = D13C_leaf)) +
   geom_smooth(aes(group = campaign, color = campaign),
-              method = "lm", se = FALSE) +
+              method = "lm", se = FALSE, linetype = "dotted") +
   scale_color_manual(values=c("spring23" = "#EF476F", "summer23" = "#FFD166")) +
   geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "black") +
   geom_point(aes(fill = campaign, shape = site), size = 2, alpha = 0.5) +
@@ -181,76 +198,11 @@ fig2c <- ggplot(gradiente, aes(y = D13C_trunk_ph, x = D13C_leaf)) +
 
 ####3. build the sucrose database####
 
-dimensions <- read.csv("gradienteData/sugars_gradiente_2023/dimensions_gradiente_2023_updated.csv") |> 
-  mutate(surface_cm2 = pi*diameter_cm*length_cm)
-dimensions$sample_type <- c(rep("SPH", times = nrow(dimensions)))
-dimensions <- dimensions[, c("date", "id_plant", "canopy_position", "sample_type", "surface_cm2")]
-
-sla <- read.csv("gradienteData/sla_gradiente_2023/sla_gradiente_2023_updated.csv") |> 
-  mutate(SLA = ifelse(SLA == 9999, NA, SLA))
-sla_summary <- sla |> 
-  group_by(site, campaign, canopy_position) |> 
-  summarise(slaAvg = mean(SLA, na.rm = T), slaSD = sd(SLA, na.rm =T))
-sla <- sla |> 
-  left_join(sla_summary, by = c("site", "campaign", "canopy_position")) |> 
-  mutate(slaGapFilled = ifelse(is.na(SLA), slaAvg, SLA))
-
-dwLeaves <- read.csv("gradienteData/sugars_gradiente_2023/lph_dw_gradiente_2023.csv") |> 
-  left_join(sla[, c("campaign", "id_plant", "canopy_position" , "slaGapFilled")],
-            by = c("campaign", "id_plant", "canopy_position")) |>
-  mutate(la_cm2 = dw_lph_g * slaGapFilled)
-dwLeaves$sample_type <- c(rep("LPH", times = nrow(dwLeaves)))
-dwLeaves <- dwLeaves[, c("date", "id_plant", "canopy_position", "sample_type",
-                         "dw_lph_g", "la_cm2")]
-nsc <- read.csv("gradienteData/sugars_gradiente_2023/nsc_grad_2023_updated.csv") |>
-  mutate(canopy_position = ifelse(is.na(canopy_position), "crap", canopy_position)) |>
-  left_join(dimensions, by = c("date", "id_plant", "canopy_position", "sample_type")) |> 
-  left_join(dwLeaves, by = c("date", "id_plant", "canopy_position", "sample_type")) |>
-  mutate(surface_cm2 = ifelse(sample_type == "BPH", pi*(0.25^2)*5, surface_cm2)) |>
-  mutate(surface_cm2 = ifelse(sample_type == "LPH", la_cm2, surface_cm2)) |> 
-  mutate(volume_mL = ifelse(sample_type == "LPH", 0.5, 10)) |> 
-  mutate(umol_suc_m2 = umol_suc_ml * volume_mL/(surface_cm2/10000)) |> 
-  mutate(umol_suc_g = umol_suc_ml * volume_mL/dw_lph_g) |> 
-  filter(canopy_position != "sun") |>
-  filter(canopy_position != "shade") |>
-  mutate(campaign = factor(campaign, levels = c("spring23", "summer23", "late_summer23"))) |> 
+nsc <- read.csv("gradienteOutput/clean_df/sucrose.csv") |> 
   filter(site != "HMO") |> 
-  mutate(site = droplevels(as.factor(site)))
-
-# MSA: lower branch and trunk [Sucrose] in spring than in summer,
-# lower branch [Sucrose] in late summer than in summer
-# but higher leaf [Sucrose] in spring than in summer.
-
-# keep late summer campaigns for consistency,
-# but not for MSA leaf phloem, keep MSA leaf phloem from summer
-# I lack measurements of leaf dry mass for late summer
-
-nscCheat <- subset(nsc, campaign == "summer23" & site == "MSA" & sample_type == "LPH")
-nsc <- nsc |>
-  filter(date <= 20230630 | date >= 20230827) |> 
-  mutate(campaign = ifelse(date >= 20230630, "summer23", "spring23"))
-nsc <- nsc[-which(is.na(nsc$surface_cm2)),]
-nsc <- rbind(nsc, nscCheat)
-rm(nscCheat, dimensions, dwLeaves, sla_summary)
-nsc <- nsc |> 
-  mutate(site = factor(site, levels = c("ART", "BER", "ITU", "MSA", "DIU"))) |> 
-  rename(tree = id_plant)
-
-nsc <- nsc[, c("site", "campaign", "tree", "sample_type",
-               "umol_suc_ml", "umol_suc_m2", "umol_suc_g")]
-nsc <- nsc |> 
-  pivot_wider(names_from = sample_type, values_from = c(umol_suc_ml, umol_suc_m2, umol_suc_g))
-nsc <- nsc[, c(1:10)] |> 
-  rename(leafSuc_umol_ml = umol_suc_ml_LPH) |> 
-  rename(branchSuc_umol_ml = umol_suc_ml_SPH) |> 
-  rename(trunkSuc_umol_ml = umol_suc_ml_BPH) |>
-  rename(leafSuc_umol_g = umol_suc_g_LPH) |> 
-  rename(leafSuc_umol_m2 = umol_suc_m2_LPH) |> 
-  rename(branchSuc_umol_m2 = umol_suc_m2_SPH) |> 
-  rename(trunkSuc_umol_m2 = umol_suc_m2_BPH)
+  mutate(site = factor(as.factor(site), levels = c("ART", "BER", "ITU", "MSA", "DIU"))) 
 
 ####4. sucrose graphs####
-
 leafSuc <- ggplot(nsc, aes(x = site, y = log(leafSuc_umol_g*1000), fill = campaign)) +
   geom_boxplot(
     position = position_dodge2(width = 0.8, preserve = "single")) +

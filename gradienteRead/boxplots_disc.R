@@ -1,4 +1,3 @@
-library(ggplot2)
 library(tidyverse)
 
 D13CtreeRing <- read.csv("gradienteData/isotopes_gradiente_2023/Tabla_S2025-3401_mod.csv") %>% 

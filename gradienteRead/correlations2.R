@@ -461,7 +461,7 @@ precip <- ggplot(p, aes(x = ndays, y = r, color = Variable1))+
                                "D13C_trunk_ph_mean" = "darkred"))+
   xlim(0, 20)+
   ylim(-0.65, 0.75) +
-  labs(title = "(a) Precipiation", y = expression(italic(r)), x = "") +
+  labs(title = "(a) Precipitation", y = expression(italic(r)), x = "") +
   theme(panel.background = element_blank(),
         plot.background  = element_blank(),
         panel.border = element_rect(color = "black", fill = NA, linewidth = .5),

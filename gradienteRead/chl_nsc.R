@@ -27,9 +27,9 @@ TukeyHSD(aov(chla_and_chlb ~ site, data = chl))
 summary(aov(chla_chlb ~ site * campaign, data = chl))
 TukeyHSD(aov(chla_chlb ~ site, data = chl))
 
-model <- lm(sla ~ site * campaign, data = sla)
+model <- lm(SLA ~ site * campaign, data = sla)
 summary(model)
-anova(lm(sla ~ site * campaign, data = sla))
+anova(lm(SLA ~ site * campaign, data = sla))
 model_means2 <- emmeans(model, ~ site)
 model_means_cld2 <- cld(model_means2, adjust = "sidak",
                         Letters = c("a", "b", "c", "d", "e", "f", "g"),
@@ -131,6 +131,11 @@ dwLeaves <- dwLeaves[, c("date", "id_plant", "canopy_position", "sample_type",
                          "dw_lph_g", "la_cm2")]
 nsc <- read.csv("gradienteData/sugars_gradiente_2023/nsc_grad_2023_updated.csv") |>
   mutate(canopy_position = ifelse(is.na(canopy_position), "crap", canopy_position)) |>
+  # there is an outlier that looks like a a measurement error -> discard
+  mutate(umol_suc_ml = ifelse(umol_suc_ml > 0.8 & sample_type == "LPH", NA, umol_suc_ml)) |> 
+  filter(!is.na(umol_suc_ml)) |> 
+  # negative readings -> discard
+  filter(umol_suc_ml >= 0) |> 
   left_join(dimensions, by = c("date", "id_plant", "canopy_position", "sample_type")) |> 
   left_join(dwLeaves, by = c("date", "id_plant", "canopy_position", "sample_type")) |>
   mutate(surface_cm2 = ifelse(sample_type == "BPH", pi*(0.25^2)*5, surface_cm2)) |>
@@ -242,18 +247,12 @@ nsc <- nsc[, c(1:10)] |>
   rename(leafSuc_umol_g = umol_suc_g_LPH) |> 
   rename(leafSuc_umol_m2 = umol_suc_m2_LPH) |> 
   rename(branchSuc_umol_m2 = umol_suc_m2_SPH) |> 
-  rename(trunkSuc_umol_m2 = umol_suc_m2_BPH) |>
-  # there is an outlier that looks like a a measurement error -> discard
-  filter(leafSuc_umol_ml >= 0 & leafSuc_umol_ml <= 0.8)
+  rename(trunkSuc_umol_m2 = umol_suc_m2_BPH)
 
 write.csv(nsc[, c(1:3, 8:10)], file = "gradienteOutput/clean_df/sucrose.csv", row.names = F)
 
 
 hist(nsc$leafSuc_umol_ml)
-subset(nsc, leafSuc_umol_g >= 0.7)
-# there is an outlier that looks like a a measurement error -> discard
-nsc[which(nsc$leafSuc_umol_ml >= 0.8),
-    c("leafSuc_umol_ml", "leafSuc_umol_m2", "leafSuc_umol_g")] <- NA
 hist(nsc$leafSuc_umol_g)
 hist(log(nsc$leafSuc_umol_g))
 hist(nsc$leafSuc_umol_m2)
@@ -264,23 +263,23 @@ hist(nsc$trunkSuc_umol_m2/1000)
 
 summary(aov(log(leafSuc_umol_m2) ~ site * campaign, data = nsc))
 summary(aov(log(leafSuc_umol_g) ~ site * campaign, data = nsc))
-plot(aov(log(leafSuc_umol_cm2) ~ site * campaign, data = nsc))
-model_means_leaf <- emmeans(lm(log(leafSuc_umol_m2) ~ site * campaign, data = nsc),
+plot(aov(log(leafSuc_umol_m2) ~ site * campaign, data = nsc))
+model_means_leaf <- emmeans(lm(log(leafSuc_umol_g) ~ site * campaign, data = nsc),
                               ~ site * campaign)
 model_means_cld <- cld(model_means_leaf, adjust = "sidak",
                        Letters = c("a", "b", "c", "d", "e", "f", "g", "h", "i"),
                        alpha = 0.05, sort = FALSE)
 
-summary(aov(log(branchSuc_umol_cm2) ~ site * campaign, data = nsc))
+summary(aov(log(branchSuc_umol_m2) ~ site * campaign, data = nsc))
 plot(aov(log(branchSuc_umol_ml) ~ site * campaign, data = nsc))
-model_means_branch <- emmeans(lm(log(branchSuc_umol_cm2) ~ site * campaign, data = nsc),
+model_means_branch <- emmeans(lm(log(branchSuc_umol_m2) ~ site * campaign, data = nsc),
                               ~ site * campaign)
 model_means_cld <- cld(model_means_branch, adjust = "sidak",
                        Letters = c("a", "b", "c", "d", "e", "f", "g", "h", "i"),
                        alpha = 0.05, sort = FALSE)
 
-summary(aov(trunkSuc_umol_cm2 ~ site * campaign, data = nsc))
-plot(aov(trunkSuc_umol_cm2 ~ site * campaign, data = nsc))
+summary(aov(trunkSuc_umol_m2 ~ site * campaign, data = nsc))
+plot(aov(trunkSuc_umol_m2 ~ site * campaign, data = nsc))
 model_means_trunk <- emmeans(lm(trunkSuc_umol_cm2 ~ site * campaign, data = nsc),
                               ~ site * campaign)
 model_means_cld <- cld(model_means_trunk, adjust = "sidak",

@@ -486,6 +486,7 @@ ggplot(d13C_gradiente, aes(x = site, y = d13C_ring23, fill = "#06D6A0")) +
 
 hist(d13C_gradiente$D13C_ring23)
 modelD13C_ring <- lm(D13C_ring23 ~ site, data = d13C_gradiente)
+TukeyHSD(aov(D13C_ring23 ~ site, data = d13C_gradiente))
 plot(modelD13C_ring)
 summary(modelD13C_ring)
 anova(modelD13C_ring)
